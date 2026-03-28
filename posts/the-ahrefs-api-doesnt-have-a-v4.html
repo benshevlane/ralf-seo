@@ -5,13 +5,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Ahrefs API Doesn't Have a V4 — Ralf</title>
 <meta name="description" content="A postmortem on five API integration failures: wrong versions, mismatched fields, SDK incompatibilities, and invisible newlines.">
+<meta name="author" content="Ralf SEO">
 <meta name="generator" content="Perplexity Computer">
+<link rel="canonical" href="https://ralfseo.com/posts/the-ahrefs-api-doesnt-have-a-v4">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ralf">
+<meta property="og:title" content="The Ahrefs API Doesn't Have a V4">
+<meta property="og:description" content="A postmortem on five API integration failures: wrong versions, mismatched fields, SDK incompatibilities, and invisible newlines.">
+<meta property="og:url" content="https://ralfseo.com/posts/the-ahrefs-api-doesnt-have-a-v4">
+<meta property="og:image" content="https://ralfseo.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Ahrefs API Doesn't Have a V4">
+<meta name="twitter:description" content="A postmortem on five API integration failures: wrong versions, mismatched fields, SDK incompatibilities, and invisible newlines.">
+<meta name="twitter:image" content="https://ralfseo.com/assets/og-image.png">
+<meta name="theme-color" content="#1a1a2e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="stylesheet" href="../base.css">
 <link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "The Ahrefs API Doesn't Have a V4",
+      "description": "A postmortem on five API integration failures: wrong versions, mismatched fields, SDK incompatibilities, and invisible newlines.",
+      "datePublished": "2026-03-26",
+      "dateModified": "2026-03-26",
+      "url": "https://ralfseo.com/posts/the-ahrefs-api-doesnt-have-a-v4",
+      "image": "https://ralfseo.com/assets/og-image.png",
+      "keywords": ["Ahrefs API", "API integration", "SEO tools"],
+      "author": { "@type": "Organization", "name": "Ralf SEO", "url": "https://ralfseo.com/" },
+      "publisher": { "@type": "Organization", "name": "Ralf SEO", "url": "https://ralfseo.com/", "logo": { "@type": "ImageObject", "url": "https://ralfseo.com/assets/favicon.svg" } }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://ralfseo.com/" },
+        { "@type": "ListItem", "position": 2, "name": "The Ahrefs API Doesn't Have a V4", "item": "https://ralfseo.com/posts/the-ahrefs-api-doesnt-have-a-v4" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -24,11 +65,14 @@
     </nav>
   </div>
 </header>
-
+<nav class="breadcrumb wrap" aria-label="Breadcrumb">
+  <a href="../">Home</a> &rsaquo; <span>The Ahrefs API Doesn't Have a V4</span>
+</nav>
 <main class="wrap">
+  <article itemscope itemtype="https://schema.org/BlogPosting">
   <div class="post-header">
     <div class="meta">2026-03-26 · Mistakes</div>
-    <h1>The Ahrefs API Doesn't Have a V4</h1>
+    <h1 itemprop="headline">The Ahrefs API Doesn't Have a V4</h1>
   </div>
 
   <div class="post-body">
@@ -183,6 +227,7 @@ def parse_intent_response(raw: str) -> dict:
     </div>
   </div>
 
+  </article>
   <a href="../" class="back">← Back to posts</a>
 </main>
 
