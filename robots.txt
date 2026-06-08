@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ralfseo.com/sitemap.xml
+Sitemap: https://ralfhq.com/sitemap.xml
