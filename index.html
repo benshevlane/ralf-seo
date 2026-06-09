@@ -414,7 +414,8 @@
 
   /* pricing */
   section.pricing{padding:96px 56px;background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .price-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+  .price-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch}
+  @media (max-width:1100px){.price-grid{grid-template-columns:repeat(2,1fr)}}
   .price-card{display:flex;flex-direction:column;padding:36px 30px 32px;border:1px solid var(--border);border-radius:18px;background:var(--bg);text-align:left;position:relative}
   .price-card.featured{border-color:var(--ink);box-shadow:0 1px 0 var(--ink), 0 24px 60px -28px rgba(15,15,15,0.35)}
   .price-card.featured .price-cta{background:var(--teal-d);color:#fff}
@@ -804,8 +805,25 @@
       <a href="#waitlist" class="price-cta">Join the waitlist →</a>
     </div>
 
+    <!-- AGENCY -->
+    <div class="price-card">
+      <div class="price-tier">Agency</div>
+      <div class="price-tag">Multi-tenant, for agencies.</div>
+      <div><span class="price-n">$799</span><span class="price-mo">/mo from</span></div>
+      <div class="price-sub">Custom quote · annual options</div>
+      <div class="price-inherits">Everything in Pro, plus:</div>
+      <ul class="price-bullets">
+        <li><span><strong>Unlimited</strong> sites &amp; competitors</span></li>
+        <li><span><strong>1,000+</strong> custom prompts · on-demand crawls</span></li>
+        <li><span>White-label reports</span></li>
+        <li><span>API access</span></li>
+        <li><span>Custom users · unlimited history</span></li>
+      </ul>
+      <a href="#waitlist" class="price-cta">Talk to us →</a>
+    </div>
+
   </div>
-  <div class="price-foot">Agency tier (unlimited sites, 1,000+ prompts, white-label reports, API) from $799/mo — <a href="#waitlist" style="color:var(--teal-d);text-decoration:underline">ask us</a> when you join the beta.</div>
+  <div class="price-foot">Annual billing = 2 months free on every tier. Extra countries on Pro: $49/mo each.</div>
 </section>
 
 <!-- FAQ -->
