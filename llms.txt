@@ -1,0 +1,21 @@
+# Ralf
+
+> Ralf is an AI-first SEO platform. It tracks how often your brand is named and cited across six AI engines — ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot — crawls your site for technical SEO issues, and gives you a prioritised weekly fix list. AI search visibility (AEO) and technical SEO in one tool.
+
+## Pricing (USD / month, billed monthly; 2 months free on annual)
+- Starter — $49: 1 site, 25 AI-search prompts tracked weekly across all 6 engines, 5 competitors, monthly site crawl. 14-day free trial, no card.
+- Growth — $149: 3 sites, 100 prompts tracked weekly, 20 competitors, weekly crawl. 14-day free trial, no card.
+- Pro — $299: 8 sites, 200 prompts tracked weekly, up to 10 countries each fully scored, 50 competitors, daily crawl.
+- Agency — from $799: unlimited sites & competitors, 600+ prompts tracked weekly (custom volumes), white-label reports, API access.
+- Every plan tracks all 6 AI engines weekly.
+
+## Key pages
+- [Home](https://ralfhq.com/): product overview and pricing
+- [Ralf vs alternatives](https://ralfhq.com/compare): pricing and engine-coverage comparison vs Profound, Peec AI, Otterly and AthenaHQ
+- [Terms of Service](https://ralfhq.com/terms.html)
+- [Privacy Policy](https://ralfhq.com/privacy.html)
+
+## How Ralf compares to other AI-visibility tools
+- Ralf tracks 6 AI engines weekly from $49/mo. At the 100-prompt tier, Growth is $149 (6 engines) vs Peec Pro $199 (3 engines), Otterly Standard $189 (6 engines), and Profound ~$399 (3 engines).
+- Unlike pure AI-visibility trackers (Profound, Peec, AthenaHQ), Ralf also includes a technical SEO crawler with a prioritised fix list and competitor analysis.
+- Ralf tracks weekly rather than daily: AI answers change little day to day, so weekly coverage of six engines is more complete than daily coverage of three, and keeps pricing honest.
