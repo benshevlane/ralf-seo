@@ -591,8 +591,18 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
         rows.forEach(function(row,i){
           var f = row.querySelector('.vfill');
           var pct = row.querySelector('.vpct');
-          if(f){ f.style.transitionDelay = (i*0.12)+'s'; f.style.width = f.dataset.w; }
-          if(pct && pct.dataset.to != null){ climbTo(pct, 0, parseInt(pct.dataset.to,10), 1300, 120 + i*120, '%'); }
+          var _to = (pct && pct.dataset.to != null) ? parseInt(pct.dataset.to,10) : null;
+          if(f && _to != null){
+            var _tw = parseFloat(f.dataset.w); if(isNaN(_tw)) _tw = _to;
+            f.style.transition = 'none'; f.style.width = '0%';
+            (function(fil,lab,tw,to,delay){ setTimeout(function(){ var t0=null,dur=1300;
+              function st(ts){ if(!t0)t0=ts; var p=Math.min(1,(ts-t0)/dur), eo=1-Math.pow(1-p,3);
+                lab.textContent = Math.round(to*eo)+'%'; fil.style.width = (tw*eo)+'%';
+                if(p<1) requestAnimationFrame(st); } requestAnimationFrame(st); }, delay); })(f,pct,_tw,_to,120+i*120);
+          } else {
+            if(f){ f.style.transitionDelay = (i*0.12)+'s'; f.style.width = f.dataset.w; }
+            if(_to != null){ climbTo(pct, 0, _to, 1300, 120 + i*120, '%'); }
+          }
         });
       } else {
         e.target.querySelectorAll('.vfill').forEach(function(f,i){ f.style.transitionDelay=(i*0.08)+'s'; f.style.width=f.dataset.w; });
