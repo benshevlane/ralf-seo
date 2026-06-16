@@ -2,1072 +2,953 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ralf — See where you rank in AI search. Fix what's broken in your SEO.</title>
-<meta name="description" content="Track your citations in ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot. Crawl your site for technical SEO issues. Get a prioritised weekly fix list. The AI-first SEO platform.">
+<title>Ralf — Get your business found by AI</title>
+<meta name="description" content="Ralf is the AI-first SEO platform. See where your business is cited across ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot — then let Ralf fix what's holding you back and publish the content that gets you found.">
 <link rel="canonical" href="https://ralfhq.com/">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ralf">
-<meta property="og:title" content="Ralf — AI search visibility + technical SEO. Know where you stand.">
-<meta property="og:description" content="The AI-first SEO platform. Track citations across 6 AI engines incl ChatGPT, Perplexity and Google AIO. Crawl your site. Get a prioritised fix list.">
+<meta property="og:title" content="Ralf — Get your business found by AI">
+<meta property="og:description" content="The AI-first SEO platform. Track your visibility across 6 AI engines, fix what's broken, and publish content that gets you cited.">
 <meta property="og:url" content="https://ralfhq.com/">
 <meta property="og:image" content="https://ralfhq.com/assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ralf — AI search visibility + technical SEO. Know where you stand.">
-<meta name="twitter:description" content="The AI-first SEO platform — AI visibility + technical SEO.">
+<meta name="twitter:title" content="Ralf — Get your business found by AI">
+<meta name="twitter:description" content="The AI-first SEO platform — AI search visibility + technical SEO, on autopilot.">
 <meta name="twitter:image" content="https://ralfhq.com/assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,500;1,500;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
-<style>/* cyrillic-ext */
-
-/* cyrillic */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* greek-ext */
-
-/* greek */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* greek-ext */
-
-/* greek */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* greek-ext */
-
-/* greek */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* greek-ext */
-
-/* greek */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* greek-ext */
-
-/* greek */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* math */
-
-/* symbols */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* math */
-
-/* symbols */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* math */
-
-/* symbols */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* math */
-
-/* symbols */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* math */
-
-/* symbols */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
-/* cyrillic-ext */
-
-/* cyrillic */
-
-/* math */
-
-/* symbols */
-
-/* vietnamese */
-
-/* latin-ext */
-
-/* latin */
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+<style>/* ==========================================================================
+   Ralf — landing design system (monochrome)
+   Palette: #FFFFFF / #121212 / #bcbcbc  ·  grey-forward
+   Shared across Direction A / B / C
+   ========================================================================== */
+
+:root{
+  --ink:#121212;
+  --paper:#ffffff;
+  --grey:#bcbcbc;                 /* brand grey */
+  --mut:rgba(18,18,18,.58);       /* secondary text */
+  --mut2:rgba(18,18,18,.42);      /* tertiary text */
+  --line:rgba(18,18,18,.11);
+  --line2:rgba(18,18,18,.06);
+  --wash:#f4f4f3;                 /* light grey panel */
+  --wash2:#ebebea;                /* deeper grey panel */
+  --wash3:#e2e2e1;
+  --fill:#121212;                 /* mono fill (bars) */
+  --fill-g:#cfcfcf;               /* grey bar fill */
+  --pmut:rgba(255,255,255,.70);   /* on dark */
+  --pline:rgba(255,255,255,.14);
+
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter Tight',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+
+  --maxw:1180px;
+  --gut:32px;
+  --r:14px;
+  --r-sm:10px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+/* ---- type helpers ------------------------------------------------------- */
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mut2);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--grey)}
+.mono{font-family:var(--mono)}
+
+/* ---- nav ---------------------------------------------------------------- */
+.bar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.78);
+  backdrop-filter:saturate(140%) blur(14px);-webkit-backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid var(--line)}
+.bar .row{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .mark{flex:0 0 auto}
+.brand .word{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.03em}
+.navlinks{display:flex;gap:28px;font-size:14.5px;color:var(--mut);white-space:nowrap}
+.navlinks a{transition:color .18s}
+.navlinks a:hover{color:var(--ink)}
+.navactions{display:flex;align-items:center;gap:18px}
+.signin{font-size:14.5px;color:var(--mut);white-space:nowrap}
+.signin:hover{color:var(--ink)}
+
+/* ---- buttons ------------------------------------------------------------ */
+.btn{font-family:var(--body);font-weight:500;font-size:14.5px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);padding:10px 19px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:9px;transition:transform .18s,opacity .18s,background .18s}
+.btn:hover{transform:translateY(-1px);opacity:.92}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(3px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--wash);opacity:1}
+.btn.lg{padding:13px 24px;font-size:15.5px}
+.btn.sm{padding:8px 15px;font-size:13.5px}
+
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;
+  border-bottom:1px solid var(--line);padding-bottom:3px;transition:gap .2s,border-color .2s}
+.link:hover{gap:13px;border-color:var(--ink)}
+
+/* ---- section scaffolding ------------------------------------------------ */
+section{padding:104px 0}
+.sec-wash{background:var(--wash)}
+.sec-line{border-top:1px solid var(--line2)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mut2);display:flex;align-items:center;gap:11px;margin-bottom:20px}
+.kicker .ix{color:var(--ink);font-weight:700}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.032em;line-height:1.05}
+.h-sec{font-size:clamp(28px,3.7vw,46px);max-width:16ch;text-wrap:balance}
+.lead{margin-top:18px;font-size:17px;line-height:1.62;max-width:48ch;color:var(--mut)}
+
+/* ---- light mini-mock: shared card primitives ---------------------------- */
+.mm{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;box-shadow:0 22px 60px -42px rgba(18,18,18,.35)}
+.mm.flat{box-shadow:none}
+.mm-top{display:flex;align-items:center;gap:7px;padding:12px 15px;border-bottom:1px solid var(--line);background:var(--wash)}
+.mm-top .d{width:8px;height:8px;border-radius:50%;background:var(--grey)}
+.mm-top .t{margin-left:9px;font-family:var(--mono);font-size:11px;color:var(--mut2);letter-spacing:.02em}
+.mm-body{padding:20px 20px}
+.mm-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--mut2);margin-bottom:16px}
+
+/* visibility rows */
+.vrow{display:flex;align-items:center;gap:13px;padding:9px 0}
+.vrow + .vrow{border-top:1px solid var(--line2)}
+.vname{font-size:13.5px;font-weight:500;flex:0 0 92px}
+.vtrack{flex:1;height:7px;border-radius:999px;background:var(--wash2);overflow:hidden}
+.vfill{height:100%;border-radius:999px;background:var(--fill)}
+.vfill.g{background:var(--grey)}
+.vpct{font-family:var(--mono);font-size:12px;flex:0 0 40px;text-align:right;color:var(--ink)}
+
+/* mini bar chart */
+.spark{display:flex;align-items:flex-end;gap:7px;height:104px;margin-top:4px}
+.spark .b{flex:1;background:var(--wash2);border-radius:4px 4px 0 0}
+.spark .b.cur{background:var(--ink)}
+.spark-x{display:flex;gap:7px;margin-top:9px}
+.spark-x span{flex:1;text-align:center;font-family:var(--mono);font-size:9.5px;color:var(--mut2)}
+.delta{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:13px}
+
+/* citation rows */
+.cite{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0}
+.cite + .cite{border-top:1px solid var(--line2)}
+.cite .src{display:flex;align-items:center;gap:11px}
+.favi{width:26px;height:26px;border-radius:7px;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;flex:0 0 26px}
+.favi.g{background:var(--wash2);color:var(--ink)}
+.sname{font-size:13.5px;font-weight:500}
+.smeta{font-family:var(--mono);font-size:10.5px;color:var(--mut2);margin-top:1px}
+.tag{font-family:var(--mono);font-size:10.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut);white-space:nowrap}
+.tag.gap{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* agent flow nodes */
+.flow{display:flex;flex-direction:column;gap:0}
+.node{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid var(--line);
+  border-radius:11px;background:var(--paper)}
+.node .ic{width:30px;height:30px;border-radius:8px;background:var(--wash);display:grid;place-items:center;flex:0 0 30px;font-family:var(--mono);font-size:12px;color:var(--ink)}
+.nt{font-size:13.5px;font-weight:500}
+.ns{font-family:var(--mono);font-size:10.5px;color:var(--mut2);margin-top:1px}
+.live{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--ink);background:var(--wash2);
+  padding:3px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.live .pulse{width:6px;height:6px;border-radius:50%;background:var(--ink);animation:pulse 1.8s ease-in-out infinite}
+.conn{width:1px;height:14px;background:var(--line);margin-left:28px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.22}}
+
+/* ---- model strip -------------------------------------------------------- */
+.strip{padding:60px 0}
+.strip .lbl{text-align:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--mut2);margin-bottom:24px}
+.models{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 36px}
+.model{font-family:var(--display);font-weight:500;font-size:18px;color:var(--grey);
+  letter-spacing:-.01em;transition:color .2s}
+.model:hover{color:var(--ink)}
+
+/* ---- how it works (numbered) ------------------------------------------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.step{background:var(--paper);padding:30px 26px}
+.step .num{font-family:var(--mono);font-size:12px;color:var(--mut2);letter-spacing:.06em}
+.step h3{font-size:20px;margin-top:18px;letter-spacing:-.02em}
+.step p{margin-top:10px;font-size:14.5px;color:var(--mut);line-height:1.55}
+
+/* ---- comparison table --------------------------------------------------- */
+.cmp{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.cmp table{width:100%;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{padding:17px 20px;text-align:left;border-bottom:1px solid var(--line2)}
+.cmp thead th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--mut2);font-weight:400;vertical-align:bottom}
+.cmp thead th.us{color:var(--ink);font-family:var(--display);font-size:18px;letter-spacing:-.02em;text-transform:none;font-weight:600}
+.cmp tbody tr:last-child td{border-bottom:none}
+.cmp td.feat{font-weight:500}
+.cmp .col-us{background:var(--wash);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.cmp td.center,.cmp th.center{text-align:center}
+.ck{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:12px}
+.no{color:var(--grey);font-size:18px;line-height:1}
+.partial{color:var(--mut2);font-family:var(--mono);font-size:12px}
+
+/* ---- FAQ ---------------------------------------------------------------- */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 0;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;font-family:var(--display);font-weight:500;
+  font-size:clamp(18px,2vw,21px);letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{flex:0 0 22px;width:22px;height:22px;position:relative;transition:transform .25s}
+.faq summary .pm::before,.faq summary .pm::after{content:"";position:absolute;background:var(--ink);
+  border-radius:2px;transition:opacity .25s}
+.faq summary .pm::before{top:10px;left:2px;width:18px;height:2px}
+.faq summary .pm::after{top:2px;left:10px;width:2px;height:18px}
+.faq details[open] summary .pm::after{opacity:0}
+.faq .ans{padding:0 0 26px;max-width:64ch;color:var(--mut);font-size:16px;line-height:1.65}
+
+/* ---- stats band --------------------------------------------------------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.stat{padding:40px 30px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:var(--display);font-weight:600;font-size:clamp(32px,4vw,46px);letter-spacing:-.03em;line-height:1}
+.stat .l{font-family:var(--mono);font-size:12px;color:var(--mut);margin-top:13px;line-height:1.45;letter-spacing:.02em}
+
+/* ---- final CTA ---------------------------------------------------------- */
+.final{text-align:center;padding:120px 0}
+.final h2{font-size:clamp(34px,5.2vw,60px);max-width:17ch;margin:0 auto;letter-spacing:-.035em;line-height:1.04}
+.final p{color:var(--mut);font-size:18px;margin:20px auto 0;max-width:46ch}
+.final .ctas{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+
+/* ---- footer ------------------------------------------------------------- */
+footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
+.foot{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px}
+.foot .ftag{color:var(--grey);font-size:14px;max-width:30ch;line-height:1.55;margin-top:16px}
+.foot .word{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.03em;color:var(--paper)}
+.foot h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:15px}
+.foot ul{list-style:none}
+.foot li{margin-bottom:11px}
+.foot li a{font-size:14px;color:var(--pmut);transition:color .18s}
+.foot li a:hover{color:var(--paper)}
+.foot-base{display:flex;justify-content:space-between;align-items:center;margin-top:52px;
+  padding-top:24px;border-top:1px solid var(--pline);font-family:var(--mono);font-size:11.5px;
+  color:var(--grey);flex-wrap:wrap;gap:12px}
+
+/* ---- responsive --------------------------------------------------------- */
+@media(max-width:900px){
+  .navlinks,.signin{display:none}
+  section{padding:74px 0}
+  .steps{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:none}
+  .foot{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:560px){
+  :root{--gut:20px}
+  .steps{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .cmp{overflow-x:auto}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 <style>
-  :root{
-    --teal:hsl(173,80%,32%);
-    --teal-d:hsl(173,90%,22%);
-    --teal-s:hsl(166,76%,92%);
-    --warm:hsl(22,86%,52%);
-    --warm-d:hsl(22,86%,42%);
-    --warm-s:hsl(28,90%,94%);
-    --bg:#fafaf7;
-    --ink:hsl(240,6%,10%);
-    --ink-m:hsl(240,4%,46%);
-    --ink-d:hsl(240,5%,65%);
-    --border:hsl(0,0%,90%);
-    --paper:#ffffff;
-    --serif:'Lora',Georgia,serif;
-    --display:'Inter',system-ui,sans-serif;
-    --sans:'Inter',system-ui,sans-serif;
-    --mono:'IBM Plex Mono',monospace;
+  /* Direction B — Editorial / Calm: asymmetric left hero, stacked numbered blocks */
+  .heroB{padding:80px 0 96px;border-bottom:1px solid var(--line);position:relative}
+  /* soft radial wash so the hero isn't a flat plane */
+  .heroB::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:radial-gradient(58% 64% at 84% 26%, rgba(18,18,18,.055), transparent 70%)}
+  .heroB .wrap{position:relative;z-index:1}
+  .heroB .grid{display:grid;grid-template-columns:1.04fr .96fr;gap:60px;align-items:center}
+  .heroB h1{font-size:clamp(40px,5.6vw,72px);line-height:1.0;max-width:13ch;margin-top:24px}
+  .heroB .sub{font-size:clamp(16px,1.4vw,19px);color:var(--mut);line-height:1.6;max-width:46ch;margin-top:24px}
+  .heroB .ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+  .heroB .note{margin-top:16px;font-family:var(--mono);font-size:11.5px;color:var(--mut2);letter-spacing:.03em}
+  .heroB .stack{position:relative}
+  /* faint dot-grid surface behind the dashboard */
+  .heroB .stack::before{content:"";position:absolute;inset:-46px -34px -38px -40px;z-index:-1;
+    background-image:radial-gradient(rgba(18,18,18,.17) 1px, transparent 1.5px);background-size:21px 21px;
+    -webkit-mask:radial-gradient(74% 72% at 52% 44%, #000, transparent 78%);
+    mask:radial-gradient(74% 72% at 52% 44%, #000, transparent 78%);opacity:.7}
+  .heroB .stack .mm.float{position:absolute;right:-14px;bottom:-40px;width:74%;z-index:2}
+  .heroB .stack .pad{padding-bottom:54px}
+  /* floating live-status chip — overlaps the dashboard edge to add depth */
+  .heroB .stack .hchip{position:absolute;top:-17px;right:30px;z-index:4;display:inline-flex;align-items:center;
+    gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 14px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink);
+    box-shadow:0 12px 28px -14px rgba(18,18,18,.4),0 2px 6px rgba(18,18,18,.06)}
+  .heroB .stack .hchip .pdot{width:7px;height:7px;border-radius:50%;background:var(--ink)}
+  @media(max-width:600px){.heroB .stack .hchip{display:none}}
+  /* layered elevation — the float card sits higher than the panel */
+  .heroB .stack .mm{box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 2px 4px rgba(18,18,18,.04),
+    0 14px 26px -14px rgba(18,18,18,.20),0 44px 84px -42px rgba(18,18,18,.30)}
+  .heroB .stack .mm.float{box-shadow:inset 0 1px 0 rgba(255,255,255,.8),0 4px 10px rgba(18,18,18,.07),
+    0 26px 52px -20px rgba(18,18,18,.32),0 70px 110px -52px rgba(18,18,18,.34)}
+
+  /* editorial numbered feature block */
+  .blockB{padding:88px 0;border-top:1px solid var(--line)}
+  .blockB .grid{display:grid;grid-template-columns:.42fr .58fr;gap:56px;align-items:start}
+  .blockB .rail .ix{font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2)}
+  .blockB .rail .big{font-family:var(--display);font-weight:600;font-size:clamp(64px,9vw,120px);
+    line-height:.9;letter-spacing:-.04em;color:var(--wash3);margin:14px 0 22px}
+  .blockB .rail h2{font-size:clamp(26px,2.9vw,38px);max-width:13ch;letter-spacing:-.03em}
+  .blockB .rail .lead{margin-top:18px;font-size:16.5px;color:var(--mut);max-width:42ch;line-height:1.62}
+  .blockB .rail .link{margin-top:24px}
+
+  .stripB .lbl{text-align:left}
+  .stripB .models{justify-content:flex-start}
+
+  /* ---- Execution: cycling mock with rail tabs ---- */
+  #execution .extabs{margin-top:30px;display:flex;flex-direction:column}
+  #execution .extab{display:flex;align-items:flex-start;gap:14px;text-align:left;background:transparent;
+    border:none;border-top:1px solid var(--line);padding:16px 2px;cursor:pointer;position:relative;width:100%;
+    font-family:inherit}
+  #execution .extab:last-child{border-bottom:1px solid var(--line)}
+  #execution .exn{font-family:var(--mono);font-size:11px;color:var(--mut2);padding-top:3px;flex:0 0 auto;transition:color .2s}
+  #execution .exh{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--mut);display:block;transition:color .2s}
+  #execution .exs{font-family:var(--mono);font-size:11px;color:var(--mut2);display:block;margin-top:3px}
+  #execution .extab:hover .exh{color:var(--ink)}
+  #execution .extab.is-active .exh,#execution .extab.is-active .exn{color:var(--ink)}
+  #execution .exbar{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--ink)}
+  #execution .extab.is-active .exbar{width:100%}
+
+  #execution .exstage{position:relative;min-height:336px}
+  #execution .expanel{position:absolute;inset:0;opacity:0;transform:translateY(10px) scale(.995);
+    transition:opacity .5s ease,transform .5s cubic-bezier(.22,.61,.36,1);pointer-events:none}
+  #execution .expanel.is-active{opacity:1;transform:none;pointer-events:auto}
+
+  #execution .fix{display:flex;align-items:center;gap:11px;padding:9px 0}
+  #execution .fix + .fix{border-top:1px solid var(--line2)}
+  #execution .fx{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;flex:0 0 20px;font-size:11px}
+  #execution .fx.ok{background:var(--ink);color:#fff}
+  #execution .fx.run{background:var(--wash2);color:var(--ink)}
+  #execution .fl{font-size:13px;font-weight:500}
+  #execution .fs{font-family:var(--mono);font-size:10px;color:var(--mut2);margin-top:1px}
+  #execution .doc .dh{height:13px;width:60%;border-radius:5px;background:var(--ink);margin:4px 0 15px}
+  #execution .dline{height:8px;border-radius:5px;background:var(--wash2);margin:9px 0}
+  #execution .kwrow{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+  #execution .mail .mrow{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:12.5px}
+  #execution .mail .mk{font-family:var(--mono);font-size:10.5px;color:var(--mut2);flex:0 0 60px;padding-top:1px}
+  #execution .mail .mv{font-weight:500}
+  #execution .mail .mbody{margin-top:12px}
+  @media(max-width:900px){#execution .exstage{min-height:0;margin-top:8px}#execution .expanel{position:static;opacity:1;transform:none;display:none}#execution .expanel.is-active{display:block}}
+
+  @media(max-width:900px){
+    .heroB .grid{grid-template-columns:1fr;gap:48px}
+    .heroB .stack .mm.float{position:static;width:100%;margin-top:16px}
+    .heroB .stack .pad{padding-bottom:0}
+    .blockB .grid{grid-template-columns:1fr;gap:30px}
+    .blockB .rail .big{margin:8px 0 14px}
   }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{font-family:var(--sans);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
-  a{color:inherit;text-decoration:none}
-  button{font-family:inherit;cursor:pointer}
-  input{font-family:inherit}
 
-  /* shared */
-  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--teal-d);font-weight:600;text-transform:uppercase}
-  .container{max-width:1200px;margin:0 auto;padding:0 56px}
-  h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-0.025em;margin:0;line-height:1.08}
-  em.accent,.accent{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--teal)}
-  p{margin:0}
+  /* ---------- Motion layer (calm, purposeful) ---------- */
+  @media (prefers-reduced-motion: no-preference){
+    /* hero entrance (gated on .anim added by JS, so no-JS shows content) */
+    .heroB.anim .copy > *{opacity:0;transform:translateY(16px);animation:b-rise .85s cubic-bezier(.22,.61,.36,1) both}
+    .heroB.anim .copy > *:nth-child(2){animation-delay:.08s}
+    .heroB.anim .copy > *:nth-child(3){animation-delay:.16s}
+    .heroB.anim .copy > *:nth-child(4){animation-delay:.24s}
+    .heroB.anim .copy > *:nth-child(5){animation-delay:.32s}
+    .heroB.anim .stack .mm{opacity:0;transform:translateY(22px) scale(.99);animation:b-rise .9s cubic-bezier(.22,.61,.36,1) both}
+    .heroB.anim .stack .mm.pad{animation-delay:.34s}
+    .heroB.anim .stack .mm.float{
+      animation-name:b-rise,b-float;
+      animation-duration:.9s,7s;
+      animation-timing-function:cubic-bezier(.22,.61,.36,1),ease-in-out;
+      animation-delay:.52s,1.6s;
+      animation-iteration-count:1,infinite;
+      animation-fill-mode:both,none}
+    @keyframes b-rise{to{opacity:1;transform:none}}
+    @keyframes b-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
-  /* banner */
-  .banner{background:var(--ink);color:#fff;text-align:center;font-size:12.5px;padding:10px 24px;display:flex;align-items:center;justify-content:center;gap:8px}
-  .banner-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);display:inline-block}
-  .banner a{text-decoration:underline;text-underline-offset:3px;font-weight:500}
+    /* headline word rotator */
+    .rotator{position:relative;display:inline-block;vertical-align:bottom;height:1em;white-space:nowrap}
+    .rotator .rw{position:absolute;left:0;bottom:0;opacity:0;transform:translateY(.30em);
+      transition:opacity .45s ease,transform .5s cubic-bezier(.22,.61,.36,1)}
+    .rotator .rw.is-in{opacity:1;transform:none}
+    .rotator .rw.is-out{opacity:0;transform:translateY(-.32em)}
 
-  /* nav */
-  nav.top{padding:18px 56px;border-bottom:1px solid var(--border);background:rgba(250,250,247,.85);backdrop-filter:blur(8px);position:sticky;top:0;z-index:20}
-  .nav-inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;max-width:1400px;margin:0 auto}
-  .brand{display:flex;align-items:center;gap:8px}
-  .brand-img{height:24px;width:auto;display:block}
-  .brand-mark{width:26px;height:26px;border-radius:8px;background:var(--ink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:var(--serif);font-style:italic;font-weight:600;font-size:15px}
-  .brand-word{font-family:var(--display);font-size:22px;font-weight:700;letter-spacing:-0.03em}
-  .nav-links{display:flex;gap:28px;font-size:14px;font-weight:500}
-  .nav-right{display:flex;justify-content:flex-end;gap:18px;align-items:center;font-size:14px;font-weight:500}
-  .nav-cta{background:var(--ink);color:#fff;padding:9px 16px;border-radius:8px;font-weight:600;font-size:13.5px}
+    /* dashboard cursor parallax */
+    .heroB .stack{transition:transform .3s ease-out;transform-style:preserve-3d;will-change:transform}
+    /* live chip: delayed entrance + pulsing dot */
+    .heroB.anim .stack .hchip{opacity:0;transform:translateY(-6px) scale(.96);animation:b-rise .6s ease .85s both}
+    .heroB .stack .hchip .pdot{animation:pulse 1.8s ease-in-out infinite}
+    #execution .fx.run{animation:spin 2.4s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
 
-  /* hero */
-  section.hero{position:relative;padding:72px 56px 40px;overflow:hidden}
-  .hero-inner{position:relative;z-index:2;max-width:920px;margin:0 auto;text-align:center}
-  .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:999px;background:var(--paper);border:1px solid var(--border);font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--ink-m);margin-bottom:28px;text-transform:uppercase}
-  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--teal)}
-  h1.display{font-family:var(--display);font-size:78px;line-height:0.98;letter-spacing:-0.04em;font-weight:800;margin-bottom:20px}
-  h1.display em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--teal);letter-spacing:-0.02em}
-  .lede{font-size:19px;line-height:1.5;color:hsl(240,5%,28%);max-width:600px;margin:0 auto 28px}
-  .lede strong{color:var(--ink);font-weight:600}
-  .cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-  .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:15px 24px;border-radius:11px;font-size:15px;font-weight:600;border:none;box-shadow:0 8px 22px -8px rgba(0,0,0,.25)}
-  .btn-primary .arrow{font-size:18px;transition:transform .15s}
-  .btn-primary:hover .arrow{transform:translateX(3px)}
-  .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:15px 22px;border:1px solid var(--border);border-radius:11px;font-size:15px;font-weight:500}
-  .hero-foot{font-family:var(--mono);font-size:11.5px;color:var(--ink-m);letter-spacing:0.4px}
-  .hero-promise{margin-top:22px;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11.5px;color:var(--teal-d);background:var(--teal-s);padding:8px 16px;border-radius:999px;letter-spacing:0.4px}
-  .hero-promise b{font-weight:700;letter-spacing:0.6px}
-  .hero-bg{position:absolute;inset:0;z-index:1;pointer-events:none}
-  .orb-1{position:absolute;top:-140px;right:-100px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,hsla(173,80%,60%,.16),transparent 60%)}
-  .orb-2{position:absolute;bottom:-180px;left:-140px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,hsla(31,92%,70%,.10),transparent 60%)}
+    /* scroll reveal */
+    .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+    .reveal.in{opacity:1;transform:none}
+    .stagger > *{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1)}
+    .stagger.in > *{opacity:1;transform:none}
+    .stagger.in > *:nth-child(2){transition-delay:.08s}
+    .stagger.in > *:nth-child(3){transition-delay:.16s}
+    .stagger.in > *:nth-child(4){transition-delay:.24s}
+    .stagger.in > *:nth-child(5){transition-delay:.32s}
+    .stagger.in > *:nth-child(6){transition-delay:.40s}
+    .stagger.in > *:nth-child(7){transition-delay:.48s}
+    .stagger.in > *:nth-child(8){transition-delay:.56s}
+    .stagger.in > *:nth-child(9){transition-delay:.64s}
 
-  /* screenshot */
-  .shot{padding:0 56px 80px;position:relative;z-index:3}
-  .shot-frame{max-width:1200px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 90px -30px rgba(0,0,0,.25);background:var(--paper)}
-  .shot-bar{display:flex;align-items:center;padding:12px 16px;border-bottom:1px solid var(--border);background:hsl(0,0%,99%);gap:14px}
-  .shot-dots{display:flex;gap:6px}
-  .shot-dot{width:10px;height:10px;border-radius:50%}
-  .shot-url{flex:1;text-align:center;font-family:var(--mono);font-size:12px;color:var(--ink-m)}
-  .shot-status{font-family:var(--mono);font-size:11px;color:var(--teal-d);display:flex;align-items:center;gap:6px}
-  .shot-status-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 1.8s infinite}
-  #liveTicker{display:inline-block;min-width:280px;transition:opacity .3s}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-  @keyframes slideIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-  .shot-card.fresh{animation:slideIn .6s ease-out}
-  .shot-hero-wrap{position:relative}
-  .shot-hero-img{display:block;width:100%;height:auto}
-  /* chat section */
-  section.chat{padding:96px 56px;background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .chat-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
-  .chat-copy .kicker{margin-bottom:18px;display:inline-block}
-  .chat-h{font-family:var(--display);font-size:46px;line-height:1.08;letter-spacing:-0.03em;font-weight:700;margin:0 0 18px}
-  .chat-h em{font-family:var(--serif);font-style:italic;color:var(--teal);font-weight:500;letter-spacing:-0.015em}
-  .chat-p{font-size:16.5px;line-height:1.65;color:var(--ink-m);margin-bottom:24px}
-  .chat-bullets{display:flex;flex-direction:column;gap:10px;font-family:var(--mono);font-size:12px;color:var(--ink-m);letter-spacing:0.4px}
-  .chat-bullets div{display:flex;gap:10px;align-items:flex-start}
-  .chat-bullets b{font-family:var(--display);color:var(--ink);font-size:13px;font-weight:600;letter-spacing:0;display:block;margin-bottom:2px}
-  .chat-bullets .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);margin-top:7px;flex-shrink:0}
-  .chat-image{position:relative;display:flex;justify-content:center}
-  .chat-image img{display:block;max-width:100%;border-radius:14px;box-shadow:0 30px 70px -20px rgba(0,0,0,.18);border:1px solid var(--border);background:var(--paper)}
-  @media (max-width:900px){.chat-grid{grid-template-columns:1fr;gap:40px}}
-  .shot-body{display:grid;grid-template-columns:240px 1fr;min-height:540px}
-  .shot-side{border-right:1px solid var(--border);padding:20px 14px;background:hsl(0,0%,99%);display:flex;flex-direction:column;gap:4px}
-  .shot-side-head{display:flex;align-items:center;gap:10px;padding:0 6px 16px;margin-bottom:8px;border-bottom:1px solid var(--border);font-size:13px;font-weight:600}
-  .shot-nav{display:grid;grid-template-columns:20px 1fr auto;gap:12px;align-items:center;padding:8px 10px;border-radius:7px;font-size:13.5px;color:var(--ink-m)}
-  .shot-nav.active{background:var(--teal-s);color:var(--teal-d);font-weight:600}
-  .shot-nav-count{font-family:var(--mono);font-size:10.5px;background:var(--paper);color:var(--teal-d);padding:2px 6px;border-radius:4px;border:1px solid var(--border)}
-  .shot-main{padding:24px 28px}
-  .shot-main-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
-  .shot-eyebrow{font-family:var(--mono);font-size:11px;color:var(--ink-m);letter-spacing:1.2px;margin-bottom:6px}
-  .shot-main-h{font-family:var(--display);font-size:24px;font-weight:700;letter-spacing:-0.025em}
-  .shot-main-cta{font-size:13px;color:var(--teal-d);font-weight:600}
-  .shot-card{display:grid;grid-template-columns:100px 1fr auto;gap:18px;align-items:center;padding:16px 18px;border:1px solid var(--border);border-radius:10px;margin-bottom:10px}
-  .shot-kind{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1px;text-align:center;padding:5px 8px;border:1px solid;border-radius:4px;align-self:start;margin-top:2px}
-  .shot-h{font-size:14.5px;font-weight:600;margin-bottom:4px}
-  .shot-b{font-size:13px;color:var(--ink-m);line-height:1.5}
-  .shot-btn{border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:8px 14px;font-size:12.5px;font-weight:600;border-radius:7px}
+    /* live data growth */
+    .mm-anim .vfill{transition:width 1.1s cubic-bezier(.22,.61,.36,1)}
+    /* hero panel bars rise a touch slower + bouncier so the first-load climb reads clearly */
+    .heroB .stack .mm-anim .vfill{transition:width 1.35s cubic-bezier(.16,.84,.34,1)}
+    .mm-anim .spark .b{transform:scaleY(0);transform-origin:bottom;transition:transform .85s cubic-bezier(.34,1.1,.64,1)}
+    .mm-anim.in .spark .b{transform:scaleY(1)}
+    .mm-anim.in .spark .b:nth-child(2){transition-delay:.06s}
+    .mm-anim.in .spark .b:nth-child(3){transition-delay:.12s}
+    .mm-anim.in .spark .b:nth-child(4){transition-delay:.18s}
+    .mm-anim.in .spark .b:nth-child(5){transition-delay:.24s}
+    .mm-anim.in .spark .b:nth-child(6){transition-delay:.30s}
 
-  /* agent artifacts */
-  .agent-artifact{background:hsl(0,0%,98.5%);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-top:6px}
-  .agent-shot{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:6px;position:relative;aspect-ratio:16/9}
-  .agent-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
-  .agent-shot.fit img{object-fit:contain;background:hsl(0,0%,98%)}
-  .agent-shot .agent-shot-label{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;color:var(--ink-m);background:rgba(255,255,255,.92);padding:4px 8px;border-radius:4px;border:1px solid var(--border);text-transform:uppercase;font-weight:600;z-index:2}
-  .artifact-l{font-family:var(--mono);font-size:10px;letter-spacing:1.2px;color:var(--ink-m);margin-bottom:10px}
-  .kw-grid{display:grid;grid-template-columns:1fr auto auto;gap:8px 14px;font-size:12.5px;align-items:center}
-  .kw-grid .k{font-family:var(--mono);color:var(--ink)}
-  .kw-grid .v{font-family:var(--mono);font-size:11px;color:var(--ink-m);text-align:right}
-  .kw-grid .badge{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:0.6px;padding:2px 7px;border-radius:4px;background:var(--teal-s);color:var(--teal-d)}
-  .kw-grid .badge.warm{background:var(--warm-s);color:var(--warm-d)}
-  .article-mock{font-family:Georgia,serif;font-size:13px;line-height:1.55;color:var(--ink)}
-  .article-mock h4{font-family:Georgia,serif;font-size:15px;font-weight:700;margin:0 0 6px;line-height:1.3}
-  .article-mock .meta{font-family:var(--mono);font-size:10px;color:var(--ink-m);letter-spacing:0.5px;margin-bottom:8px}
-  .email-mock{font-family:var(--mono);font-size:11.5px;line-height:1.55;color:var(--ink)}
-  .email-mock .to{color:var(--ink-m);margin-bottom:6px}
-  .email-mock .sub{font-weight:700;margin-bottom:8px}
-  .spark{width:100%;height:60px}
-  .spark-row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink-m);margin-top:8px;letter-spacing:0.4px}
+    /* card hover lift (feature mocks) */
+    .blockB .mm{transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s}
+    .blockB .mm:hover{transform:translateY(-5px)}
+  }
 
-  /* proof strip */
-  .proof{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:28px 56px;background:var(--paper)}
-  .proof-inner{max-width:1200px;margin:0 auto;text-align:center;font-family:var(--serif);font-size:20px;font-style:italic;color:var(--ink-m);font-weight:400}
-  .proof-inner strong{color:var(--ink);font-weight:600;font-style:normal;font-family:var(--display)}
-  .proof-stats{display:flex;justify-content:center;gap:48px;margin-top:18px;flex-wrap:wrap}
-  .proof-stat{display:flex;align-items:baseline;gap:8px;font-family:var(--mono);font-size:12px;color:var(--ink-m);letter-spacing:0.5px}
-  .proof-stat b{font-family:var(--display);font-style:normal;font-size:24px;color:var(--ink);font-weight:700;letter-spacing:-0.02em}
-
-  /* problem */
-  section.problem{padding:120px 56px}
-  .problem-inner{max-width:920px;margin:0 auto;text-align:center}
-  h2.section-h{font-family:var(--display);font-size:54px;line-height:1.08;letter-spacing:-0.035em;font-weight:700;margin:0 0 24px}
-  h2.section-h em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--teal);letter-spacing:-0.02em}
-  .problem-p{font-size:18px;line-height:1.65;color:hsl(240,5%,30%);max-width:720px;margin:0 auto 18px}
-
-  /* how it works */
-  section.how{padding:96px 56px;background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .section-head{max-width:760px;margin:0 auto 56px;text-align:center}
-  .section-head .kicker{margin-bottom:16px;display:inline-block}
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1200px;margin:0 auto;position:relative}
-  .step{position:relative;text-align:left}
-  .step-num{font-family:var(--mono);font-size:13px;color:var(--teal-d);font-weight:700;letter-spacing:1.2px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border)}
-  .step-h{font-family:var(--display);font-size:28px;font-weight:700;letter-spacing:-0.025em;margin:0 0 12px;line-height:1.15}
-  .step-h em{font-family:var(--serif);font-style:italic;color:var(--teal);font-weight:500;letter-spacing:-0.015em}
-  .step-p{font-size:15px;line-height:1.6;color:var(--ink-m)}
-
-  /* agents */
-  section.agents{padding:120px 56px}
-  .agents-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1200px;margin:0 auto}
-  .agent{padding:36px 32px 32px;background:var(--paper);border:1px solid var(--border);border-radius:16px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
-  .agent-tag{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;color:var(--teal-d);font-weight:600;letter-spacing:1.2px}
-  .agent-tag-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
-  .agent-h{font-family:var(--display);font-size:32px;font-weight:700;letter-spacing:-0.03em;line-height:1.1}
-  .agent-h em{font-family:var(--serif);font-style:italic;color:var(--teal);font-weight:500;letter-spacing:-0.015em}
-  .agent-p{font-size:15.5px;line-height:1.65;color:var(--ink-m)}
-  .agent-meta{margin-top:auto;padding-top:18px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11.5px;color:var(--ink-m);letter-spacing:0.4px}
-
-  /* compare */
-  section.compare{padding:96px 56px;background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .compare-table{max-width:1100px;margin:0 auto;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--bg)}
-  .compare-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;align-items:center;padding:18px 24px;border-bottom:1px solid var(--border)}
-  .compare-row:last-child{border-bottom:none}
-  .compare-row.head{background:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:1.2px;color:var(--ink-m);font-weight:600;text-transform:uppercase}
-  .compare-row.head .col-ralf{color:var(--teal-d)}
-  .compare-row .col-h{font-size:14.5px;font-weight:600}
-  .compare-row .cell{font-size:14px;color:var(--ink-m);text-align:center}
-  .compare-row .col-ralf.cell{color:var(--ink);font-weight:600;background:hsla(173,80%,92%,.4);height:100%;display:flex;align-items:center;justify-content:center;padding:18px 8px;margin:-18px 0}
-  .check{color:var(--teal);font-weight:700;font-size:16px}
-  .x{color:var(--ink-d)}
-
-  /* results */
-  section.results{padding:120px 56px;text-align:center;background:var(--bg)}
-  .results-inner{max-width:1100px;margin:0 auto}
-  .results-stats{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:18px;overflow:hidden;background:var(--paper)}
-  .results-stat{padding:42px 28px 36px;text-align:left;position:relative;border-right:1px solid var(--border)}
-  .results-stat:last-child{border-right:none}
-  .results-stat-n{font-family:var(--display);font-size:56px;font-weight:800;color:var(--teal-d);letter-spacing:-0.045em;line-height:1}
-  .results-stat-n.warm{color:var(--warm)}
-  .results-stat-l{font-size:14px;color:var(--ink-m);line-height:1.45;margin-top:14px;max-width:18ch}
-  .results-stat-tag{position:absolute;top:18px;right:18px;font-family:var(--mono);font-size:9.5px;letter-spacing:1.2px;color:var(--ink-m);text-transform:uppercase}
-  .results-disclaimer{display:inline-flex;align-items:center;gap:10px;margin-top:36px;padding:10px 18px;border:1px solid var(--border);border-radius:999px;background:var(--paper);font-family:var(--mono);font-size:11px;letter-spacing:0.5px;color:var(--ink-m)}
-  .results-disclaimer .dot{width:6px;height:6px;border-radius:50%;background:var(--warm)}
-  .results-foot{font-family:var(--mono);font-size:11.5px;color:var(--ink-m);margin-top:28px;letter-spacing:0.4px}
-  @media (max-width:880px){.results-stats{grid-template-columns:repeat(2,1fr)}.results-stat{border-right:none;border-bottom:1px solid var(--border)}.results-stat:nth-child(odd){border-right:1px solid var(--border)}.results-stat:nth-last-child(-n+2){border-bottom:none}}
-
-  /* legacy quote/qstat (used elsewhere) */
-  .quote-big{max-width:920px;margin:0 auto}
-  .qstat-n{font-family:var(--display);font-size:48px;font-weight:700;color:var(--teal);letter-spacing:-0.04em;line-height:1}
-  .qstat-n.warm{color:var(--warm)}
-  .qstat-l{font-family:var(--mono);font-size:11.5px;color:var(--ink-m);letter-spacing:0.6px;margin-top:8px}
-
-  /* pricing */
-  section.pricing{padding:96px 56px;background:var(--paper);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .price-grid{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch}
-  @media (max-width:1100px){.price-grid{grid-template-columns:repeat(2,1fr)}}
-  .price-card{display:flex;flex-direction:column;padding:36px 30px 32px;border:1px solid var(--border);border-radius:18px;background:var(--bg);text-align:left;position:relative}
-  .price-card.featured{border-color:var(--ink);box-shadow:0 1px 0 var(--ink), 0 24px 60px -28px rgba(15,15,15,0.35)}
-  .price-card.featured .price-cta{background:var(--teal-d);color:#fff}
-  .price-badge{position:absolute;top:-12px;left:30px;background:var(--ink);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:1.4px;padding:6px 12px;border-radius:999px;font-weight:600}
-  .price-tier{font-family:var(--mono);font-size:11px;letter-spacing:1.4px;color:var(--teal-d);font-weight:600;margin-bottom:6px;text-transform:uppercase}
-  .price-tag{font-size:14px;color:var(--ink-m);line-height:1.5;margin-bottom:24px;min-height:42px}
-  .price-n{font-family:var(--display);font-size:54px;font-weight:800;letter-spacing:-0.045em;line-height:1;color:var(--warm)}
-  .price-mo{font-size:18px;font-weight:500;color:var(--ink-m);font-family:var(--sans)}
-  .price-sub{font-family:var(--mono);font-size:11px;color:var(--ink-m);margin:10px 0 22px;letter-spacing:0.4px;text-transform:uppercase}
-  .price-inherits{font-family:var(--mono);font-size:11px;color:var(--ink-m);letter-spacing:0.5px;margin-bottom:14px;text-transform:uppercase}
-  .price-bullets{list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:11px;font-size:14.5px;line-height:1.5;color:hsl(240,5%,22%);flex:1}
-  .price-bullets li{display:flex;gap:10px;align-items:flex-start}
-  .price-bullets li::before{content:"";flex:0 0 5px;width:5px;height:5px;border-radius:50%;background:var(--teal);margin-top:9px}
-  .price-bullets li.hl{color:var(--ink);font-weight:500}
-  .price-bullets li.hl::before{background:var(--warm);width:6px;height:6px;flex-basis:6px;margin-left:-1px}
-  .price-bullets strong{font-weight:600;color:var(--ink)}
-  .price-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;padding:13px 22px;border-radius:11px;font-size:14.5px;font-weight:600;border:none;text-decoration:none;width:100%;box-sizing:border-box}
-  .price-subcta{display:block;text-align:center;margin-top:10px;font-size:12.5px;color:var(--ink-m);text-decoration:none;font-weight:500}
-  .price-subcta:hover{color:var(--ink);text-decoration:underline}
-  .price-foot{font-family:var(--mono);font-size:10.5px;color:var(--ink-m);letter-spacing:0.5px;text-align:center;margin-top:28px;text-transform:uppercase}
-
-  /* AEO add-on (attached to each tier) */
-  .price-addon{margin-top:18px;padding:18px 18px 18px;background:linear-gradient(180deg,hsla(28,90%,94%,.55),hsla(28,90%,94%,.25));border:1px dashed hsla(22,86%,52%,.45);border-radius:12px;position:relative}
-  .price-card.featured .price-addon{background:linear-gradient(180deg,hsla(28,90%,94%,.7),hsla(28,90%,94%,.4));border-color:hsla(22,86%,52%,.6)}
-  .price-addon::before{content:"";position:absolute;top:-1px;left:50%;width:38px;height:2px;background:var(--bg);transform:translateX(-50%)}
-  .price-card.featured .price-addon::before{background:var(--paper)}
-  .price-addon-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:12px}
-  .price-addon-label{font-family:var(--mono);font-size:10px;letter-spacing:1.3px;color:var(--warm-d);text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:8px}
-  .price-addon-label .plus{width:18px;height:18px;border-radius:5px;background:var(--warm);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;font-family:var(--display);line-height:1}
-  .price-addon-price{font-family:var(--display);font-size:20px;font-weight:700;color:var(--warm-d);letter-spacing:-0.02em;line-height:1}
-  .price-addon-price .mo{font-size:11px;color:var(--ink-m);font-weight:500;font-family:var(--sans);margin-left:2px}
-  .price-addon-name{font-family:var(--display);font-size:14.5px;font-weight:600;letter-spacing:-0.015em;color:var(--ink);margin-bottom:10px}
-  .price-addon-bullets{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.45;color:hsl(240,5%,28%)}
-  .price-addon-bullets li{display:flex;gap:9px;align-items:flex-start}
-  .price-addon-bullets li::before{content:"";flex:0 0 4px;width:4px;height:4px;border-radius:50%;background:var(--warm);margin-top:8px}
-  .price-addon-toggle{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10.5px;letter-spacing:0.9px;color:var(--warm-d);text-transform:uppercase;font-weight:600;cursor:pointer;background:none;border:none;padding:0}
-  .price-addon-toggle .chk{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--warm-d);display:inline-flex;align-items:center;justify-content:center;font-size:10px;color:#fff;background:transparent;transition:background .15s}
-  .price-addon.on .price-addon-toggle .chk{background:var(--warm-d)}
-  .price-addon.on .price-addon-toggle .chk::after{content:"✓";font-weight:700}
-  @media (max-width:880px){.price-grid{grid-template-columns:1fr}}
-
-  /* faq */
-  section.faq{padding:120px 56px;max-width:920px;margin:0 auto}
-  .faq-item{border-top:1px solid var(--border);padding:24px 0}
-  .faq-q{display:flex;justify-content:space-between;align-items:center;font-family:var(--display);font-size:22px;font-weight:600;cursor:pointer;list-style:none;letter-spacing:-0.02em}
-  .faq-q::-webkit-details-marker{display:none}
-  .faq-plus{font-size:28px;color:var(--teal);font-weight:300;transition:transform .2s;display:inline-block}
-  details[open] .faq-plus{transform:rotate(45deg)}
-  .faq-a{font-size:16px;line-height:1.65;color:var(--ink-m);margin-top:14px;max-width:760px}
-
-  /* final cta */
-  section.final{padding:120px 56px;text-align:center;background:var(--ink);color:#fff}
-  .waitlist-form{max-width:520px;margin:0 auto;display:flex;gap:10px;padding:8px;background:hsl(240,5%,14%);border:1px solid hsl(240,5%,22%);border-radius:14px}
-  .waitlist-form input{flex:1;background:transparent;border:none;color:#fff;font-size:15px;padding:12px 14px;outline:none;font-family:var(--sans)}
-  .waitlist-form input::placeholder{color:hsl(240,5%,55%)}
-  .waitlist-form button{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);padding:13px 22px;border-radius:9px;font-size:14.5px;font-weight:600;border:none;cursor:pointer;white-space:nowrap}
-  .waitlist-form button:disabled{background:var(--teal);color:#fff;cursor:default}
-  .final-foot{margin-top:22px;font-family:var(--mono);font-size:11px;color:hsl(240,5%,55%);letter-spacing:0.5px}
-  .final-h{font-family:var(--display);font-size:72px;line-height:1.05;letter-spacing:-0.04em;font-weight:800;margin:0 0 20px;color:#fff}
-  .final-h em{font-family:var(--serif);font-style:italic;color:hsl(173,70%,65%);font-weight:500;letter-spacing:-0.02em}
-  .final-sub{font-size:20px;color:hsl(240,5%,72%);margin-bottom:36px}
-  .final .btn-primary{background:#fff;color:var(--ink)}
-  .final .btn-ghost{color:#fff;border-color:hsl(240,5%,28%)}
-
-  /* footer */
-  footer{padding:56px 56px 32px;background:var(--paper);border-top:1px solid var(--border)}
-  .foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 2.5fr;gap:64px;padding-bottom:40px;border-bottom:1px solid var(--border)}
-  .foot-tag{font-size:14px;color:var(--ink-m);margin-top:14px;max-width:280px;line-height:1.55}
-  .foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-  .foot-col{display:flex;flex-direction:column;gap:10px}
-  .foot-h{font-family:var(--mono);font-size:11px;color:var(--ink-m);letter-spacing:1px;margin-bottom:6px;text-transform:uppercase}
-  .foot-link{font-size:14px;color:var(--ink)}
-  .foot-bottom{max-width:1200px;margin:24px auto 0;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--ink-d);letter-spacing:0.5px}
+  /* nav shadow on scroll (safe under reduced motion) */
+  .bar{transition:box-shadow .25s ease,background .25s ease}
+  .bar.scrolled{box-shadow:0 12px 32px -24px rgba(18,18,18,.55)}
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Ralf",
-  "applicationCategory": "BusinessApplication",
-  "applicationSubCategory": "SEO & AI Search Visibility (AEO) platform",
-  "operatingSystem": "Web",
-  "url": "https://ralfhq.com/",
-  "description": "Ralf tracks how often your brand is named and cited across six AI engines — ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot — and pairs that with a technical SEO crawler and a prioritised weekly fix list.",
-  "featureList": [
-    "AI-search visibility tracking across 6 engines (ChatGPT, Perplexity, Claude, Google AI Overviews, Grok, Copilot)",
-    "Weekly technical SEO site crawl with prioritised fix list",
-    "Competitor share-of-voice tracking",
-    "Keyword and SERP research",
-    "Multi-country AI visibility scoring"
-  ],
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Starter",
-      "price": "49",
-      "priceCurrency": "USD",
-      "description": "1 site, 25 AI-search prompts tracked weekly across all 6 engines, 5 competitors, monthly site crawl, 14-day free trial.",
-      "url": "https://ralfhq.com/#pricing"
-    },
-    {
-      "@type": "Offer",
-      "name": "Growth",
-      "price": "149",
-      "priceCurrency": "USD",
-      "description": "3 sites, 100 AI-search prompts tracked weekly across all 6 engines, 20 competitors, weekly site crawl, 14-day free trial.",
-      "url": "https://ralfhq.com/#pricing"
-    },
-    {
-      "@type": "Offer",
-      "name": "Pro",
-      "price": "299",
-      "priceCurrency": "USD",
-      "description": "8 sites, 200 AI-search prompts tracked weekly, up to 10 countries each fully scored, 50 competitors, daily site crawl.",
-      "url": "https://ralfhq.com/#pricing"
-    },
-    {
-      "@type": "Offer",
-      "name": "Agency",
-      "price": "799",
-      "priceCurrency": "USD",
-      "description": "Unlimited sites and competitors, 600+ prompts tracked weekly with custom volumes, white-label reports and API access. From $799/mo, custom quote.",
-      "url": "https://ralfhq.com/#pricing"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is AEO and why should I care?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AEO is Answer Engine Optimization — getting your site cited by ChatGPT, Perplexity, Claude, and Google's AI Overviews. AI search is already 10–20% of the queries that used to hit Google, and it's growing fast. The traditional SEO stack doesn't see any of it. Ralf does."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is Ralf different from Ahrefs or Semrush?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ahrefs and Semrush are excellent at the old job — Google rank tracking and backlink data. They're blind to ChatGPT, Perplexity, Claude and AI Overviews. Ralf is built for the AI-search era from day one, and pairs that with a modern technical SEO crawler so you don't have to pay for two tools."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is Ralf priced compared to Profound, Peec and Otterly?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ralf Growth is $149/mo for 100 AI-search prompts tracked across all 6 engines. Comparable plans cost more for fewer engines: Peec Pro is $199 for 100 prompts on 3 engines, Otterly Standard is $189 for 100 prompts, and Profound's comparable plan is around $399 for 100 prompts on 3 engines. Ralf also bundles technical SEO and competitor analysis the pure trackers don't include."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Ralf track daily or weekly?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Every Ralf plan tracks all six AI engines weekly. AI answers don't meaningfully change day to day, so weekly coverage across six real engines gives a more stable, complete picture than daily tracking of a smaller engine set — and it keeps pricing honest rather than passing hidden compute costs to you."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need an existing website?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — Ralf needs a site to scan. If you're pre-launch, start with a one-page site and Ralf will grow with you."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long until I see useful insight?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "First scan completes within an hour of connecting. You'll have a full AI Visibility baseline and Site Health report inside the first day, with weekly improvement reports after that."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does the free trial work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Sign up, add your site, and you get 14 days of Ralf Search free — no card required. If it's useful, pick a tier; if not, walk away and you've paid nothing."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
-<div class="banner">
-  <span class="banner-dot"></span>
-  Search is live · 14-day free trial, no card needed · <a href="https://app.ralfhq.com/login?mode=signup">start now →</a>
-</div>
 
-<nav class="top">
-  <div class="nav-inner">
-    <div class="brand">
-      <img class="brand-img" src="assets/b9fb52b4-0fdf-4ee4-9dda-a9e75399bc6a.png" alt="Ralf">
+
+
+<!-- NAV -->
+<nav class="bar">
+  <div class="wrap row">
+    <a class="brand" href="#" aria-label="Ralf home">
+      <svg class="mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#121212"></rect><rect x="6.5" y="13.5" width="3" height="6" rx="1.5" fill="#fff"></rect><rect x="11.5" y="9.5" width="3" height="10" rx="1.5" fill="#fff"></rect><rect x="16.5" y="6" width="3" height="13.5" rx="1.5" fill="#fff"></rect></svg>
+      <span class="word">ralf</span>
+    </a>
+    <div class="navlinks">
+      <a href="#how">How it works</a><a href="compare.html">vs Alternatives</a><a href="blog.html">Blog</a><a href="#faq">FAQ</a><a href="#">Pricing</a>
     </div>
-    <div class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#agents">What you get</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#compare">vs. alternatives</a>
-      <a href="#pricing">Pricing</a>
-      <a href="/agency">For agencies</a>
-      <a href="#faq">FAQ</a>
-    </div>
-    <div class="nav-right">
-      <a href="https://app.ralfhq.com/login?mode=signup" class="nav-cta">Start free trial →</a>
+    <div class="navactions">
+      <a class="signin" href="https://app.ralfhq.com/login">Sign in</a>
+      <a class="btn" href="https://app.ralfhq.com/login?mode=signup">Start free trial <span class="arr">→</span></a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="orb-1"></div>
-    <div class="orb-2"></div>
-  </div>
-  <div class="hero-inner">
-    <div class="eyebrow">
-      <span class="eyebrow-dot"></span>
-      <span>AI SEARCH VISIBILITY &amp; TECHNICAL SEO</span>
-    </div>
-    <h1 class="display">
-      See where you stand in AI search.<br><em>Fix what's broken in your SEO.</em>
-    </h1>
-    <p class="lede">
-      <strong>The AI-first SEO platform.</strong> Ralf tracks how ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot cite your site, crawls every page for technical SEO issues, and gives you a prioritised fix list every week.
-    </p>
-    <div class="cta-row">
-      <a href="https://app.ralfhq.com/login?mode=signup" class="btn-primary">Start your free trial <span class="arrow">→</span></a>
-      <a href="#how" class="btn-ghost">See how it works →</a>
-    </div>
-    <div class="hero-promise">
-      <span style="width:6px;height:6px;border-radius:50%;background:var(--teal)"></span>
-      <b>SEARCH IS LIVE</b> · 14-DAY FREE TRIAL · NO CARD REQUIRED
-    </div>
-  </div>
-</section>
-
-<!-- DASHBOARD SCREENSHOT -->
-<section class="shot">
-  <div class="shot-frame">
-    <div class="shot-bar">
-      <div class="shot-dots">
-        <span class="shot-dot" style="background:#fb7d7d"></span>
-        <span class="shot-dot" style="background:#f8c75a"></span>
-        <span class="shot-dot" style="background:#7ed18a"></span>
+<header class="heroB">
+  <div class="wrap grid">
+    <div class="copy">
+      <span class="eyebrow"><span class="dot"></span>Agentic SEO — built to execute</span>
+      <h1>Get your business found by <span class="rotator"><span class="rot-fallback">AI</span></span></h1>
+      <p class="sub">When someone asks ChatGPT or Gemini for a business like yours, are you the answer? Ralf doesn't just track that — it fixes your site structure, writes content for your keyword and backlink gaps, and drafts the outreach to earn citations.</p>
+      <div class="ctas">
+        <a class="btn lg" href="https://app.ralfhq.com/login?mode=signup">Start free trial <span class="arr">→</span></a>
+        <a class="btn lg ghost" href="https://app.ralfhq.com/login?mode=signup">Sign up</a>
       </div>
-      <div class="shot-url">app.ralfhq.com / ai-visibility</div>
-      <div class="shot-status"><span class="shot-status-dot"></span>Live</div>
+      <div class="note">Free 14-day trial · no card required · live in minutes</div>
     </div>
-    <div class="shot-hero-wrap">
-      <img class="shot-hero-img" src="assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png" alt="Ralf dashboard — domain authority, referring domains, AI visibility across Perplexity, Google AI Overviews and ChatGPT, plus a prioritised AEO fix list.">
-    </div>
-  </div>
-</section>
-
-<!-- PROBLEM -->
-<section class="problem">
-  <div class="problem-inner">
-    <div class="kicker" style="margin-bottom:18px;display:inline-block">THE BLIND SPOT</div>
-    <h2 class="section-h">10–20% of search has moved to AI.<br><em>Your rank tracker can't see any of it.</em></h2>
-    <p class="problem-p">
-      ChatGPT, Perplexity, Claude and Google's AI Overviews now answer questions that used to send people to your site. They cite a handful of sources — and the old SEO tools have no idea whether you're one of them.
-    </p>
-    <p class="problem-p" style="font-weight:500;color:var(--ink)">
-      Ralf tracks every major AI engine, every week, and tells you exactly what's stopping you from being cited — alongside the technical SEO issues hurting your Google rankings. Two blind spots, one dashboard.
-    </p>
-  </div>
-</section>
-
-<!-- HOW -->
-<section class="how" id="how">
-  <div class="section-head">
-    <div class="kicker">HOW RALF WORKS</div>
-    <h2 class="section-h" style="margin-top:14px">Three steps. <em>No SEO degree</em> required.</h2>
-  </div>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num">STEP 01</div>
-      <h3 class="step-h">Connect <em>your site.</em></h3>
-      <p class="step-p">Drop in your domain, connect Search Console, and tell Ralf which competitors you watch. Setup takes about 5 minutes.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">STEP 02</div>
-      <h3 class="step-h">Ralf <em>scans everything.</em></h3>
-      <p class="step-p">Every week Ralf runs your prompts through all 6 AI engines — ChatGPT, Perplexity, Claude, AI Overviews, Grok and Copilot, then crawls your site for 25+ technical SEO issues. AI-graded, evidence-backed.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">STEP 03</div>
-      <h3 class="step-h">You get <em>a prioritised fix list.</em></h3>
-      <p class="step-p">No spreadsheets. Each issue has a fix, an estimated impact, and a how-to. Resolve them yourself, hand them to your dev, or wait — Ralf will fix the writeable ones automatically when Content launches.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CHAT -->
-<section class="chat">
-  <div class="chat-grid">
-    <div class="chat-copy">
-      <div class="kicker">TALK TO RALF</div>
-      <h2 class="chat-h">Ask Ralf <em>what's going on.</em><br>Get answers, not dashboards.</h2>
-      <p class="chat-p">Every screen has a chat next to it. Ask in plain English — Ralf reads the live data and replies with what's happening, what's stuck, and what to do next.</p>
-      <div class="chat-bullets">
-        <div><span class="dot"></span><div><b>“Where am I losing AI citations?”</b>Ralf names the 4 prompts where you dropped this week and why.</div></div>
-        <div><span class="dot"></span><div><b>“What's the biggest SEO win I can ship today?”</b>Ralf surfaces the highest-impact fix from the latest crawl.</div></div>
-        <div><span class="dot"></span><div><b>“Track this new competitor”</b>Done — added, scanned, included in next week's report.</div></div>
+    <div class="stack">
+      <div class="hchip"><span class="pdot"></span>Live · tracking 7 models</div>
+      <div class="mm pad">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">visibility · last 30 days</span></div>
+        <div class="mm-body" style="padding:22px 22px 26px">
+          <div class="mm-h">Mentions by model</div>
+          <div class="vrow"><span class="vname">ChatGPT</span><span class="vtrack"><span class="vfill" style="width:82%"></span></span><span class="vpct">82%</span></div>
+          <div class="vrow"><span class="vname">Claude</span><span class="vtrack"><span class="vfill" style="width:74%"></span></span><span class="vpct">74%</span></div>
+          <div class="vrow"><span class="vname">Gemini</span><span class="vtrack"><span class="vfill g" style="width:58%"></span></span><span class="vpct">58%</span></div>
+          <div class="vrow"><span class="vname">Perplexity</span><span class="vtrack"><span class="vfill g" style="width:46%"></span></span><span class="vpct">46%</span></div>
+          <div class="vrow"><span class="vname">Copilot</span><span class="vtrack"><span class="vfill g" style="width:33%"></span></span><span class="vpct">33%</span></div>
+        </div>
+      </div>
+      <div class="mm float">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">share of voice</span></div>
+        <div class="mm-body" style="padding:18px 20px">
+          <div class="spark" style="height:78px"><span class="b" style="height:40%"></span><span class="b" style="height:48%"></span><span class="b" style="height:44%"></span><span class="b" style="height:60%"></span><span class="b" style="height:68%"></span><span class="b cur" style="height:86%"></span></div>
+          <div class="delta">▲ +<span class="count" data-to="27">27</span>% this quarter</div>
+        </div>
       </div>
     </div>
-    <div class="chat-image">
-      <img src="assets/4d295f67-4f43-4bfd-8978-5d421a5945a3.png" alt="Chat with Ralf — 'where am I losing AI citations' — Ralf replies with a breakdown of recent drops and the suggested fix.">
+  </div>
+</header>
+
+<!-- MODEL STRIP -->
+<div class="strip stripB sec-wash">
+  <div class="wrap">
+    <div class="lbl">Tracking your brand across every major model</div>
+    <div class="models">
+      <span class="model">ChatGPT</span><span class="model">Claude</span><span class="model">Gemini</span><span class="model">Perplexity</span><span class="model">Copilot</span><span class="model">Grok</span><span class="model">AI Overviews</span>
     </div>
   </div>
-</section>
+</div>
 
-<!-- AGENTS -->
-<section class="agents" id="agents">
-  <div class="section-head">
-    <div class="kicker">WHAT YOU GET TODAY</div>
-    <h2 class="section-h" style="margin-top:14px">Two specialists. <em>One dashboard.</em></h2>
-  </div>
-  <div class="agents-grid">
-
-    <div class="agent">
-      <div class="agent-tag"><span class="agent-tag-dot"></span>AI VISIBILITY · LIVE</div>
-      <h3 class="agent-h">Track your citations in <em>every AI engine.</em></h3>
-      <p class="agent-p">Ralf runs your prompts daily across ChatGPT, Perplexity, Claude and Google AI Overviews. See where you're cited, where you're not, what sentiment, and which competitors are stealing the citations you should own. Per-country, per-engine, with history.</p>
-      <div class="agent-shot">
-        <span class="agent-shot-label">AI VISIBILITY · COMPETITOR QUADRANT</span>
-        <img src="assets/bc22fb9f-4c38-470d-8667-4184d4633955.png" alt="AI Visibility dashboard — citation share by engine, sentiment, competitor positions.">
+<!-- FEATURE BLOCKS -->
+<section class="blockB" style="padding-top:96px" id="features">
+  <div class="wrap grid">
+    <div class="rail">
+      <div class="ix">Visibility</div>
+      <div class="big">01</div>
+      <h2>Know exactly where AI sends people.</h2>
+      <p class="lead">Track every mention of your brand across the major models, and watch your share of voice move week over week — for you and the competitors you care about.</p>
+      <p><a class="link" href="#">Explore visibility →</a></p>
+    </div>
+    <div class="mm">
+      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">share of voice · plumbing — denver</span></div>
+      <div class="mm-body" style="padding:24px">
+        <div class="vrow"><span class="vname" style="flex-basis:120px">Your brand</span><span class="vtrack"><span class="vfill" style="width:81%"></span></span><span class="vpct">#1</span></div>
+        <div class="vrow"><span class="vname" style="flex-basis:120px">Competitor A</span><span class="vtrack"><span class="vfill g" style="width:63%"></span></span><span class="vpct">#2</span></div>
+        <div class="vrow"><span class="vname" style="flex-basis:120px">Competitor B</span><span class="vtrack"><span class="vfill g" style="width:49%"></span></span><span class="vpct">#3</span></div>
+        <div style="height:18px"></div>
+        <div class="mm-h" style="margin-bottom:10px">Your trend · last 6 months</div>
+        <div class="spark"><span class="b" style="height:38%"></span><span class="b" style="height:46%"></span><span class="b" style="height:43%"></span><span class="b" style="height:58%"></span><span class="b" style="height:66%"></span><span class="b cur" style="height:84%"></span></div>
+        <div class="spark-x"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
       </div>
-      <div class="agent-meta">DAILY SCANS · 4 ENGINES · SENTIMENT &amp; SOURCES TRACKED</div>
     </div>
+  </div>
+</section>
 
-    <div class="agent">
-      <div class="agent-tag"><span class="agent-tag-dot"></span>SITE HEALTH · LIVE</div>
-      <h3 class="agent-h">25+ checks across <em>every page.</em></h3>
-      <p class="agent-p">Ralf crawls your whole site every week and runs 25+ technical SEO and AI-readiness checks — broken links, redirect chains, missing structured data, slow images, double H1s, llms.txt, schema gaps. Each issue has a fix, an impact estimate, and AI commentary on what to do.</p>
-      <div class="agent-shot">
-        <span class="agent-shot-label">SITE HEALTH · WEEKLY CRAWL</span>
-        <img src="assets/525dfdb6-36a9-4d3d-8607-a915f65740c3.png" alt="Site Health dashboard — overall score, per-category breakdown, prioritised issue list.">
+<section class="blockB sec-wash">
+  <div class="wrap grid">
+    <div class="rail">
+      <div class="ix">Diagnosis</div>
+      <div class="big">02</div>
+      <h2>Understand why they pick who they pick.</h2>
+      <p class="lead">See which sources the models cite when they answer questions in your category — and exactly where you're missing. Every gap becomes a clear, prioritised action you can approve in a click.</p>
+      <p><a class="link" href="#">See the source analysis →</a></p>
+    </div>
+    <div class="mm">
+      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">cited sources · "best emergency plumber"</span></div>
+      <div class="mm-body" style="padding:22px 24px">
+        <div class="cite"><div class="src"><span class="favi">1</span><div><div class="sname">yelp.com</div><div class="smeta">cited 14× — you are listed</div></div></div><span class="tag">covered</span></div>
+        <div class="cite"><div class="src"><span class="favi g">2</span><div><div class="sname">angi.com</div><div class="smeta">cited 11× — you are missing</div></div></div><span class="tag gap">gap</span></div>
+        <div class="cite"><div class="src"><span class="favi g">3</span><div><div class="sname">local trade guild</div><div class="smeta">cited 9× — you are missing</div></div></div><span class="tag gap">gap</span></div>
+        <div class="cite"><div class="src"><span class="favi">4</span><div><div class="sname">your website</div><div class="smeta">cited 6× — strengthen content</div></div></div><span class="tag">covered</span></div>
       </div>
-      <div class="agent-meta">WEEKLY CRAWL · TECHNICAL SEO + AI READINESS · AI-WRITTEN COMMENTARY</div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ROADMAP / COMING SOON -->
-<section class="agents" id="roadmap" style="padding-top:20px">
-  <div class="section-head">
-    <div class="kicker">COMING SOON</div>
-    <h2 class="section-h" style="margin-top:14px">Content &amp; Outreach<br><em>land later this year.</em></h2>
-    <p style="font-size:16px;color:var(--ink-m);max-width:620px;margin:18px auto 0;line-height:1.55">
-      Ralf was built to be your whole SEO team. Search is the foundation we're launching with — Content and Outreach are next. Start with Search today and you'll be first in line when they ship.
-    </p>
-  </div>
-  <div class="agents-grid">
-
-    <div class="agent" style="opacity:0.96">
-      <div class="agent-tag" style="background:#fff7e9;border-color:#f5c46a;color:#8a5a00"><span class="agent-tag-dot" style="background:#d49223"></span>CONTENT · WAITLIST OPEN</div>
-      <h3 class="agent-h">AI-drafted articles, <em>SERP-grounded and on-brand.</em></h3>
-      <p class="agent-p">Ralf will brief, draft, and publish ranking-grade articles in your voice — straight to WordPress, Webflow or Ghost. Trained on your existing content, fact-checked, optimised for Google and for AI citation.</p>
-      <a href="https://app.ralfhq.com/login?mode=signup" class="agent-meta" style="text-decoration:none;display:inline-block">GET STARTED WITH SEARCH →</a>
-    </div>
-
-    <div class="agent" style="opacity:0.96">
-      <div class="agent-tag" style="background:#fff7e9;border-color:#f5c46a;color:#8a5a00"><span class="agent-tag-dot" style="background:#d49223"></span>OUTREACH · WAITLIST OPEN</div>
-      <h3 class="agent-h">Find inboxes. <em>Earn backlinks.</em></h3>
-      <p class="agent-p">Ralf will find the right contacts on the sites that matter, write personalised pitches in your voice, manage replies through an inbox-style queue, and follow up — politely — until you've earned the link.</p>
-      <a href="https://app.ralfhq.com/login?mode=signup" class="agent-meta" style="text-decoration:none;display:inline-block">GET STARTED WITH SEARCH →</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- COMPARE -->
-<section class="compare" id="compare">
-  <div class="section-head">
-    <div class="kicker">VS. THE ALTERNATIVES</div>
-    <h2 class="section-h" style="margin-top:14px">Why operators pick Ralf<br><em>over the traditional stack.</em></h2>
-    <p style="font-size:15px;color:var(--ink-m);max-width:560px;margin:16px auto 0;line-height:1.55">Want the numbers? <a href="/compare" style="color:var(--teal);font-weight:600;text-decoration:none">See Ralf’s pricing compared to Profound, Peec, Otterly &amp; AthenaHQ →</a></p>
-  </div>
-  <div class="compare-table">
-    <div class="compare-row head">
-      <div></div>
-      <div class="col-ralf cell">Ralf Search</div>
-      <div class="cell">Ahrefs / Semrush</div>
-      <div class="cell">Peec / AI-only tools</div>
-      <div class="cell">DIY + spreadsheets</div>
-    </div>
-    <div class="compare-row">
-      <div class="col-h">Tracks AI search engines (ChatGPT, Perplexity, AIO)</div>
-      <div class="col-ralf cell"><span class="check">✓</span></div>
-      <div class="cell"><span class="x">—</span></div>
-      <div class="cell"><span class="check">✓</span></div>
-      <div class="cell">Manual</div>
-    </div>
-    <div class="compare-row">
-      <div class="col-h">Technical SEO crawler &amp; fix list</div>
-      <div class="col-ralf cell"><span class="check">✓</span></div>
-      <div class="cell"><span class="check">✓</span></div>
-      <div class="cell"><span class="x">—</span></div>
-      <div class="cell">Manual</div>
-    </div>
-    <div class="compare-row">
-      <div class="col-h">AI-readiness scoring (llms.txt, schema, citation depth)</div>
-      <div class="col-ralf cell"><span class="check">✓</span></div>
-      <div class="cell"><span class="x">—</span></div>
-      <div class="cell">Partial</div>
-      <div class="cell"><span class="x">—</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="col-h">Sentiment &amp; competitor citation quadrant</div>
-      <div class="col-ralf cell"><span class="check">✓</span></div>
-      <div class="cell"><span class="x">—</span></div>
-      <div class="cell">Partial</div>
-      <div class="cell"><span class="x">—</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="col-h">AI-written commentary on every issue</div>
-      <div class="col-ralf cell"><span class="check">✓</span></div>
-      <div class="cell"><span class="x">—</span></div>
-      <div class="cell"><span class="x">—</span></div>
-      <div class="cell"><span class="x">—</span></div>
-    </div>
-    <div class="compare-row">
-      <div class="col-h">Monthly cost</div>
-      <div class="col-ralf cell">From $49</div>
-      <div class="cell">$99–$449</div>
-      <div class="cell">$99–$299</div>
-      <div class="cell">Your weekends</div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <div class="section-head">
-    <div class="kicker">PRICING — SEARCH</div>
-    <h2 class="section-h" style="margin-top:14px">AI visibility + technical SEO.<br><em>Pick the tier that matches your scope.</em></h2>
-    <p style="font-size:16px;color:var(--ink-m);max-width:620px;margin:18px auto 0;line-height:1.55">
-      Search is the foundation. <strong style="color:var(--ink);font-weight:600">Content</strong> and <strong style="color:var(--ink);font-weight:600">Outreach</strong> will launch as separate products later this year. Starter and Growth start with a 14-day free trial — no card required. Pro goes straight to a subscription; Agency is a custom quote.
-    </p>
+<section class="blockB" id="execution">
+  <div class="wrap grid">
+    <div class="rail">
+      <div class="ix">Execution</div>
+      <div class="big">03</div>
+      <h2>Where other tools stop, Ralf gets to work.</h2>
+      <p class="lead">Monitoring is the easy part. Ralf turns every gap into finished work — then ships it the moment you approve.</p>
+      <div class="extabs" role="tablist">
+        <button class="extab is-active" data-i="0" role="tab">
+          <span class="exn">01</span>
+          <span class="ext"><span class="exh">Fix site structure</span><span class="exs">Schema, headings &amp; internal links</span></span>
+          <span class="exbar"></span>
+        </button>
+        <button class="extab" data-i="1" role="tab">
+          <span class="exn">02</span>
+          <span class="ext"><span class="exh">Write content for gaps</span><span class="exs">Keyword &amp; backlink gaps</span></span>
+          <span class="exbar"></span>
+        </button>
+        <button class="extab" data-i="2" role="tab">
+          <span class="exn">03</span>
+          <span class="ext"><span class="exh">Draft outreach</span><span class="exs">Citation &amp; backlink opportunities</span></span>
+          <span class="exbar"></span>
+        </button>
+      </div>
+    </div>
+    <div class="exstage">
+      <div class="mm expanel is-active" data-i="0">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">site structure · fixes</span></div>
+        <div class="mm-body" style="padding:20px 20px">
+          <div class="mm-h">Technical fixes applied</div>
+          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">FAQ &amp; LocalBusiness schema</div><div class="fs">added to 6 pages</div></div></div>
+          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">Heading hierarchy</div><div class="fs">H1 / H2 restructured</div></div></div>
+          <div class="fix"><span class="fx run">↻</span><div><div class="fl">Internal links</div><div class="fs">12 added across cornerstone pages</div></div><span class="live"><span class="pulse"></span>running</span></div>
+          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">Meta titles &amp; descriptions</div><div class="fs">rewritten for 9 pages</div></div></div>
+        </div>
+      </div>
+      <div class="mm expanel" data-i="1">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">content draft · in progress</span></div>
+        <div class="mm-body doc" style="padding:20px 20px">
+          <div class="mm-h">Drafting for a keyword gap</div>
+          <div class="dh"></div>
+          <div class="dline" style="width:100%"></div>
+          <div class="dline" style="width:94%"></div>
+          <div class="dline" style="width:98%"></div>
+          <div class="dline" style="width:72%"></div>
+          <div class="kwrow"><span class="tag gap">gap · "emergency plumber denver"</span><span class="tag">+2 backlink targets</span></div>
+        </div>
+      </div>
+      <div class="mm expanel" data-i="2">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">outreach · citation opportunity</span></div>
+        <div class="mm-body mail" style="padding:20px 20px">
+          <div class="mm-h">Outreach draft ready</div>
+          <div class="mrow"><span class="mk">To</span><span class="mv">editor@denver-trade-guild.org</span></div>
+          <div class="mrow"><span class="mk">Subject</span><span class="mv">Your 2026 plumber roundup — a suggestion</span></div>
+          <div class="mbody">
+            <div class="dline" style="width:97%"></div>
+            <div class="dline" style="width:100%"></div>
+            <div class="dline" style="width:66%"></div>
+          </div>
+          <div class="kwrow"><span class="tag">draft ready</span><span class="tag gap">+1 citation source</span></div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="price-grid">
+</section>
 
-    <!-- STARTER -->
-    <div class="price-card">
-      <div class="price-tier">Starter</div>
-      <div class="price-tag">For founders watching one site.</div>
-      <div><span class="price-n">$49</span><span class="price-mo">/mo</span></div>
-      <div class="price-sub">Billed monthly</div>
-      <ul class="price-bullets">
-        <li><span><strong>1</strong> site</span></li>
-        <li><span><strong>25</strong> AI-search prompts tracked · weekly</span></li>
-        <li><span>All 6 engines included — ChatGPT, Perplexity, Claude, AI Overviews, Grok, Copilot</span></li>
-        <li><span>Monthly Site Health crawl · core checks</span></li>
-        <li><span>Keyword &amp; SERP basics</span></li>
-        <li><span><strong>5</strong> competitors tracked</span></li>
-        <li><span>7-day history</span></li>
-        <li><span>1 user</span></li>
-      </ul>
-      <a href="https://app.ralfhq.com/login?mode=signup" class="price-cta">Start free trial →</a>
-      <a href="https://app.ralfhq.com/try?intent=subscribe&amp;plan=starter" class="price-subcta">or subscribe now, skip the trial →</a>
+<!-- HOW IT WORKS -->
+<section class="sec-wash sec-line" id="how">
+  <div class="wrap">
+    <div class="kicker" style="margin-bottom:14px">How it works</div>
+    <h2 class="h-sec" style="margin:0 0 46px;max-width:18ch">Set up once. See where you stand in minutes.</h2>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Connect your site</h3><p>Add your domain and the competitors you care about. No code, no tracking script to install.</p></div>
+      <div class="step"><div class="num">02</div><h3>See where AI sends people</h3><p>Ralf checks how the major models answer questions in your category and where you appear.</p></div>
+      <div class="step"><div class="num">03</div><h3>Approve, and Ralf executes</h3><p>Ralf fixes your site structure, writes the content for your gaps, and drafts outreach — each change ships only once you approve it.</p></div>
+      <div class="step"><div class="num">04</div><h3>Watch your share climb</h3><p>Track mentions and share of voice week over week, across every model and classic search.</p></div>
     </div>
-
-    <!-- GROWTH (featured) -->
-    <div class="price-card featured">
-      <div class="price-badge">Most popular</div>
-      <div class="price-tier">Growth</div>
-      <div class="price-tag">For founders building authority.</div>
-      <div><span class="price-n">$149</span><span class="price-mo">/mo</span></div>
-      <div class="price-sub">Billed monthly</div>
-      <div class="price-inherits">Everything in Starter, plus:</div>
-      <ul class="price-bullets">
-        <li><span><strong>3</strong> sites</span></li>
-        <li class="hl"><span><strong>100</strong> prompts tracked · weekly, with sentiment &amp; tagging</span></li>
-        <li><span>Weekly Site Health crawl · full checks + AI readiness</span></li>
-        <li><span>Full keyword research, content-gap analysis</span></li>
-        <li><span><strong>20</strong> competitors tracked</span></li>
-        <li><span>90-day history · 3 users</span></li>
-      </ul>
-      <a href="https://app.ralfhq.com/login?mode=signup" class="price-cta">Start free trial →</a>
-      <a href="https://app.ralfhq.com/try?intent=subscribe&amp;plan=growth" class="price-subcta">or subscribe now, skip the trial →</a>
-    </div>
-
-    <!-- PRO -->
-    <div class="price-card">
-      <div class="price-tier">Pro</div>
-      <div class="price-tag">For operators scaling across sites.</div>
-      <div><span class="price-n">$299</span><span class="price-mo">/mo</span></div>
-      <div class="price-sub">Billed monthly</div>
-      <div class="price-inherits">Everything in Growth, plus:</div>
-      <ul class="price-bullets">
-        <li><span><strong>8</strong> sites</span></li>
-        <li><span><strong>200</strong> prompts tracked · weekly, competitor quadrant</span></li>
-        <li><span>Track up to 10 countries — each fully scored, priced per country</span></li>
-        <li><span>Daily Site Health crawl · AI commentary &amp; top-fix attribution</span></li>
-        <li><span>Advanced SEO — ranking tracker, content-gap</span></li>
-        <li><span><strong>50</strong> competitors · 12-month history</span></li>
-        <li><span>10 users · priority support</span></li>
-      </ul>
-      <a href="https://app.ralfhq.com/try?intent=subscribe&amp;plan=pro" class="price-cta">Subscribe →</a>
-    </div>
-
-    <!-- AGENCY -->
-    <div class="price-card">
-      <div class="price-tier">Agency</div>
-      <div class="price-tag">Multi-tenant, for agencies.</div>
-      <div><span class="price-n">$799</span><span class="price-mo">/mo from</span></div>
-      <div class="price-sub">Custom quote</div>
-      <div class="price-inherits">Everything in Pro, plus:</div>
-      <ul class="price-bullets">
-        <li><span><strong>Unlimited</strong> sites &amp; competitors</span></li>
-        <li><span><strong>600+</strong> prompts · weekly, custom volumes on request</span></li>
-        <li><span>White-label reports</span></li>
-        <li><span>API access</span></li>
-        <li><span>Custom users · unlimited history</span></li>
-      </ul>
-      <a href="mailto:hello@ralfhq.com?subject=Ralf%20Agency%20plan" class="price-cta">Talk to us →</a>
-    </div>
-
   </div>
-  <div class="price-foot">Every plan tracks all 6 AI engines weekly. <a href="/compare" style="color:var(--teal);font-weight:600;text-decoration:none">See how Ralf compares to Profound, Peec &amp; Otterly →</a></div>
+</section>
+
+<!-- COMPARISON -->
+<section class="sec-line" id="compare">
+  <div class="wrap">
+    <div class="kicker" style="margin-bottom:14px">vs the alternatives</div>
+    <h2 class="h-sec" style="margin:0 0 16px;max-width:24ch">Most tools monitor. Ralf executes.</h2>
+    <p class="lead" style="margin:0 0 40px;max-width:54ch">Everyone can hand you a dashboard. Ralf is the only one that fixes the site issues, writes the content, and drafts the outreach — then tracks the result across Google and AI search.</p>
+    <div class="cmp">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:36%"></th>
+            <th class="us center col-us">ralf</th>
+            <th class="center">Ahrefs ·<br>Semrush</th>
+            <th class="center">AI-only<br>tools</th>
+            <th class="center">DIY +<br>spreadsheets</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="feat">Tracks AI search engines</td><td class="center col-us"><span class="ck">✓</span></td><td class="center"><span class="no">—</span></td><td class="center"><span class="ck">✓</span></td><td class="center"><span class="partial">manual</span></td></tr>
+          <tr><td class="feat">Finds keyword, backlink &amp; citation gaps</td><td class="center col-us"><span class="ck">✓</span></td><td class="center"><span class="partial">partial</span></td><td class="center"><span class="partial">partial</span></td><td class="center"><span class="partial">manual</span></td></tr>
+          <tr><td class="feat">Fixes site-structure issues for you</td><td class="center col-us"><span class="ck">✓</span></td><td class="center"><span class="no">—</span></td><td class="center"><span class="no">—</span></td><td class="center"><span class="no">—</span></td></tr>
+          <tr><td class="feat">Writes content for your keyword &amp; backlink gaps</td><td class="center col-us"><span class="ck">✓</span></td><td class="center"><span class="no">—</span></td><td class="center"><span class="no">—</span></td><td class="center"><span class="no">—</span></td></tr>
+          <tr><td class="feat">Drafts citation &amp; backlink outreach</td><td class="center col-us"><span class="ck">✓</span></td><td class="center"><span class="no">—</span></td><td class="center"><span class="no">—</span></td><td class="center"><span class="no">—</span></td></tr>
+          <tr><td class="feat">Monthly cost</td><td class="center col-us"><span class="mono" style="font-size:13px">From $49</span></td><td class="center"><span class="mono" style="font-size:13px;color:var(--mut)">$99–449</span></td><td class="center"><span class="mono" style="font-size:13px;color:var(--mut)">$99–299</span></td><td class="center"><span class="mono" style="font-size:13px;color:var(--mut)">your weekends</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:26px"><a class="link" href="compare.html">See the full comparison vs Profound, Peec, Otterly &amp; AthenaHQ →</a></p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="sec-wash sec-line">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><div class="n"><span class="count" data-to="7">7</span></div><div class="l">major models<br>monitored continuously</div></div>
+      <div class="stat"><div class="n">24/7</div><div class="l">agents working<br>in the background</div></div>
+      <div class="stat"><div class="n"><span class="count" data-to="1">1</span></div><div class="l">dashboard for both<br>SEO and AI search</div></div>
+    </div>
+  </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq" id="faq">
-  <div class="section-head" style="text-align:left;margin-left:0">
-    <div class="kicker">QUESTIONS YOU'LL ASK</div>
-    <h2 class="section-h" style="margin-top:14px;text-align:left">Yes, we asked them <em>too.</em></h2>
+<section class="sec-line" id="faq">
+  <div class="wrap" style="max-width:880px">
+    <div class="kicker" style="margin-bottom:14px">FAQ</div>
+    <h2 class="h-sec" style="margin:0 0 36px;max-width:18ch">Questions, answered plainly.</h2>
+    <div class="faq">
+      <details open=""><summary>Do I need to be technical to use Ralf?<span class="pm"></span></summary><div class="ans">No. You connect your domain, pick a few competitors, and Ralf does the rest. There's no script to install and no SEO jargon to learn — every recommendation is written in plain language with a clear reason behind it.</div></details>
+      <details><summary>How is this different from my existing SEO tool?<span class="pm"></span></summary><div class="ans">Other tools stop at telling you what's wrong. Ralf fixes your site structure, writes content for your keyword and backlink gaps, and drafts outreach for citation and backlink opportunities — then tracks the result across both Google and AI search. It executes, not just reports.</div></details>
+      <details><summary>Will agents change my website without asking?<span class="pm"></span></summary><div class="ans">Never. Agents draft and prepare changes, then submit them for your approval. Nothing goes live until you say so — you stay in full control of what publishes.</div></details>
+      <details><summary>Which AI models do you track?<span class="pm"></span></summary><div class="ans">ChatGPT, Claude, Gemini, Perplexity, Copilot, Grok, and Google AI Overviews — the engines people actually use to find businesses today. We add new ones as they gain traction.</div></details>
+      <details><summary>How long until I see results?<span class="pm"></span></summary><div class="ans">You'll see your current visibility and competitor gaps within minutes of connecting. Meaningful share-of-voice gains typically show within a few weeks of approving and shipping the recommended fixes.</div></details>
+    </div>
   </div>
-  <details class="faq-item" open="">
-    <summary class="faq-q"><span>What's AEO and why should I care?</span><span class="faq-plus">+</span></summary>
-    <div class="faq-a">AEO is Answer Engine Optimization — getting your site cited by ChatGPT, Perplexity, Claude, and Google's AI Overviews. AI search is already 10–20% of the queries that used to hit Google, and it's growing fast. The traditional SEO stack doesn't see any of it. Ralf does.</div>
-  </details>
-  <details class="faq-item">
-    <summary class="faq-q"><span>How is Ralf different from Ahrefs or Semrush?</span><span class="faq-plus">+</span></summary>
-    <div class="faq-a">Ahrefs and Semrush are excellent at the old job — Google rank tracking and backlink data. They're blind to ChatGPT, Perplexity, Claude and AI Overviews. Ralf is built for the AI-search era from day one, and pairs that with a modern technical SEO crawler so you don't have to pay for two tools.</div>
-  </details>
-  <details class="faq-item">
-    <summary class="faq-q"><span>What's coming after Search?</span><span class="faq-plus">+</span></summary>
-    <div class="faq-a">Content (AI-drafted articles, on-brand, auto-published) and Outreach (backlink prospecting + personalised pitches + reply management) are next. Both are functionally built — we're launching Search first so we can deliver each product properly. Search subscribers get first access when they launch.</div>
-  </details>
-  <details class="faq-item">
-    <summary class="faq-q"><span>Do I need an existing website?</span><span class="faq-plus">+</span></summary>
-    <div class="faq-a">Yes — Ralf needs a site to scan. If you're pre-launch, start with a one-page site and Ralf will grow with you.</div>
-  </details>
-  <details class="faq-item">
-    <summary class="faq-q"><span>How long until I see useful insight?</span><span class="faq-plus">+</span></summary>
-    <div class="faq-a">First scan completes within an hour of connecting. You'll have a full AI Visibility baseline and Site Health report inside the first day, with weekly improvement reports after that.</div>
-  </details>
-  <details class="faq-item">
-    <summary class="faq-q"><span>Will Ralf fix my SEO issues for me?</span><span class="faq-plus">+</span></summary>
-    <div class="faq-a">Today: Ralf identifies issues, explains them, and gives you a prioritised fix list. When Content launches, Ralf will fix the writeable ones (on-page copy, schema, internal links) automatically — for sites that opt in. Customers under your control, always.</div>
-  </details>
-  <details class="faq-item">
-    <summary class="faq-q"><span>How does the free trial work?</span><span class="faq-plus">+</span></summary>
-    <div class="faq-a">Sign up, add your site, and you get 14 days of Ralf Search free — no card required. If it's useful, pick a tier; if not, walk away and you've paid nothing.</div>
-  </details>
 </section>
 
-<!-- FINAL -->
-<section class="final" id="waitlist">
-  <h2 class="final-h">See what AI search says about you.<br><em>Before your competitors do.</em></h2>
-  <div class="final-sub">Add your site and get your first AI visibility report in minutes.</div>
-  <div style="display:flex;justify-content:center">
-    <a href="https://app.ralfhq.com/login?mode=signup" class="btn-primary">Start your 14-day free trial <span class="arrow">→</span></a>
+<!-- FINAL CTA -->
+<section class="final sec-line">
+  <div class="wrap">
+    <h2>Be the answer, not the afterthought.</h2>
+    <p>Stop watching dashboards. Put Ralf to work fixing, writing, and earning citations this afternoon.</p>
+    <div class="ctas">
+      <a class="btn lg" href="https://app.ralfhq.com/login?mode=signup">Start free trial <span class="arr">→</span></a>
+      <a class="btn lg ghost" href="https://app.ralfhq.com/login?mode=signup">Sign up</a>
+    </div>
+    <div class="note">Free 14-day trial · no card required</div>
   </div>
-  <div class="final-foot" id="waitlistFoot">NO CARD REQUIRED · CANCEL ANYTIME · FROM $49/MO AFTER TRIAL</div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="foot-inner">
-    <div>
-      <div class="brand">
-        <img class="brand-img" src="assets/b9fb52b4-0fdf-4ee4-9dda-a9e75399bc6a.png" alt="Ralf">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#" aria-label="Ralf home">
+          <svg class="mark" width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#fff"></rect><rect x="6.5" y="13.5" width="3" height="6" rx="1.5" fill="#121212"></rect><rect x="11.5" y="9.5" width="3" height="10" rx="1.5" fill="#121212"></rect><rect x="16.5" y="6" width="3" height="13.5" rx="1.5" fill="#121212"></rect></svg>
+          <span class="word">ralf</span>
+        </a>
+        <p class="ftag">Agentic SEO that doesn't just monitor AI search — it does the work. Get your business found by AI.</p>
       </div>
-      <div class="foot-tag">AI search visibility + technical SEO, in one platform. Content &amp; Outreach coming later this year.</div>
+      <div><h4>Platform</h4><ul><li><a href="#">Visibility</a></li><li><a href="#">Diagnosis</a></li><li><a href="#">Agents</a></li><li><a href="#">Pricing</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div><h4>Resources</h4><ul><li><a href="#">Docs</a></li><li><a href="#">Help center</a></li><li><a href="#">Changelog</a></li><li><a href="#">Status</a></li></ul></div>
     </div>
-    <div class="foot-cols">
-      <div class="foot-col">
-        <div class="foot-h">Search · Live</div>
-        <a class="foot-link" href="#agents">AI Visibility</a>
-        <a class="foot-link" href="#agents">Site Health</a>
-        <a class="foot-link" href="#pricing">Pricing</a>
-        <a class="foot-link" href="/terms.html">Terms of Service</a>
-        <a class="foot-link" href="/privacy.html">Privacy Policy</a>
-      </div>
-      <div class="foot-col">
-        <div class="foot-h">Coming soon</div>
-        <a class="foot-link" href="#agents">Content (coming soon)</a>
-        <a class="foot-link" href="#agents">Outreach (coming soon)</a>
-      </div>
-      <div class="foot-col">
-        <div class="foot-h">Company</div>
-        <a class="foot-link" href="#faq">FAQ</a>
-        <a class="foot-link" href="mailto:hello@ralfhq.com">Contact</a>
-      </div>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <div>© 2026 Ralf · all rights reserved · ralfhq.com</div>
+    <div class="foot-base"><span>© 2026 Ralf. All rights reserved.</span><span>Privacy · Terms</span></div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // nav shadow on scroll (runs regardless of motion pref)
+  var bar = document.querySelector('.bar');
+  if(bar){
+    var onScroll = function(){ bar.classList.toggle('scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
 
+  if(reduce) return; // honour reduced motion: leave everything in its final state
 
+  // enable hero entrance only once JS is confirmed running
+  var hero = document.querySelector('.heroB');
+  if(hero) hero.classList.add('anim');
 
+  // tag reveal / stagger targets
+  var staggerSel = ['.blockB .grid', '.steps', '.stats', '.faq', '.models', '.flow', '.final .ctas'];
+  var revealSel  = ['.kicker', '.h-sec', '#compare .lead', '.cmp', '.final h2', '.final p', '.final .note', '.strip .lbl'];
+  staggerSel.forEach(function(s){ document.querySelectorAll(s).forEach(function(el){ el.classList.add('stagger'); }); });
+  revealSel.forEach(function(s){ document.querySelectorAll(s).forEach(function(el){ if(!el.closest('.stagger')) el.classList.add('reveal'); }); });
 
+  // tag data mocks + capture target bar widths
+  document.querySelectorAll('.mm').forEach(function(mm){
+    if(mm.querySelector('.vfill') || mm.querySelector('.spark')) mm.classList.add('mm-anim');
+  });
+  document.querySelectorAll('.mm-anim .vfill').forEach(function(f){
+    f.dataset.w = f.style.width || '0';
+    f.style.width = '0';
+  });
+  // capture target percentages, then zero them so they can climb up
+  document.querySelectorAll('.mm-anim .vrow').forEach(function(row){
+    var pct = row.querySelector('.vpct');
+    if(pct && /^\d+%$/.test(pct.textContent.trim())){
+      pct.dataset.to = parseInt(pct.textContent, 10);
+      pct.textContent = '0%';
+    }
+  });
 
+  var hasIO = 'IntersectionObserver' in window;
+  if(!hasIO){
+    document.querySelectorAll('.reveal,.stagger,.mm-anim').forEach(function(el){ el.classList.add('in'); });
+    document.querySelectorAll('.mm-anim .vfill').forEach(function(f){ f.style.width = f.dataset.w; });
+    document.querySelectorAll('.mm-anim .vpct').forEach(function(p){ if(p.dataset.to != null) p.textContent = p.dataset.to + '%'; });
+    return;
+  }
 
+  // reveal observer
+  var rio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+  }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal,.stagger').forEach(function(el){ rio.observe(el); });
 
+  // animate a numeric label upward (ease-out cubic)
+  function climbTo(el, from, to, dur, delay, suffix){
+    setTimeout(function(){
+      var t0 = null;
+      function step(ts){
+        if(!t0) t0 = ts;
+        var p = Math.min(1, (ts - t0) / dur);
+        el.textContent = Math.round(from + (to - from) * (1 - Math.pow(1 - p, 3))) + suffix;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }, delay);
+  }
 
+  // data-growth observer (bars grow + percentages climb + spark rises)
+  var dio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      var rows = e.target.querySelectorAll('.vrow');
+      if(rows.length){
+        rows.forEach(function(row,i){
+          var f = row.querySelector('.vfill');
+          var pct = row.querySelector('.vpct');
+          if(f){ f.style.transitionDelay = (i*0.12)+'s'; f.style.width = f.dataset.w; }
+          if(pct && pct.dataset.to != null){ climbTo(pct, 0, parseInt(pct.dataset.to,10), 1300, 120 + i*120, '%'); }
+        });
+      } else {
+        e.target.querySelectorAll('.vfill').forEach(function(f,i){ f.style.transitionDelay=(i*0.08)+'s'; f.style.width=f.dataset.w; });
+      }
+      dio.unobserve(e.target);
+    });
+  }, {threshold:.25});
+  document.querySelectorAll('.mm-anim').forEach(function(m){ dio.observe(m); });
 
+  // count-up observer
+  function countUp(el){
+    var to = parseFloat(el.dataset.to); if(isNaN(to)) return;
+    var dur = 1100, t0 = null;
+    el.textContent = '0';
+    function step(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      el.textContent = String(Math.round(to * (1 - Math.pow(1 - p, 3))));
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var cio = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); cio.unobserve(e.target); } });
+  }, {threshold:.6});
+  document.querySelectorAll('.count').forEach(function(el){ cio.observe(el); });
+
+  /* ---- continuous hero motion ---- */
+
+  // 1) rotating model name in the headline
+  var rot = document.querySelector('.rotator');
+  if(rot){
+    var words = ['ChatGPT','Claude','Gemini','Perplexity','AI'];
+    rot.innerHTML = '';
+    var rws = words.map(function(w,i){
+      var s = document.createElement('span');
+      s.className = 'rw' + (i===0 ? ' is-in' : '');
+      s.textContent = w;
+      rot.appendChild(s);
+      return s;
+    });
+    // reserve the widest word so the headline never reflows as it cycles
+    var maxW = 0;
+    rws.forEach(function(s){ maxW = Math.max(maxW, Math.ceil(s.getBoundingClientRect().width)); });
+    rot.style.width = maxW + 'px';
+    var ri = 0;
+    setInterval(function(){
+      var prev = rws[ri];
+      ri = (ri + 1) % rws.length;
+      var cur = rws[ri];
+      prev.classList.remove('is-in'); prev.classList.add('is-out');
+      cur.classList.remove('is-out'); cur.classList.add('is-in');
+      setTimeout(function(){ prev.classList.remove('is-out'); }, 650);
+    }, 2400);
+  }
+
+  // 2) hero mentions keep climbing — percentages + bars edge upward over time
+  var heroPad = document.querySelector('.heroB .stack .mm.pad');
+  if(heroPad){
+    var prows = Array.prototype.slice.call(heroPad.querySelectorAll('.vrow'));
+    setTimeout(function(){
+      setInterval(function(){
+        prows.forEach(function(row){
+          if(Math.random() < 0.5) return; // only some rows tick each beat
+          var f = row.querySelector('.vfill'), pct = row.querySelector('.vpct');
+          if(!f || !pct) return;
+          var shown = parseInt(pct.textContent, 10) || 0;
+          var nv = Math.min(96, shown + 1);
+          if(nv === shown) return;
+          pct.textContent = nv + '%';
+          f.style.width = nv + '%';
+        });
+      }, 2200);
+    }, 4200);
+  }
+
+  // 3) share-of-voice chart trends upward, marching new bars in from the right
+  var sparkEl = document.querySelector('.heroB .stack .mm.float .spark');
+  if(sparkEl){
+    var sbars = Array.prototype.slice.call(sparkEl.querySelectorAll('.b'));
+    var sh = sbars.map(function(b){ return parseFloat(b.style.height) || 50; });
+    setTimeout(function(){
+      setInterval(function(){
+        sh.shift();
+        var last = sh[sh.length - 1];
+        var nv = (last >= 88) ? (50 + Math.floor(Math.random()*10))
+                              : Math.min(92, last + 3 + Math.floor(Math.random()*8));
+        sh.push(nv);
+        sbars.forEach(function(b,i){
+          b.style.transition = 'height .85s cubic-bezier(.22,.61,.36,1)';
+          b.style.height = sh[i] + '%';
+        });
+      }, 3200);
+    }, 2800);
+  }
+
+  // 4) cursor parallax tilt on the dashboard stack (desktop, fine pointer)
+  var stack = document.querySelector('.heroB .stack');
+  var heroEl = document.querySelector('.heroB');
+  if(stack && heroEl && window.matchMedia('(pointer:fine)').matches && window.matchMedia('(min-width:901px)').matches){
+    var praf = null, prx = 0, pry = 0;
+    var applyTilt = function(){ praf = null; stack.style.transform = 'perspective(1000px) rotateX('+prx.toFixed(2)+'deg) rotateY('+pry.toFixed(2)+'deg)'; };
+    heroEl.addEventListener('mousemove', function(ev){
+      var r = heroEl.getBoundingClientRect();
+      pry = ((ev.clientX - r.left) / r.width - 0.5) * 6;
+      prx = -((ev.clientY - r.top) / r.height - 0.5) * 5;
+      if(!praf) praf = requestAnimationFrame(applyTilt);
+    });
+    heroEl.addEventListener('mouseleave', function(){ prx = 0; pry = 0; if(!praf) praf = requestAnimationFrame(applyTilt); });
+  }
+})();
+</script>
 
 <script>
 (function(){
-  var SB='https://ewkrubluzctsfnkxnmsj.supabase.co';
-  var KEY='sb_publishable_f2MoW3I0nbzlVNbsJErk3A_f6-EqBsX';
-  var f=document.getElementById('waitlistForm');
-  if(!f) return;
-  var foot=document.getElementById('waitlistFoot');
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var btn=f.querySelector('button'), inp=f.querySelector('input');
-    var email=(inp.value||'').trim();
-    if(!email || email.indexOf('@')<1){ inp.focus(); return; }
-    btn.disabled=true; inp.disabled=true; btn.textContent='Joining\u2026';
-    fetch(SB+'/rest/v1/waitlist_signups',{
-      method:'POST',
-      headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY,'Prefer':'return=minimal'},
-      body:JSON.stringify({email:email,source:'ralfhq.com',referrer:document.referrer||null,user_agent:navigator.userAgent})
-    }).then(function(r){
-      if(r.ok || r.status===409){
-        btn.innerHTML='You\u2019re on the list \u2713'; inp.value='';
-        if(foot) foot.textContent='THANKS \u2014 WE\u2019LL EMAIL YOUR INVITE IN THE NEXT WAVE';
-      } else { throw new Error('status '+r.status); }
-    }).catch(function(){
-      btn.disabled=false; inp.disabled=false; btn.innerHTML='Try again <span class="arrow">\u2192</span>';
-    });
-  });
+  var sec = document.querySelector('#execution');
+  if(!sec) return;
+  var tabs = [].slice.call(sec.querySelectorAll('.extab'));
+  var panels = [].slice.call(sec.querySelectorAll('.expanel'));
+  if(!tabs.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var DURATION = 4200, timer = null, cur = 0;
+
+  function show(i){
+    cur = i;
+    tabs.forEach(function(t,ix){ t.classList.toggle('is-active', ix===i); });
+    panels.forEach(function(p,ix){ p.classList.toggle('is-active', ix===i); });
+    if(!reduce){
+      tabs.forEach(function(t,ix){
+        var b = t.querySelector('.exbar');
+        if(!b) return;
+        b.style.transition = 'none';
+        b.style.width = '0%';
+        if(ix===i){
+          void b.offsetWidth;           // reflow so the fill animates from 0
+          b.style.transition = 'width ' + DURATION + 'ms linear';
+          b.style.width = '100%';
+        }
+      });
+    }
+  }
+  function next(){ show((cur + 1) % tabs.length); }
+  function start(){ if(reduce) return; stop(); timer = setInterval(next, DURATION); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+
+  tabs.forEach(function(t,ix){ t.addEventListener('click', function(){ show(ix); start(); }); });
+  sec.addEventListener('mouseenter', stop);
+  sec.addEventListener('mouseleave', start);
+
+  show(0);
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting) start(); else stop(); });
+    }, {threshold:.3});
+    io.observe(sec);
+  } else { start(); }
 })();
 </script>
-</body></html>
+
+
+
+</body>
+</html>
