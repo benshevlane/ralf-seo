@@ -54,6 +54,7 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:clip}
 body{
+  overflow-x:clip;
   font-family:var(--body);
   background:var(--paper);
   color:var(--ink);
@@ -257,7 +258,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   .stat:last-child{border-bottom:none}
   .foot{grid-template-columns:1fr 1fr;gap:30px}
 }
-@media(max-width:560px){
+@media(max-width:560px){.heroB .stack{overflow:visible}.heroB{overflow-x:clip}
   :root{--gut:20px}
   .steps{grid-template-columns:1fr}
   .foot{grid-template-columns:1fr}
