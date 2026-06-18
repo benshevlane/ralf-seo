@@ -2,19 +2,19 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ralf Blog — notes on getting found by AI</title>
-<meta name="description" content="Practical guides on AI search, answer-engine optimisation (AEO) and the technical SEO that gets your business cited in ChatGPT, Perplexity and Google AI Overviews.">
-<link rel="canonical" href="https://ralfhq.com/blog">
+<title>llms.txt and Schema Markup, Explained Simply</title>
+<meta name="description" content="llms.txt points AI crawlers to your best pages; schema markup labels what's on each page. Together they make your site easier for AI engines to read and cite. Here's how, in plain English.">
+<link rel="canonical" href="https://ralfhq.com/blog/llms-txt-and-schema">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ralf">
-<meta property="og:title" content="Ralf Blog — notes on getting found by AI">
-<meta property="og:description" content="Practical guides on AI search, answer-engine optimisation (AEO) and the technical SEO that gets your business cited in ChatGPT, Perplexity and Google AI Overviews.">
-<meta property="og:url" content="https://ralfhq.com/blog">
+<meta property="og:title" content="llms.txt and Schema Markup, Explained Simply">
+<meta property="og:description" content="llms.txt points AI crawlers to your best pages; schema markup labels what's on each page. Together they make your site easier for AI engines to read and cite. Here's how, in plain English.">
+<meta property="og:url" content="https://ralfhq.com/blog/llms-txt-and-schema">
 <meta property="og:image" content="https://ralfhq.com/assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ralf Blog — notes on getting found by AI">
-<meta name="twitter:description" content="Practical guides on AI search, answer-engine optimisation (AEO) and the technical SEO that gets your business cited in ChatGPT, Perplexity and Google AI Overviews.">
+<meta name="twitter:title" content="llms.txt and Schema Markup, Explained Simply">
+<meta name="twitter:description" content="llms.txt points AI crawlers to your best pages; schema markup labels what's on each page. Together they make your site easier for AI engines to read and cite. Here's how, in plain English.">
 <meta name="twitter:image" content="https://ralfhq.com/assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -502,6 +502,9 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 .kt h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut2);margin:0 0 10px}
 .kt ul{margin:0;padding-left:20px}.kt li{font-size:15px;line-height:1.6;margin-bottom:6px}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "llms.txt and Schema Markup, Explained Simply", "description": "llms.txt points AI crawlers to your best pages; schema markup labels what's on each page. Together they make your site easier for AI engines to read and cite. Here's how, in plain English.", "datePublished": "2026-06-17", "dateModified": "2026-06-17", "author": {"@type": "Organization", "name": "Ralf", "url": "https://ralfhq.com"}, "publisher": {"@type": "Organization", "name": "Ralf", "logo": {"@type": "ImageObject", "url": "https://ralfhq.com/assets/favicon.svg"}}, "image": "https://ralfhq.com/assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://ralfhq.com/blog/llms-txt-and-schema"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need an llms.txt file? Is it official?", "acceptedAnswer": {"@type": "Answer", "text": "llms.txt is an emerging, community-proposed standard rather than an official requirement, and not every engine reads it yet. It's low-effort to add and makes your key content easy for AI crawlers to find, so it's worth having."}}, {"@type": "Question", "name": "Does schema markup guarantee I'll be cited?", "acceptedAnswer": {"@type": "Answer", "text": "No. Schema doesn't force a citation, but it removes ambiguity about what's on your page, which makes engines more confident quoting you. It's a foundation, not a magic switch."}}, {"@type": "Question", "name": "What's the difference between llms.txt and schema?", "acceptedAnswer": {"@type": "Answer", "text": "llms.txt is a site-level map that points crawlers to your best pages; schema is page-level code that labels what's on each individual page. They work together &mdash; one aids discovery, the other aids understanding."}}, {"@type": "Question", "name": "Will adding these slow my site down?", "acceptedAnswer": {"@type": "Answer", "text": "No. An llms.txt file is tiny plain text, and schema is a small block of code in the page head. Neither has a meaningful effect on load time."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ralfhq.com/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://ralfhq.com/blog"}, {"@type": "ListItem", "position": 3, "name": "llms.txt and schema markup, explained simply", "item": "https://ralfhq.com/blog/llms-txt-and-schema"}]}</script>
 </head>
 <nav class="bar">
   <div class="wrap row">
@@ -513,17 +516,23 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
     </div>
   </div>
 </nav>
-<header class="heroB" style="padding-bottom:24px">
-  <div class="wrap">
-    <div class="copy" style="max-width:780px">
-      <span class="eyebrow"><span class="dot"></span>Blog</span>
-      <h1>Notes on getting found by AI.</h1>
-      <p class="sub">Practical writing on AI search, answer-engine optimisation (AEO), and the technical SEO that gets your business cited in ChatGPT, Perplexity and Google AI Overviews.</p>
-    </div>
+<header class="heroB" style="padding-bottom:14px"><div class="wrap"><div class="article"><div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/blog">Blog</a> &nbsp;/&nbsp; Technical</div><div class="eyebrow2">Technical</div><h1>llms.txt and schema markup, explained simply</h1><p class="dek">The AI-readiness basics every site should have &mdash; what llms.txt and schema are, and how to add them without a developer.</p><div class="pmeta">By the Ralf team &middot; 17 June 2026 &middot; 7 min read</div><div class="answer"><strong>llms.txt</strong> is a simple text file you place at <code>yoursite.com/llms.txt</code> that points AI crawlers to your most important pages in plain language. <strong>Schema markup</strong> (structured data) is code you add to your pages that labels what each thing is &mdash; a business, an article, an FAQ, a product. Together they make your site easier for AI engines to read, understand and cite.</div><div class="kt"><h4>Key takeaways</h4><ul><li><strong>llms.txt</strong> is a short, plain-language map of your best content for AI crawlers.</li><li><strong>Schema</strong> labels your content so engines know what each thing actually is.</li><li>Neither guarantees a citation &mdash; but both remove reasons <em>not</em> to cite you.</li><li>You can add both without a developer; Ralf can generate and check them for you.</li></ul></div><h2>What is llms.txt?</h2><p>llms.txt is a proposed standard &mdash; a single Markdown file at the root of your site (<code>/llms.txt</code>) that lists your most important pages with a one-line description of each, so AI crawlers can find and understand your best content quickly. Think of it as a curated table of contents written for language models. It complements, rather than replaces, your <code>robots.txt</code> and XML sitemap.</p><h2>What does an llms.txt file look like?</h2><p>It&rsquo;s plain Markdown &mdash; a title, a short summary, then grouped links:</p><pre><code># Ralf
+&gt; The AI-first SEO platform &mdash; track your visibility across AI
+&gt; engines, fix technical SEO, and earn citations.
+
+## Guides
+- [What is AEO?](https://ralfhq.com/blog/what-is-aeo): Answer Engine Optimization, explained.
+- [Get cited by ChatGPT](https://ralfhq.com/blog/get-cited-by-chatgpt): The step-by-step playbook.
+
+## Product
+- [Search](https://ralfhq.com/search): AI visibility + technical SEO.
+- [Pricing](https://ralfhq.com/pricing): Plans from $49/mo.</code></pre><h2>What is schema markup (structured data)?</h2><p>Schema markup is code &mdash; usually JSON-LD &mdash; that you add to a page to label its content using the shared vocabulary at schema.org. It tells engines &ldquo;this is an article, published on this date, by this organisation&rdquo; or &ldquo;this is an FAQ, and here are the questions and answers.&rdquo; Humans see a normal page; machines get an unambiguous description.</p><h2>Which schema types matter most for AEO?</h2><table><thead><tr><th>Schema type</th><th>What it labels</th></tr></thead><tbody><tr><td><strong>Organization</strong> / <strong>LocalBusiness</strong></td><td>Who you are &mdash; name, logo, location, contact</td></tr><tr><td><strong>Article</strong> / <strong>BlogPosting</strong></td><td>Content pages, with author and date</td></tr><tr><td><strong>FAQPage</strong></td><td>Question-and-answer content (great for AEO)</td></tr><tr><td><strong>Product</strong></td><td>Products, with price and availability</td></tr><tr><td><strong>BreadcrumbList</strong></td><td>Where a page sits in your site structure</td></tr></tbody></table><p>This very page uses Article, FAQPage and BreadcrumbList schema.</p><h2>How do you add llms.txt and schema without a developer?</h2><ul><li><strong>llms.txt:</strong> create a plain text file like the example above and upload it to your site&rsquo;s root folder. Many platforms let you do this without code.</li><li><strong>Schema:</strong> most site builders and CMS plugins can output basic schema; for anything custom it&rsquo;s a small block of JSON-LD in the page head.</li><li><strong>Or let Ralf handle it:</strong> <a href="/search">Site Health</a> checks whether your llms.txt and schema are present and correct, flags what&rsquo;s missing, and &mdash; when Content is enabled &mdash; can add the markup for you.</li></ul></div></div></header><section class="sec-line" id="faq">
+  <div class="wrap" style="max-width:880px">
+    <div class="kicker" style="margin-bottom:14px">FAQ</div>
+    <h2 class="h-sec" style="margin:0 0 36px;max-width:18ch">Questions, answered plainly.</h2>
+    <div class="faq"><details open=""><summary>Do I need an llms.txt file? Is it official?<span class="pm"></span></summary><div class="ans">llms.txt is an emerging, community-proposed standard rather than an official requirement, and not every engine reads it yet. It's low-effort to add and makes your key content easy for AI crawlers to find, so it's worth having.</div></details><details><summary>Does schema markup guarantee I'll be cited?<span class="pm"></span></summary><div class="ans">No. Schema doesn't force a citation, but it removes ambiguity about what's on your page, which makes engines more confident quoting you. It's a foundation, not a magic switch.</div></details><details><summary>What's the difference between llms.txt and schema?<span class="pm"></span></summary><div class="ans">llms.txt is a site-level map that points crawlers to your best pages; schema is page-level code that labels what's on each individual page. They work together &mdash; one aids discovery, the other aids understanding.</div></details><details><summary>Will adding these slow my site down?<span class="pm"></span></summary><div class="ans">No. An llms.txt file is tiny plain text, and schema is a small block of code in the page head. Neither has a meaningful effect on load time.</div></details></div>
   </div>
-</header>
-<section class="sec-line" style="padding-top:24px"><div class="wrap"><div class="blog-grid"><a class="post-card" href="/blog/what-is-aeo"><span class="btag">Guide</span><h3>What is AEO?</h3><p>Answer-engine optimisation, explained for business owners &mdash; and why it matters now.</p><span class="more">Read &#8594;</span></a><a class="post-card" href="/blog/get-cited-by-chatgpt"><span class="btag">Playbook</span><h3>Getting cited by ChatGPT</h3><p>The concrete steps that make AI engines mention your business in their answers.</p><span class="more">Read &#8594;</span></a><a class="post-card" href="/blog/llms-txt-and-schema"><span class="btag">Technical</span><h3>llms.txt &amp; schema, simply</h3><p>The AI-readiness basics every site should have &mdash; without needing a developer.</p><span class="more">Read &#8594;</span></a></div></div></section>
-<section class="final sec-line"><div class="wrap"><h2>When buyers ask AI, be the name it gives.</h2><p>See where you stand in AI search today.</p><div class="ctas"><a class="btn lg" href="https://app.ralfhq.com/login?mode=signup">Start free trial <span class="arr">&#8594;</span></a><a class="btn lg ghost" href="/search">Explore the platform</a></div><div class="note">Free 14-day trial &middot; no card required</div></div></section>
+</section><section class="final sec-line"><div class="wrap"><h2>See where you stand in AI search.</h2><p>Ralf shows you exactly where ChatGPT, Perplexity and Google AI cite you &mdash; and fixes what&rsquo;s holding you back.</p><div class="ctas"><a class="btn lg" href="https://app.ralfhq.com/login?mode=signup">Start free trial <span class="arr">&#8594;</span></a><a class="btn lg ghost" href="/search">Explore Search</a></div><div class="note">Free 14-day trial &middot; no card required</div></div></section>
 <footer>
   <div class="wrap">
     <div class="foot">
