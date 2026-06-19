@@ -1,0 +1,23 @@
+name: Link guard
+
+# Catches the recurring regression where a "Pricing" nav link points at
+# compare.html (the competitor comparison) instead of /pricing. Fails the
+# run so the bad link is visible immediately on the commit/PR.
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  pricing-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: "Pricing must link to /pricing, never compare.html"
+        run: |
+          set -e
+          if grep -rEn 'compare\.html"[^>]*>[[:space:]]*Pricing' --include='*.html' .; then
+            echo "::error::A 'Pricing' link points to compare.html — it must point to /pricing. Fix the lines above."
+            exit 1
+          fi
+          echo "OK — no Pricing→compare.html links found."
