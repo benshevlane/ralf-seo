@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free AI Visibility Report — does ChatGPT recommend your business? | Ralf</title>
+<meta name="description" content="Run a free AI visibility (AEO) report in about 60 seconds. See whether ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot name your business — and who they recommend instead. No account, no card.">
+<link rel="canonical" href="https://ralfhq.com/free-aeo-report">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ralf">
+<meta property="og:title" content="Free AI Visibility Report — does AI search recommend you?">
+<meta property="og:description" content="See whether ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot name your business. Free, no account, ~60 seconds.">
+<meta property="og:url" content="https://ralfhq.com/free-aeo-report">
+<meta property="og:image" content="https://ralfhq.com/assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free AI Visibility Report — does AI search recommend you?">
+<meta name="twitter:description" content="Find out who ChatGPT, Perplexity and Google AI name when buyers ask. Free AEO report in ~60 seconds.">
+<meta name="twitter:image" content="https://ralfhq.com/assets/ca30bfe5-7398-46ad-911a-ca7b25738f76.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ink:#121212; --paper:#ffffff; --grey:#bcbcbc;
+  --mut:rgba(18,18,18,.58); --mut2:rgba(18,18,18,.42);
+  --line:rgba(18,18,18,.11); --wash:#f4f4f3; --wash2:#ebebea;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter Tight',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+  --maxw:1100px; --gut:32px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut2);display:inline-flex;align-items:center;gap:10px}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--grey)}
+
+/* header */
+header.site{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand-logo{height:28px;width:auto}
+.nav-r{display:flex;align-items:center;gap:22px;font-size:14px}
+.nav-r a.mut{color:var(--mut)}
+.nav-r a.mut:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--body);font-weight:600;font-size:15px;border-radius:10px;padding:12px 20px;border:1px solid var(--ink);cursor:pointer;transition:transform .06s ease,opacity .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.btn-dark:hover{opacity:.9}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-sm{padding:9px 16px;font-size:14px;border-radius:9px}
+
+/* hero */
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(34px,5vw,58px);line-height:1.04;letter-spacing:-.02em;max-width:16ch;margin:18px 0 0}
+.hero h1 .g{color:var(--mut)}
+.hero p.sub{font-size:clamp(16px,1.6vw,19px);color:var(--mut);max-width:54ch;margin:20px 0 0}
+form.report{margin:30px 0 0;display:flex;flex-wrap:wrap;gap:10px;max-width:560px}
+form.report input{flex:1 1 260px;font-family:var(--body);font-size:16px;padding:14px 16px;border:1px solid var(--ink);border-radius:11px;background:var(--paper)}
+form.report input::placeholder{color:var(--mut2)}
+.microcopy{font-family:var(--mono);font-size:12px;color:var(--mut2);margin:14px 0 0;letter-spacing:.02em}
+.engines{display:flex;flex-wrap:wrap;gap:8px;margin:34px 0 0}
+.chip{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:var(--wash)}
+
+/* sections */
+section.band{padding:64px 0;border-bottom:1px solid var(--line)}
+.band h2{font-family:var(--display);font-weight:600;font-size:clamp(24px,3vw,34px);letter-spacing:-.01em;max-width:20ch}
+.band .lead{color:var(--mut);max-width:56ch;margin:14px 0 0;font-size:16px}
+.grid{display:grid;gap:18px;margin:36px 0 0}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.card{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--paper)}
+.card .n{font-family:var(--mono);font-size:12px;color:var(--mut2)}
+.card h3{font-family:var(--display);font-weight:600;font-size:17px;margin:12px 0 7px;letter-spacing:-.01em}
+.card p{font-size:14.5px;color:var(--mut)}
+.steps{counter-reset:s}
+.step{display:flex;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.step:first-child{border-top:0}
+.step .num{counter-increment:s;font-family:var(--mono);font-size:13px;color:var(--paper);background:var(--ink);min-width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.step .num::before{content:counter(s)}
+.step h3{font-family:var(--display);font-weight:600;font-size:16px;margin:3px 0 4px}
+.step p{font-size:14.5px;color:var(--mut);max-width:62ch}
+
+/* faq */
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{font-family:var(--display);font-weight:600;font-size:17px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--mut2);font-family:var(--mono)}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--mut);font-size:15px;margin:12px 0 0;max-width:64ch}
+
+/* final cta */
+.final{background:var(--ink);color:var(--paper);border:0}
+.final h2{color:var(--paper);max-width:22ch}
+.final .lead{color:rgba(255,255,255,.66)}
+.final form.report input{background:#1d1d1d;border-color:rgba(255,255,255,.25);color:#fff}
+.final .btn-dark{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.final .microcopy{color:rgba(255,255,255,.5)}
+
+/* footer */
+footer.site{padding:40px 0;font-size:14px;color:var(--mut)}
+.foot{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center}
+.foot a{color:var(--mut)}.foot a:hover{color:var(--ink)}
+.foot .links{display:flex;gap:18px;flex-wrap:wrap}
+
+@media(max-width:860px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}}
+@media(max-width:560px){.g4{grid-template-columns:1fr}.nav-r a.mut{display:none}}
+</style>
+</head>
+<body>
+
+<header class="site"><div class="wrap nav">
+  <a href="/" aria-label="Ralf home"><img class="brand-logo" src="/assets/ralf-logo.svg" alt="Ralf"></a>
+  <div class="nav-r">
+    <a class="mut" href="/pricing">Pricing</a>
+    <a class="mut" href="https://app.ralfhq.com/login">Log in</a>
+  </div>
+</div></header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero"><div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Free AI visibility report</span>
+    <h1>Does AI search <span class="g">recommend your business?</span></h1>
+    <p class="sub">When someone asks ChatGPT, Perplexity or Google's AI for a business like yours — are you named, or is a competitor? Get a free report across all six AI engines in about 60 seconds.</p>
+
+    <form class="report" id="reportForm" autocomplete="on">
+      <input id="siteInput" name="site" type="text" inputmode="url" placeholder="yourcompany.com" aria-label="Your website" required>
+      <button class="btn btn-dark" type="submit">Run my free report →</button>
+    </form>
+    <p class="microcopy">No account · no card · ~60 seconds · your data stays yours</p>
+
+    <div class="engines" aria-label="Engines checked">
+      <span class="chip">ChatGPT</span><span class="chip">Perplexity</span><span class="chip">Claude</span>
+      <span class="chip">Google AI Overviews</span><span class="chip">Grok</span><span class="chip">Copilot</span>
+    </div>
+  </div></section>
+
+  <!-- WHAT YOU GET -->
+  <section class="band"><div class="wrap">
+    <h2>What your free report shows</h2>
+    <p class="lead">A real scan of how today's AI assistants answer when buyers go looking for what you sell — not a generic checklist.</p>
+    <div class="grid g4">
+      <div class="card"><div class="n">01</div><h3>AI visibility</h3><p>Whether each of the six engines names or cites you when asked the questions your buyers actually type.</p></div>
+      <div class="card"><div class="n">02</div><h3>Who wins instead</h3><p>The competitors AI recommends in your place — and the sources those answers are built on.</p></div>
+      <div class="card"><div class="n">03</div><h3>AI-readiness &amp; site health</h3><p>How easily AI engines can read and trust your site, with the issues holding you back.</p></div>
+      <div class="card"><div class="n">04</div><h3>A head start</h3><p>A sample article and a real citation opportunity Ralf would pursue to get you named more often.</p></div>
+    </div>
+  </div></section>
+
+  <!-- HOW IT WORKS -->
+  <section class="band"><div class="wrap">
+    <h2>How it works</h2>
+    <div class="steps" style="margin-top:28px">
+      <div class="step"><div class="num"></div><div><h3>Enter your website</h3><p>Just the address — no sign-up, no card, nothing to install.</p></div></div>
+      <div class="step"><div class="num"></div><div><h3>Ralf runs a live scan</h3><p>It asks all six AI engines real buyer questions and reads your site the way they do — live, while you watch.</p></div></div>
+      <div class="step"><div class="num"></div><div><h3>Get your report</h3><p>See where you stand, who's beating you, and exactly what to fix to get recommended more often.</p></div></div>
+    </div>
+  </div></section>
+
+  <!-- FAQ -->
+  <section class="band"><div class="wrap">
+    <h2>Questions</h2>
+    <div class="faq" style="margin-top:24px">
+      <details open><summary>What is an AEO / AI visibility report?</summary><p>AEO — Answer Engine Optimisation — is SEO for AI assistants. The report shows whether AI tools like ChatGPT and Google's AI Overviews mention your business when people ask for recommendations, which is fast becoming how buyers find companies.</p></details>
+      <details><summary>Is it really free?</summary><p>Yes. The report runs a live scan across all six engines at no cost and with no card. You only pay if you decide to have Ralf work on improving your visibility afterwards.</p></details>
+      <details><summary>Do I need to create an account?</summary><p>No. You enter your website and the report runs straight away. We'll email you a link so you can come back to it, and you can create an account later if you want Ralf to act on the findings.</p></details>
+      <details><summary>How accurate is it?</summary><p>The scan queries the real AI engines live and reads your actual site content, so it reflects what buyers see today — not a cached guess. Results naturally shift as the engines update, which is why ongoing tracking matters.</p></details>
+    </div>
+  </div></section>
+
+  <!-- FINAL CTA -->
+  <section class="band final"><div class="wrap">
+    <h2>See where AI search puts you — free</h2>
+    <p class="lead">Takes about a minute. No account, no card.</p>
+    <form class="report" id="reportForm2" autocomplete="on">
+      <input name="site" type="text" inputmode="url" placeholder="yourcompany.com" aria-label="Your website" required>
+      <button class="btn btn-dark" type="submit">Run my free report →</button>
+    </form>
+    <p class="microcopy">Checks ChatGPT · Perplexity · Claude · Google AI Overviews · Grok · Copilot</p>
+  </div></section>
+</main>
+
+<footer class="site"><div class="wrap foot">
+  <span>© <span id="yr"></span> Ralf</span>
+  <div class="links">
+    <a href="/">Home</a><a href="/pricing">Pricing</a><a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a><a href="/terms">Terms</a>
+  </div>
+</div></footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // Normalise the entered domain and hand off to the live trial with it prefilled.
+  function toReport(value){
+    var v = (value || '').trim();
+    if(!v) return;
+    v = v.replace(/^https?:\/\//i,'').replace(/^www\./i,'').replace(/\/.*$/,'').trim();
+    if(!v || v.indexOf('.') === -1) return; // need a plausible domain
+    window.location.href = 'https://app.ralfhq.com/try?site=' + encodeURIComponent(v);
+  }
+  ['reportForm','reportForm2'].forEach(function(id){
+    var f = document.getElementById(id);
+    if(!f) return;
+    f.addEventListener('submit', function(e){ e.preventDefault(); toReport(f.querySelector('input[name=site]').value); });
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"WebPage","@id":"https://ralfhq.com/free-aeo-report","name":"Free AI Visibility Report","description":"Run a free AI visibility (AEO) report across ChatGPT, Perplexity, Claude, Google AI Overviews, Grok and Copilot.","url":"https://ralfhq.com/free-aeo-report"},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is an AEO / AI visibility report?","acceptedAnswer":{"@type":"Answer","text":"AEO — Answer Engine Optimisation — is SEO for AI assistants. The report shows whether AI tools like ChatGPT and Google's AI Overviews mention your business when people ask for recommendations."}},
+      {"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The report runs a live scan across all six engines at no cost and with no card. You only pay if you decide to have Ralf improve your visibility afterwards."}},
+      {"@type":"Question","name":"Do I need to create an account?","acceptedAnswer":{"@type":"Answer","text":"No. You enter your website and the report runs straight away. We email you a link so you can come back to it."}},
+      {"@type":"Question","name":"How accurate is it?","acceptedAnswer":{"@type":"Answer","text":"The scan queries the real AI engines live and reads your actual site content, so it reflects what buyers see today."}}
+    ]}
+  ]
+}
+</script>
+</body></html>
