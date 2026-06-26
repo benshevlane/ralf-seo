@@ -286,6 +286,21 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 .bd-reveal{} 
 .tw-anim .bd-reveal{opacity:0;transform:translateY(5px)}
 .tw-anim.tw-done .bd-reveal{opacity:1;transform:none;transition:opacity .5s ease,transform .5s ease}
+.cmp{overflow-x:auto}
+@media(max-width:720px){
+  .cmp:not(.cards) table{min-width:520px}
+  .cmp.cards{overflow:visible}
+  .cmp.cards table,.cmp.cards tbody,.cmp.cards tr,.cmp.cards td{display:block;width:auto}
+  .cmp.cards thead{display:none}
+  .cmp.cards tr{border:1px solid var(--line);border-radius:12px;padding:12px 15px;margin-bottom:10px}
+  .cmp.cards td{padding:0;border:none}
+  .cmp.cards td.col-us{background:none}
+  .cmp.cards td.feat{font-weight:600;font-size:14.5px;margin-bottom:8px;padding-bottom:9px;border-bottom:1px solid var(--line);text-align:left}
+  .cmp.cards td:not(.feat){display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0;font-size:13px;text-align:right}
+  .cmp.cards td:not(.feat)::before{content:attr(data-label);color:var(--mut);font-family:var(--mono);font-size:11px;letter-spacing:.02em;text-align:left;text-transform:none}
+  .cmp.cards td.col-us:not(.feat){font-weight:600}
+  .cmp.cards td.col-us:not(.feat)::before{color:var(--ink)}
+}
 </style>
 <style>
   /* Direction B — Editorial / Calm: asymmetric left hero, stacked numbered blocks */
@@ -1058,5 +1073,6 @@ window.RalfTw = (function(){
 
 
 
+<script>(function(){var t=document.querySelector('.cmp table');if(!t)return;var heads=[].slice.call(t.querySelectorAll('thead th')).map(function(th){return (th.textContent||'').replace(/\s+/g,' ').trim();});[].slice.call(t.querySelectorAll('tbody tr')).forEach(function(tr){[].slice.call(tr.children).forEach(function(td,ix){if(ix>0)td.setAttribute('data-label',heads[ix]||'');});});var c=t.closest('.cmp');if(c)c.classList.add('cards');})();</script>
 </body>
 </html>
