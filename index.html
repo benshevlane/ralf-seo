@@ -307,6 +307,14 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 .dgx.in .cite:nth-child(2){transition-delay:.18s}
 .dgx.in .cite:nth-child(3){transition-delay:.31s}
 .dgx.in .cite:nth-child(4){transition-delay:.44s}
+.exp-pri{position:absolute;top:0;left:0;width:73%}
+.exp-sec{position:absolute;right:0;bottom:0;width:52%;z-index:3;box-shadow:0 14px 36px rgba(0,0,0,.10);opacity:0;transform:translateY(10px)}
+.expanel.is-active .exp-sec{opacity:1;transform:none;transition:opacity .55s ease .4s,transform .55s ease .4s}
+.rav{width:28px;height:28px;border-radius:50%;background:var(--wash);font-family:var(--display);font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;flex:0 0 28px}
+.stick{width:20px;height:20px;border-radius:6px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;flex:0 0 20px}
+.sxp{font-family:var(--mono);font-size:10px;background:var(--ink);color:var(--paper);border-radius:999px;padding:3px 9px}
+.sxpo{font-family:var(--mono);font-size:10px;border:1px solid var(--line);color:var(--mut);border-radius:999px;padding:3px 9px}
+@media(max-width:900px){.exp-pri{width:100%;position:relative}.exp-sec{position:relative;width:88%;margin:14px 0 0 auto;bottom:auto;right:auto}.exstage{min-height:0}}
 </style>
 <style>
   /* Direction B — Editorial / Calm: asymmetric left hero, stacked numbered blocks */
@@ -368,7 +376,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   #execution .exbar{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--ink)}
   #execution .extab.is-active .exbar{width:100%}
 
-  #execution .exstage{position:relative;min-height:336px}
+  #execution .exstage{position:relative;min-height:480px}
   #execution .expanel{position:absolute;inset:0;opacity:0;transform:translateY(10px) scale(.995);
     transition:opacity .5s ease,transform .5s cubic-bezier(.22,.61,.36,1);pointer-events:none}
   #execution .expanel.is-active{opacity:1;transform:none;pointer-events:auto}
@@ -640,7 +648,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
       <p class="lead">Monitoring is the easy part. Ralf turns every gap into finished work — then ships it the moment you approve.</p>
       <div class="extabs" role="tablist"><button class="extab is-active" data-i="0" role="tab"><span class="exn">01</span><span class="ext"><span class="exh">Draft outreach</span><span class="exs">Citation &amp; backlink opportunities</span></span><span class="exbar"></span></button><button class="extab" data-i="1" role="tab"><span class="exn">02</span><span class="ext"><span class="exh">Write content for gaps</span><span class="exs">Keyword &amp; backlink gaps</span></span><span class="exbar"></span></button><button class="extab" data-i="2" role="tab"><span class="exn">03</span><span class="ext"><span class="exh">Fix site structure</span><span class="exs">Schema, headings &amp; internal links</span></span><span class="exbar"></span></button></div>
     </div>
-    <div class="exstage"><div class="mm expanel is-active" data-i="0">
+    <div class="exstage"><div class="expanel is-active" data-i="0"><div class="mm exp-pri">
         <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">outreach · citation opportunity</span></div>
         <div class="mm-body mail" style="padding:20px 20px">
           <div class="mm-h">Outreach draft ready</div>
@@ -650,7 +658,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
           </div>
           <div class="kwrow"><span class="tag">draft ready</span><span class="tag gap">+1 citation source</span></div>
         </div>
-      </div><div class="mm expanel" data-i="1"><div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">blog post · drafting</span></div><div class="mm-body" style="padding:20px 22px"><div class="mm-h">Drafting a blog post · keyword gap</div><div class="bdh1"><span class="tw">API monitoring in 2026: the engineer’s guide</span><span class="tw-caret"></span></div><div class="bdmeta"><span class="bdtag">BLOG</span><span>in your voice</span><span>·</span><span>~6 min read</span><span>·</span><span>SEO + AEO structured</span></div><div class="bdrule"></div><div class="bdh2 bd-reveal">What to look for in a monitoring tool</div><div class="bdp bd-reveal">When an API degrades, you usually hear it from customers first — unless you’re watching. Here’s what to track, and how to choose.</div><div class="bdli bd-reveal"><span class="bddot"></span>Sub-minute alerting across every region</div><div class="bdli bd-reveal"><span class="bddot"></span>Uptime, latency &amp; error-rate SLAs you can prove</div><div class="bdli bd-reveal"><span class="bddot"></span>Incident webhooks into Slack &amp; PagerDuty</div><div class="dline bd-reveal" style="width:84%;margin-top:4px"></div><div class="bdfoot bd-reveal"><div class="kwrow" style="margin:0"><span class="tag gap">gap · "API monitoring tools"</span><span class="tag">fact-checked</span></div><span class="bdpub">Publish to WordPress &#8594;</span></div></div></div><div class="mm expanel" data-i="2">
+      </div><div class="mm exp-sec"><div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">reply received</span></div><div class="mm-body" style="padding:15px 17px"><div style="display:flex;align-items:center;gap:10px"><span class="rav">NA</span><div><div style="font-weight:600;font-size:13px">nordicapis.com</div><div style="font-size:12px;color:var(--mut2)">&ldquo;Happy to include Pingstack&rdquo;</div></div></div><div style="margin-top:11px"><span class="sxp">interested</span> <span style="font-family:var(--mono);font-size:10px;color:var(--mut2)">&middot; auto-logged</span></div></div></div></div><div class="expanel" data-i="1"><div class="mm exp-pri"><div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">blog post · drafting</span></div><div class="mm-body" style="padding:20px 22px"><div class="mm-h">Drafting a blog post · keyword gap</div><div class="bdh1"><span class="tw">API monitoring in 2026: the engineer’s guide</span><span class="tw-caret"></span></div><div class="bdmeta"><span class="bdtag">BLOG</span><span>in your voice</span><span>·</span><span>~6 min read</span><span>·</span><span>SEO + AEO structured</span></div><div class="bdrule"></div><div class="bdh2 bd-reveal">What to look for in a monitoring tool</div><div class="bdp bd-reveal">When an API degrades, you usually hear it from customers first — unless you’re watching. Here’s what to track, and how to choose.</div><div class="bdli bd-reveal"><span class="bddot"></span>Sub-minute alerting across every region</div><div class="bdli bd-reveal"><span class="bddot"></span>Uptime, latency &amp; error-rate SLAs you can prove</div><div class="bdli bd-reveal"><span class="bddot"></span>Incident webhooks into Slack &amp; PagerDuty</div><div class="dline bd-reveal" style="width:84%;margin-top:4px"></div><div class="bdfoot bd-reveal"><div class="kwrow" style="margin:0"><span class="tag gap">gap · "API monitoring tools"</span><span class="tag">fact-checked</span></div><span class="bdpub">Publish to WordPress &#8594;</span></div></div></div><div class="mm exp-sec"><div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">published</span></div><div class="mm-body" style="padding:15px 17px"><div style="display:flex;align-items:center;gap:10px"><span class="stick">&#10003;</span><div><div style="font-weight:600;font-size:12.5px">Live on yoursite.com</div><div style="font-size:11.5px;color:var(--mut2)">WordPress &middot; schema + internal links</div></div></div><div style="margin-top:10px"><span class="sxpo">indexed</span> <span class="sxpo">2 backlinks queued</span></div></div></div></div><div class="expanel" data-i="2"><div class="mm exp-pri">
         <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">site structure · fixes</span></div>
         <div class="mm-body" style="padding:20px 20px">
           <div class="mm-h">Technical fixes applied</div>
@@ -659,7 +667,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
           <div class="fix"><span class="fx run">↻</span><div><div class="fl">Internal links</div><div class="fs">12 added across cornerstone pages</div></div><span class="live"><span class="pulse"></span>running</span></div>
           <div class="fix"><span class="fx ok">✓</span><div><div class="fl">Meta titles &amp; descriptions</div><div class="fs">rewritten for 9 pages</div></div></div>
         </div>
-      </div></div>
+      </div><div class="mm exp-sec"><div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">site health</span></div><div class="mm-body" style="padding:15px 17px;display:flex;align-items:center;gap:14px"><div><div style="font-family:var(--display);font-weight:700;font-size:30px;line-height:1">92</div><div style="font-family:var(--mono);font-size:9px;color:var(--mut2)">/100</div></div><div style="font-size:12.5px"><div style="font-weight:600">Site Health</div><div style="font-family:var(--mono);font-size:11px">&#9650; +14 this week</div></div></div></div></div></div>
   </div>
 </section>
 
@@ -1043,7 +1051,7 @@ window.RalfTw = (function(){
   var panels = [].slice.call(sec.querySelectorAll('.expanel'));
   if(!tabs.length) return;
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var DURATION = 4200, timer = null, cur = 0, seen = false;
+  var DURATION = 5200, timer = null, cur = 0, seen = false;
 
   function show(i){
     cur = i;
