@@ -316,6 +316,8 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 .sxp{font-family:var(--mono);font-size:10px;background:var(--ink);color:var(--paper);border-radius:999px;padding:3px 9px}
 .sxpo{font-family:var(--mono);font-size:10px;border:1px solid var(--line);color:var(--mut);border-radius:999px;padding:3px 9px}
 @media(max-width:900px){.exp-pri{width:100%;position:relative}.exp-sec{position:relative;width:88%;margin:14px 0 0 auto;bottom:auto;right:auto}.exstage{min-height:0}}
+#execution .grid{align-items:center}
+#execution .rail{padding:8px 0}
 </style>
 <style>
   /* Direction B — Editorial / Calm: asymmetric left hero, stacked numbered blocks */
@@ -377,7 +379,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   #execution .exbar{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--ink)}
   #execution .extab.is-active .exbar{width:100%}
 
-  #execution .exstage{position:relative;min-height:480px}
+  #execution .exstage{position:relative;min-height:430px}
   #execution .expanel{position:absolute;inset:0;opacity:0;transform:translateY(10px) scale(.995);
     transition:opacity .5s ease,transform .5s cubic-bezier(.22,.61,.36,1);pointer-events:none}
   #execution .expanel.is-active{opacity:1;transform:none;pointer-events:auto}
