@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How Ralf measures AI Search visibility — Methodology</title>
+<meta name="description" content="Exactly how Ralf tracks whether AI assistants name or cite your brand — the engines, the models, web-search grounding, cadence — and an honest account of the limitations.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://ralfhq.com/methodology">
+<link rel="icon" href="assets/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ralf">
+<meta property="og:title" content="How Ralf measures AI Search visibility">
+<meta property="og:description" content="The engines, models, web-search grounding and cadence behind Ralf's AI visibility numbers — and an honest account of the limitations.">
+<meta property="og:url" content="https://ralfhq.com/methodology">
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#1a1a1e;line-height:1.65;max-width:760px;margin:0 auto;padding:48px 24px 96px}
+  h1{font-size:32px;letter-spacing:-0.02em}h2{font-size:20px;margin-top:36px;letter-spacing:-0.01em}
+  p,li{font-size:15.5px;color:#3a3a42}li{margin:6px 0}.muted{color:#7a7a85;font-size:13.5px}
+  a{color:#0d7a72}.lead{font-size:17px;color:#2a2a30}
+  ul{padding-left:22px}
+</style>
+</head>
+<body>
+<p><a href="/">← ralfhq.com</a></p>
+<h1>How Ralf measures AI Search visibility</h1>
+<p class="muted">Last updated: 26 June 2026</p>
+
+<p class="lead">AI assistants like ChatGPT, Gemini and Perplexity are becoming a primary way people discover products. Ralf tracks whether they name or cite your brand when answering the questions your customers actually ask. This page explains exactly how we do that, why we make the choices we make, and — just as importantly — where the limits are. We'd rather you trust a smaller honest number than a flattering one you can't rely on.</p>
+
+<h2>What we measure</h2>
+<p>For each site we track a set of buyer-intent questions ("free room planner with measurements", "best AI tool for forecasting", and so on). We ask those questions to the leading AI engines and record two outcomes:</p>
+<ul>
+  <li><strong>Named</strong> — your brand appears in the answer text the reader sees. This is the strongest outcome.</li>
+  <li><strong>Cited</strong> — your website is shown as a clickable source under the answer. Only engines that reveal their sources (today, Perplexity) can report this.</li>
+</ul>
+<p>Your headline <strong>answer coverage</strong> is the share of all answers — every question checked on every engine — where you were named or cited. We also show it per question, per engine, per market, and as a share of voice against your tracked competitors.</p>
+
+<h2>How we run the scans</h2>
+<ul>
+  <li><strong>The six leading engines:</strong> ChatGPT, Google (Gemini / AI Overviews), Claude, Perplexity, Microsoft Copilot and Grok.</li>
+  <li><strong>Your exact questions:</strong> each question is sent to the model verbatim. We never add your brand name or any hint to the prompt — the only thing we add is a neutral instruction about the user's country and language.</li>
+  <li><strong>Via the model APIs:</strong> the consumer apps have no public API, so — like every tool in this category (Profound, Scrunch, HubSpot and others) — we query the underlying models through their APIs.</li>
+  <li><strong>With live web search on:</strong> every engine runs with browsing enabled, because that mirrors how these assistants increasingly answer real questions. The exact model used for each engine is disclosed in your dashboard (and changes as the engines evolve).</li>
+  <li><strong>Across your markets, on a schedule:</strong> each market you track is scanned on your plan's cadence (usually weekly), so the trend builds over time.</li>
+</ul>
+
+<h2>Why we built it this way</h2>
+<p><strong>Why web search is on.</strong> When a real person asks ChatGPT "what's the best free room planner?", the assistant increasingly browses the web before answering. Answers generated <em>without</em> browsing mostly reflect the model's training data and are noisy and unstable run-to-run. Browsing-grounded answers are closer to the modern assistant experience — but they come with a trade-off you should know about (below).</p>
+<p><strong>Why these models.</strong> We query each engine with a model that's representative of what that assistant actually serves users, and we disclose it. We don't quietly swap in a cheaper, weaker model and present it as the flagship — if a model changes, the disclosure changes with it.</p>
+
+<h2>The honest limitations</h2>
+<p>These are the things every buyer of an AI-visibility tool should understand, and that we hold ourselves to disclosing:</p>
+<ul>
+  <li><strong>API is not the consumer app.</strong> We query the models through their APIs, which is close to — but not identical to — what any one person sees in the ChatGPT or Gemini app on a given day. Treat the numbers as a representative signal, not a guarantee of one specific session.</li>
+  <li><strong>Browsing leans on your SEO.</strong> Because web search is on, the engines often surface and summarise whatever ranks for that query — frequently your own pages. That means your AI-visibility score partly reflects your search/SEO presence. A "cold", non-browsing ChatGPT session may not name you even when our grounded scan does. This is the single most important caveat: we're measuring AI search <em>with browsing</em>, which is a real and growing surface, but it is not the same as the model's unaided knowledge of your brand.</li>
+  <li><strong>AI answers are non-deterministic.</strong> Ask the same model the same question twice and you can get different answers. That's why we run repeatedly over time and show a range rather than a single false-precise number — a one-off result can mislead.</li>
+  <li><strong>Models change.</strong> The frontier models behind each engine are updated constantly. We update which model we query and always disclose the current one, so the data reflects today's engines, not last quarter's.</li>
+  <li><strong>"Cited" is only measurable where sources are shown.</strong> Most engines don't reveal the web sources behind their answers; today only Perplexity does. So our citation numbers are conservative — real citations on engines that hide their sources can't be counted.</li>
+  <li><strong>Copilot is approximated.</strong> Microsoft Copilot has no public API, so we approximate it with the model family it runs on. Treat its numbers as directional.</li>
+</ul>
+
+<h2>How to read your numbers well</h2>
+<p>Watch the <strong>trend and the range</strong>, not a single week's point. Use the <strong>question × engine map</strong> to find the specific questions and engines where you're absent — that whitespace is where content and digital-PR work pays off. And because browsing leans on search, improving the pages that already rank for your buyer questions is one of the most direct ways to lift your AI visibility.</p>
+
+<h2>Questions</h2>
+<p>Have a question about the methodology, or think a number looks wrong? Email <a href="mailto:hello@ralfhq.com">hello@ralfhq.com</a> — we'd rather fix it than defend it.</p>
+</body>
+</html>
