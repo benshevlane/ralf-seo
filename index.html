@@ -272,6 +272,16 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 .tw-caret{display:inline-block;width:2px;height:13px;background:var(--ink);vertical-align:-2px;margin-left:1px;animation:twbl 1s step-end infinite}
 .tw-done .tw-caret{display:none}
 @keyframes twbl{50%{opacity:0}}
+.bdh1{font-family:var(--display);font-weight:600;font-size:16px;line-height:1.25;letter-spacing:-.01em;color:var(--ink)}
+.bdmeta{font-family:var(--mono);font-size:10.5px;color:var(--mut2);margin-top:7px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.bdtag{background:var(--ink);color:var(--paper);border-radius:4px;padding:2px 6px;letter-spacing:.04em}
+.bdrule{height:1px;background:var(--line);margin:13px 0}
+.bdh2{font-family:var(--display);font-weight:600;font-size:13px;color:var(--ink);margin-bottom:8px}
+.bdp{font-size:12.5px;line-height:1.6;color:#4a4a44;margin-bottom:12px}
+.bdli{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:#33332e;margin-bottom:7px}
+.bddot{flex:0 0 5px;width:5px;height:5px;border-radius:50%;background:var(--ink);margin-top:7px}
+.bdfoot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap}
+.bdpub{font-size:12.5px;font-weight:600;background:var(--ink);color:var(--paper);border-radius:999px;padding:8px 15px;white-space:nowrap}
 </style>
 <style>
   /* Direction B — Editorial / Calm: asymmetric left hero, stacked numbered blocks */
@@ -603,48 +613,9 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
       <div class="big">03</div>
       <h2>Other tools stop at reporting. Ralf does the work to get the AIs promoting you.</h2>
       <p class="lead">Monitoring is the easy part. Ralf turns every gap into finished work — then ships it the moment you approve.</p>
-      <div class="extabs" role="tablist">
-        <button class="extab is-active" data-i="0" role="tab">
-          <span class="exn">01</span>
-          <span class="ext"><span class="exh">Fix site structure</span><span class="exs">Schema, headings &amp; internal links</span></span>
-          <span class="exbar"></span>
-        </button>
-        <button class="extab" data-i="1" role="tab">
-          <span class="exn">02</span>
-          <span class="ext"><span class="exh">Write content for gaps</span><span class="exs">Keyword &amp; backlink gaps</span></span>
-          <span class="exbar"></span>
-        </button>
-        <button class="extab" data-i="2" role="tab">
-          <span class="exn">03</span>
-          <span class="ext"><span class="exh">Draft outreach</span><span class="exs">Citation &amp; backlink opportunities</span></span>
-          <span class="exbar"></span>
-        </button>
-      </div>
+      <div class="extabs" role="tablist"><button class="extab is-active" data-i="0" role="tab"><span class="exn">01</span><span class="ext"><span class="exh">Draft outreach</span><span class="exs">Citation &amp; backlink opportunities</span></span><span class="exbar"></span></button><button class="extab" data-i="1" role="tab"><span class="exn">02</span><span class="ext"><span class="exh">Write content for gaps</span><span class="exs">Keyword &amp; backlink gaps</span></span><span class="exbar"></span></button><button class="extab" data-i="2" role="tab"><span class="exn">03</span><span class="ext"><span class="exh">Fix site structure</span><span class="exs">Schema, headings &amp; internal links</span></span><span class="exbar"></span></button></div>
     </div>
-    <div class="exstage">
-      <div class="mm expanel is-active" data-i="0">
-        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">site structure · fixes</span></div>
-        <div class="mm-body" style="padding:20px 20px">
-          <div class="mm-h">Technical fixes applied</div>
-          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">FAQ &amp; LocalBusiness schema</div><div class="fs">added to 6 pages</div></div></div>
-          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">Heading hierarchy</div><div class="fs">H1 / H2 restructured</div></div></div>
-          <div class="fix"><span class="fx run">↻</span><div><div class="fl">Internal links</div><div class="fs">12 added across cornerstone pages</div></div><span class="live"><span class="pulse"></span>running</span></div>
-          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">Meta titles &amp; descriptions</div><div class="fs">rewritten for 9 pages</div></div></div>
-        </div>
-      </div>
-      <div class="mm expanel" data-i="1">
-        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">content draft · in progress</span></div>
-        <div class="mm-body doc" style="padding:20px 20px">
-          <div class="mm-h">Drafting for a keyword gap</div>
-          <div class="dtitle"><span class="tw">API monitoring in 2026: the engineer’s guide</span><span class="tw-caret"></span></div>
-          <div class="dline" style="width:100%"></div>
-          <div class="dline" style="width:94%"></div>
-          <div class="dline" style="width:98%"></div>
-          <div class="dline" style="width:72%"></div>
-          <div class="kwrow"><span class="tag gap">gap · "API monitoring tools"</span><span class="tag">+2 backlink targets</span></div>
-        </div>
-      </div>
-      <div class="mm expanel" data-i="2">
+    <div class="exstage"><div class="mm expanel is-active" data-i="0">
         <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">outreach · citation opportunity</span></div>
         <div class="mm-body mail" style="padding:20px 20px">
           <div class="mm-h">Outreach draft ready</div>
@@ -655,8 +626,16 @@ One worth a look: Pingstack — sub-30-second alerts and 99.99% uptime tracking,
           </div>
           <div class="kwrow"><span class="tag">draft ready</span><span class="tag gap">+1 citation source</span></div>
         </div>
-      </div>
-    </div>
+      </div><div class="mm expanel" data-i="1"><div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">blog post · drafting</span></div><div class="mm-body" style="padding:20px 22px"><div class="mm-h">Drafting a blog post · keyword gap</div><div class="bdh1"><span class="tw">API monitoring in 2026: the engineer’s guide</span><span class="tw-caret"></span></div><div class="bdmeta"><span class="bdtag">BLOG</span><span>in your voice</span><span>·</span><span>~6 min read</span><span>·</span><span>SEO + AEO structured</span></div><div class="bdrule"></div><div class="bdh2">What to look for in a monitoring tool</div><div class="bdp">When an API degrades, you usually hear it from customers first — unless you’re watching. Here’s what to track, and how to choose.</div><div class="bdli"><span class="bddot"></span>Sub-minute alerting across every region</div><div class="bdli"><span class="bddot"></span>Uptime, latency &amp; error-rate SLAs you can prove</div><div class="bdli"><span class="bddot"></span>Incident webhooks into Slack &amp; PagerDuty</div><div class="dline" style="width:84%;margin-top:4px"></div><div class="bdfoot"><div class="kwrow" style="margin:0"><span class="tag gap">gap · "API monitoring tools"</span><span class="tag">fact-checked</span></div><span class="bdpub">Publish to WordPress &#8594;</span></div></div></div><div class="mm expanel" data-i="2">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">site structure · fixes</span></div>
+        <div class="mm-body" style="padding:20px 20px">
+          <div class="mm-h">Technical fixes applied</div>
+          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">FAQ &amp; LocalBusiness schema</div><div class="fs">added to 6 pages</div></div></div>
+          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">Heading hierarchy</div><div class="fs">H1 / H2 restructured</div></div></div>
+          <div class="fix"><span class="fx run">↻</span><div><div class="fl">Internal links</div><div class="fs">12 added across cornerstone pages</div></div><span class="live"><span class="pulse"></span>running</span></div>
+          <div class="fix"><span class="fx ok">✓</span><div><div class="fl">Meta titles &amp; descriptions</div><div class="fs">rewritten for 9 pages</div></div></div>
+        </div>
+      </div></div>
   </div>
 </section>
 
