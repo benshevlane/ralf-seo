@@ -523,7 +523,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   <div class="wrap row">
     <a class="brand" href="/" aria-label="Ralf home"><img class="brand-logo" src="/assets/ralf-logo.svg" alt="Ralf" width="78" height="28"></a>
     <div class="navlinks">
-      <div class="dd"><button class="dd-t" type="button" aria-haspopup="true">Product <span class="caret">&#9662;</span></button><div class="dd-menu"><a href="/search">Search</a><a href="/outreach">Outreach</a><a href="/content">Content</a><a href="/methodology">Methodology</a></div></div><a href="/pricing">Pricing</a><a href="/blog">Blog</a><a href="/#faq">FAQ</a>
+      <div class="dd"><button class="dd-t" type="button" aria-haspopup="true">Product <span class="caret">&#9662;</span></button><div class="dd-menu"><a href="/search">Search</a><a href="/outreach">Outreach</a><a href="/content">Content</a></div></div><a href="/pricing">Pricing</a><a href="/blog">Blog</a><a href="/#faq">FAQ</a>
     </div>
     <div class="navactions">
       <a class="signin" href="https://app.ralfhq.com/login">Sign in</a>
@@ -646,7 +646,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
           <div class="mm-h">Outreach draft ready</div>
           <div class="mrow"><span class="mk">To</span><span class="mv">editor@nordicapis.com</span></div>
           <div class="mrow"><span class="mk">Subject</span><span class="mv">Your 2026 API monitoring roundup — a suggestion</span></div>
-          <div class="mbody"><span class="tw">Hi — loved your 2026 API monitoring roundup. One to add: Pingstack — sub-30s alerts, 99.99% uptime tracking. Happy to share details.</span><span class="tw-caret"></span>
+          <div class="mbody"><span class="tw">Hi there — your 2026 API monitoring roundup is a genuinely useful resource. Would you consider including Pingstack? It offers sub-30-second alerting and 99.99% uptime tracking. Could I send over a short demo?</span><span class="tw-caret"></span>
           </div>
           <div class="kwrow"><span class="tag">draft ready</span><span class="tag gap">+1 citation source</span></div>
         </div>
@@ -1076,7 +1076,7 @@ window.RalfTw = (function(){
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(es){
       es.forEach(function(e){ if(e.isIntersecting){ if(!seen){ seen=true; if(window.RalfTw && !window.RalfTw.reduce && panels[cur]){ [].slice.call(panels[cur].querySelectorAll('.tw')).forEach(function(el){ window.RalfTw.play(el); }); } } start(); } else stop(); });
-    }, {threshold:.3});
+    }, {threshold:0});
     io.observe(sec);
   } else { start(); }
 })();
