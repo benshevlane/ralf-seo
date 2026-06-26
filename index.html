@@ -308,8 +308,9 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 .dgx.in .cite:nth-child(3){transition-delay:.31s}
 .dgx.in .cite:nth-child(4){transition-delay:.44s}
 .exp-pri{position:absolute;top:0;left:0;width:73%}
-.exp-sec{position:absolute;right:0;bottom:0;width:52%;z-index:3;box-shadow:0 14px 36px rgba(0,0,0,.10);opacity:0;transform:translateY(10px)}
-.expanel.is-active .exp-sec{opacity:1;transform:none;transition:opacity .55s ease .4s,transform .55s ease .4s}
+.exp-sec{position:absolute;right:0;bottom:0;width:52%;z-index:3;box-shadow:0 14px 36px rgba(0,0,0,.10)}
+.exp-hide .exp-sec{opacity:0;transform:translateY(10px)}
+.exp-hide .exp-sec.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease}
 .rav{width:28px;height:28px;border-radius:50%;background:var(--wash);font-family:var(--display);font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;flex:0 0 28px}
 .stick{width:20px;height:20px;border-radius:6px;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-size:12px;flex:0 0 20px}
 .sxp{font-family:var(--mono);font-size:10px;background:var(--ink);color:var(--paper);border-radius:999px;padding:3px 9px}
@@ -531,7 +532,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   <div class="wrap row">
     <a class="brand" href="/" aria-label="Ralf home"><img class="brand-logo" src="/assets/ralf-logo.svg" alt="Ralf" width="78" height="28"></a>
     <div class="navlinks">
-      <div class="dd"><button class="dd-t" type="button" aria-haspopup="true">Product <span class="caret">&#9662;</span></button><div class="dd-menu"><a href="/search">Search</a><a href="/outreach">Outreach</a><a href="/content">Content</a><a href="/methodology">Methodology</a></div></div><a href="/pricing">Pricing</a><a href="/blog">Blog</a><a href="/#faq">FAQ</a>
+      <div class="dd"><button class="dd-t" type="button" aria-haspopup="true">Product <span class="caret">&#9662;</span></button><div class="dd-menu"><a href="/search">Search</a><a href="/outreach">Outreach</a><a href="/content">Content</a></div></div><a href="/pricing">Pricing</a><a href="/blog">Blog</a><a href="/#faq">FAQ</a>
     </div>
     <div class="navactions">
       <a class="signin" href="https://app.ralfhq.com/login">Sign in</a>
@@ -765,7 +766,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
         <p class="ftag">Agentic SEO that doesn't just monitor AI search — it does the work. Get your business found by AI.</p>
       </div>
       <div><h4>Platform</h4><ul><li><a href="/search">Search</a></li><li><a href="/outreach">Outreach</a></li><li><a href="/content">Content</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="/blog">Blog</a></li><li><a href="compare.html">Compare</a></li><li><a href="/methodology">Methodology</a></li><li><a href="mailto:hello@ralfhq.com">Contact</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/blog">Blog</a></li><li><a href="compare.html">Compare</a></li><li><a href="mailto:hello@ralfhq.com">Contact</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2026 Ralf. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
   </div>
@@ -1029,10 +1030,10 @@ window.RalfTw = (function(){
     (function tick(){
       if(+el.getAttribute('data-tok')!==tok) return;
       if(i<=full.length){ el.textContent=full.slice(0,i); i++; setTimeout(tick, full.charAt(i-1)==='\n'?150:(15+Math.random()*34)); }
-      else { if(caret) caret.style.display='none'; if(mm) mm.classList.add('tw-done'); }
+      else { if(caret) caret.style.display='none'; if(mm) mm.classList.add('tw-done'); var pnl=el.closest('.expanel'); if(pnl){ var s=pnl.querySelector('.exp-sec'); if(s) s.classList.add('in'); } }
     })();
   }
-  function play(el){ if(!el) return; el.removeAttribute('data-typed'); var mm=el.closest('.mm'); if(mm) mm.classList.remove('tw-done'); el.textContent=''; type(el); }
+  function play(el){ if(!el) return; el.removeAttribute('data-typed'); var mm=el.closest('.mm'); if(mm) mm.classList.remove('tw-done'); var pnl=el.closest('.expanel'); if(pnl){ var s=pnl.querySelector('.exp-sec'); if(s) s.classList.remove('in'); } el.textContent=''; type(el); }
   if(reduce){ return { type:function(){}, play:function(){}, reduce:true }; }
   all.forEach(function(el){ el.textContent=''; });
   var loose = all.filter(function(el){ return !el.closest('.expanel'); });
@@ -1053,11 +1054,17 @@ window.RalfTw = (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var DURATION = 5200, timer = null, cur = 0, seen = false;
 
+  if(!reduce){ panels.forEach(function(p){ p.classList.add('exp-hide'); }); }
   function show(i){
     cur = i;
     tabs.forEach(function(t,ix){ t.classList.toggle('is-active', ix===i); });
     panels.forEach(function(p,ix){ p.classList.toggle('is-active', ix===i); });
-    if(seen && window.RalfTw && !window.RalfTw.reduce && panels[i]){ [].slice.call(panels[i].querySelectorAll('.tw')).forEach(function(el){ window.RalfTw.play(el); }); }
+    if(seen && window.RalfTw && !window.RalfTw.reduce && panels[i]){
+      var _tws=[].slice.call(panels[i].querySelectorAll('.tw'));
+      var _sec=panels[i].querySelector('.exp-sec'); if(_sec) _sec.classList.remove('in');
+      if(_tws.length){ _tws.forEach(function(el){ window.RalfTw.play(el); }); }
+      else if(_sec){ (function(p,s){ setTimeout(function(){ if(p.classList.contains('is-active')) s.classList.add('in'); }, 1300); })(panels[i],_sec); }
+    }
     if(!reduce){
       tabs.forEach(function(t,ix){
         var b = t.querySelector('.exbar');
