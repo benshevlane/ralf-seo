@@ -301,6 +301,12 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   .cmp.cards td.col-us:not(.feat){font-weight:600}
   .cmp.cards td.col-us:not(.feat)::before{color:var(--ink)}
 }
+.dgx .cite{opacity:0;transform:translateY(8px)}
+.dgx.in .cite{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease}
+.dgx.in .cite:nth-child(1){transition-delay:.05s}
+.dgx.in .cite:nth-child(2){transition-delay:.18s}
+.dgx.in .cite:nth-child(3){transition-delay:.31s}
+.dgx.in .cite:nth-child(4){transition-delay:.44s}
 </style>
 <style>
   /* Direction B — Editorial / Calm: asymmetric left hero, stacked numbered blocks */
@@ -640,8 +646,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
           <div class="mm-h">Outreach draft ready</div>
           <div class="mrow"><span class="mk">To</span><span class="mv">editor@nordicapis.com</span></div>
           <div class="mrow"><span class="mk">Subject</span><span class="mv">Your 2026 API monitoring roundup — a suggestion</span></div>
-          <div class="mbody"><span class="tw">Hi — I came across your 2026 API monitoring tools roundup; genuinely useful list.
-One worth a look: Pingstack — sub-30-second alerts and 99.99% uptime tracking, used by 4,000+ engineering teams. Could be a strong fit, happy to share details or a customer reference.</span><span class="tw-caret"></span>
+          <div class="mbody"><span class="tw">Hi — loved your 2026 API monitoring roundup. One to add: Pingstack — sub-30s alerts, 99.99% uptime tracking. Happy to share details.</span><span class="tw-caret"></span>
           </div>
           <div class="kwrow"><span class="tag">draft ready</span><span class="tag gap">+1 citation source</span></div>
         </div>
@@ -752,7 +757,7 @@ One worth a look: Pingstack — sub-30-second alerts and 99.99% uptime tracking,
         <p class="ftag">Agentic SEO that doesn't just monitor AI search — it does the work. Get your business found by AI.</p>
       </div>
       <div><h4>Platform</h4><ul><li><a href="/search">Search</a></li><li><a href="/outreach">Outreach</a></li><li><a href="/content">Content</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="/blog">Blog</a></li><li><a href="compare.html">Compare</a></li><li><a href="/methodology">Methodology</a></li><li><a href="mailto:hello@ralfhq.com">Contact</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/blog">Blog</a></li><li><a href="compare.html">Compare</a></li><li><a href="mailto:hello@ralfhq.com">Contact</a></li></ul></div>
     </div>
     <div class="foot-base"><span>© 2026 Ralf. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
   </div>
@@ -788,7 +793,10 @@ One worth a look: Pingstack — sub-30-second alerts and 99.99% uptime tracking,
   });
   document.querySelectorAll('.mm-anim .vfill').forEach(function(f){
     f.dataset.w = f.style.width || '0';
+    f.style.transition = 'none';
     f.style.width = '0';
+    void f.offsetWidth;
+    f.style.transition = '';
   });
   // capture target percentages, then zero them so they can climb up
   document.querySelectorAll('.mm-anim .vrow').forEach(function(row){
@@ -1007,21 +1015,24 @@ window.RalfTw = (function(){
   function type(el){
     if(!el || el.getAttribute('data-typed')) return;
     el.setAttribute('data-typed','1');
+    var tok=(+(el.getAttribute('data-tok')||0))+1; el.setAttribute('data-tok',tok);
     var full=el.getAttribute('data-full')||'', i=0, caret=el.parentNode.querySelector('.tw-caret'), mm=el.closest('.mm');
     if(caret) caret.style.display='inline-block';
     (function tick(){
+      if(+el.getAttribute('data-tok')!==tok) return;
       if(i<=full.length){ el.textContent=full.slice(0,i); i++; setTimeout(tick, full.charAt(i-1)==='\n'?150:(15+Math.random()*34)); }
       else { if(caret) caret.style.display='none'; if(mm) mm.classList.add('tw-done'); }
     })();
   }
-  if(reduce){ return { type:function(){}, reduce:true }; }
+  function play(el){ if(!el) return; el.removeAttribute('data-typed'); var mm=el.closest('.mm'); if(mm) mm.classList.remove('tw-done'); el.textContent=''; type(el); }
+  if(reduce){ return { type:function(){}, play:function(){}, reduce:true }; }
   all.forEach(function(el){ el.textContent=''; });
   var loose = all.filter(function(el){ return !el.closest('.expanel'); });
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ type(e.target); io.unobserve(e.target);} }); },{threshold:0.3});
     loose.forEach(function(el){ io.observe(el); });
   } else { loose.forEach(type); }
-  return { type:type, reduce:false };
+  return { type:type, play:play, reduce:false };
 })();
 </script>
 <script>
@@ -1038,7 +1049,7 @@ window.RalfTw = (function(){
     cur = i;
     tabs.forEach(function(t,ix){ t.classList.toggle('is-active', ix===i); });
     panels.forEach(function(p,ix){ p.classList.toggle('is-active', ix===i); });
-    if(seen && window.RalfTw && !window.RalfTw.reduce && panels[i]){ [].slice.call(panels[i].querySelectorAll('.tw')).forEach(function(el){ window.RalfTw.type(el); }); }
+    if(seen && window.RalfTw && !window.RalfTw.reduce && panels[i]){ [].slice.call(panels[i].querySelectorAll('.tw')).forEach(function(el){ window.RalfTw.play(el); }); }
     if(!reduce){
       tabs.forEach(function(t,ix){
         var b = t.querySelector('.exbar');
@@ -1064,7 +1075,7 @@ window.RalfTw = (function(){
   show(0);
   if('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){ if(!seen){ seen=true; if(window.RalfTw && !window.RalfTw.reduce && panels[cur]){ [].slice.call(panels[cur].querySelectorAll('.tw')).forEach(function(el){ window.RalfTw.type(el); }); } } start(); } else stop(); });
+      es.forEach(function(e){ if(e.isIntersecting){ if(!seen){ seen=true; if(window.RalfTw && !window.RalfTw.reduce && panels[cur]){ [].slice.call(panels[cur].querySelectorAll('.tw')).forEach(function(el){ window.RalfTw.play(el); }); } } start(); } else stop(); });
     }, {threshold:.3});
     io.observe(sec);
   } else { start(); }
@@ -1074,5 +1085,6 @@ window.RalfTw = (function(){
 
 
 <script>(function(){var t=document.querySelector('.cmp table');if(!t)return;var heads=[].slice.call(t.querySelectorAll('thead th')).map(function(th){return (th.textContent||'').replace(/\s+/g,' ').trim();});[].slice.call(t.querySelectorAll('tbody tr')).forEach(function(tr){[].slice.call(tr.children).forEach(function(td,ix){if(ix>0)td.setAttribute('data-label',heads[ix]||'');});});var c=t.closest('.cmp');if(c)c.classList.add('cards');})();</script>
+<script>(function(){var card=[].slice.call(document.querySelectorAll('.mm')).filter(function(m){return /competitor citations/.test(m.textContent);})[0];if(!card)return;var body=card.querySelector('.mm-body');if(!body)return;body.classList.add('dgx');if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){body.classList.add('in');return;}if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){body.classList.add('in');io.disconnect();}});},{threshold:.35});io.observe(body);}else{body.classList.add('in');}})();</script>
 </body>
 </html>
