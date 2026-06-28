@@ -406,7 +406,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   #execution .mail .mk{font-family:var(--mono);font-size:10.5px;color:var(--mut2);flex:0 0 60px;padding-top:1px}
   #execution .mail .mv{font-weight:500}
   #execution .mail .mbody{margin-top:12px}
-  @media(max-width:900px){#execution .exstage{min-height:0;margin-top:8px}#execution .expanel{position:static;opacity:1;transform:none;display:none}#execution .expanel.is-active{display:block}}
+  @media(max-width:900px){#execution .exstage{min-height:0;margin-top:8px}#execution .expanel{position:relative;inset:auto;opacity:1;transform:none;pointer-events:auto;margin-bottom:22px}#execution .expanel:last-child{margin-bottom:0}#execution .expanel{position:static;opacity:1;transform:none;display:none}#execution .expanel.is-active{display:block}}
 
   @media(max-width:900px){
     .heroB .grid{grid-template-columns:1fr;gap:48px}
@@ -644,7 +644,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
     <div class="met"><div class="ml">Referring domains</div><div class="mv">234 <i>&#9650;</i></div><div class="ms">unique linking sites</div></div>
     <div class="met"><div class="ml">Backlinks</div><div class="mv">213 <i>&#9650;</i></div><div class="ms">earned, not bought</div></div>
     <div class="met"><div class="ml">Visitors / mo</div><div class="mv">2.5k <i>&#9650;</i></div><div class="ms">on track for 3k</div></div>
-    <div class="met"><div class="ml">Keyword wins</div><div class="mv">12 <i>&#9650;</i></div><div class="ms">page-1 rankings</div></div>
+    <div class="met"><div class="ml">Ranking opportunities</div><div class="mv">12 <i>&#9650;</i></div><div class="ms">tracked &amp; targeted</div></div>
   </div>
   <div class="live">See it for yourself &mdash; <a href="https://freeroomplanner.com">freeroomplanner.com</a></div>
 </div>
@@ -1092,7 +1092,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 
 <script>
 window.RalfTw = (function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || window.innerWidth<=900;
   var all = [].slice.call(document.querySelectorAll('.tw'));
   all.forEach(function(el){ el.setAttribute('data-full', el.textContent); var mm=el.closest('.mm'); if(mm && !reduce) mm.classList.add('tw-anim'); });
   function type(el){
@@ -1124,7 +1124,7 @@ window.RalfTw = (function(){
   var tabs=[].slice.call(sec.querySelectorAll('.extab'));
   var panels=[].slice.call(sec.querySelectorAll('.expanel'));
   if(!tabs.length) return;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reduce=(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)||window.innerWidth<=900;
   var DURATION=6000, cur=0, timer=null, started=false;
   if(!reduce){ panels.forEach(function(p){ p.classList.add('exp-hide'); }); }
   function reveal(i){
