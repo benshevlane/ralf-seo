@@ -161,9 +161,6 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.032em;line-
 .cite{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0}
 .cite + .cite{border-top:1px solid var(--line2)}
 .cite .src{display:flex;align-items:center;gap:11px}
-.favi{width:26px;height:26px;border-radius:7px;background:var(--ink);color:var(--paper);
-  display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;flex:0 0 26px}
-.favi.g{background:var(--wash2);color:var(--ink)}
 .sname{font-size:13.5px;font-weight:500}
 .smeta{font-family:var(--mono);font-size:10.5px;color:var(--mut2);margin-top:1px}
 .tag{font-family:var(--mono);font-size:10.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut);white-space:nowrap}
@@ -313,12 +310,30 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   .cmp.cards td.col-us:not(.feat){font-weight:600}
   .cmp.cards td.col-us:not(.feat)::before{color:var(--ink)}
 }
-.dgx .cite{opacity:0;transform:translateY(8px)}
-.dgx.in .cite{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease}
-.dgx.in .cite:nth-child(1){transition-delay:.05s}
-.dgx.in .cite:nth-child(2){transition-delay:.18s}
-.dgx.in .cite:nth-child(3){transition-delay:.31s}
-.dgx.in .cite:nth-child(4){transition-delay:.44s}
+/* section 02 · animated opportunity loop card */
+#lc-card .lc-watch{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#lc-card .lc-scan{margin-left:auto;flex:0 0 auto;color:var(--mut2)}
+#lc-card #lc-q{transition:opacity .35s ease}
+#lc-card .lc-rows{min-height:352px}
+#lc-card .lc-row{align-items:flex-start;flex-wrap:wrap;min-height:78px;padding:12px 0}
+#lc-card .lc-row .src{min-width:0}
+#lc-card .lc-cat{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+#lc-card .lc-kind{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:lowercase;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+#lc-card .lc-via{font-family:var(--mono);font-size:10px;color:var(--mut2);white-space:nowrap}
+#lc-card .lc-yt{font-family:var(--mono);font-size:10.5px;color:var(--mut2);font-weight:400}
+#lc-card .lc-act{min-height:16px}
+#lc-card .lc-tags,#lc-card .lc-act{transition:opacity .5s ease}
+#lc-card .lc-tally{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:16px;padding-top:13px;font-family:var(--mono);font-size:10.5px;color:var(--mut)}
+#lc-card .lc-tally b{font-weight:700;color:var(--ink);transition:opacity .18s ease}
+#lc-card .lc-while{color:var(--mut2)}
+#lc-card.lc-anim .lc-row{opacity:0;transform:translateY(8px);transition:opacity .6s ease,transform .6s ease}
+#lc-card.lc-anim .lc-row.in{opacity:1;transform:none}
+@media(max-width:700px){
+  #lc-card .lc-row[data-row="3"]{display:none}
+  #lc-card .lc-rows{min-height:288px}
+  #lc-card .lc-row{min-height:88px}
+  #lc-card .lc-row .tags{justify-content:flex-start}
+}
 .exp-pri{position:absolute;top:0;left:0;width:73%}
 .exp-sec{position:absolute;right:0;bottom:0;width:52%;z-index:3;box-shadow:0 14px 36px rgba(0,0,0,.10)}
 .exp-hide .exp-sec{opacity:0;transform:translateY(10px)}
@@ -721,13 +736,16 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
       <p class="lead">Ralf watches the sources AI engines cite and the backlinks your competitors earn. Every place a rival is named and you're not becomes an opportunity in your queue — pitch drafted, target verified, ready to send. You approve; Ralf does the chasing.</p>
       <p></p>
     </div>
-    <div class="mm">
-      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">competitor gaps &rarr; outreach · "best API monitoring tool"</span></div>
+    <div class="mm" id="lc-card">
+      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t lc-watch">watching: <span id="lc-q">"best API monitoring tool"</span></span><span class="t lc-scan">scanning&hellip;</span></div>
       <div class="mm-body" style="padding:22px 24px">
-        <div class="cite"><div class="src"><span class="favi">1</span><div><div class="sname">g2.com</div><div class="smeta">cites 4 rivals — you’re listed too</div></div></div><span class="tag">covered</span></div>
-        <div class="cite"><div class="src"><span class="favi g">2</span><div><div class="sname">nordicapis.com</div><div class="smeta">cites Competitor A — you’re missing</div><div class="sact">outreach drafted — awaiting your approval</div></div></div><span class="tags"><span class="tag gap">gap</span><span class="tarr">→</span><span class="tag act">pitch drafted</span></span></div>
-        <div class="cite"><div class="src"><span class="favi g">3</span><div><div class="sname">news.ycombinator.com</div><div class="smeta">Competitor B linked — you’re missing</div><div class="sact">pitch sent · 2h ago — reply tracked for you</div></div></div><span class="tags"><span class="tag gap">gap</span><span class="tarr">→</span><span class="tag act">sent 2h ago</span></span></div>
-        <div class="cite"><div class="src"><span class="favi">4</span><div><div class="sname">your website</div><div class="smeta">cited 6× — strengthen content</div></div></div><span class="tag">covered</span></div>
+        <div class="lc-rows">
+          <div class="cite lc-row" data-row="0"><div class="src"><div><div class="lc-cat"><span class="lc-kind">citation</span><span class="lc-via">via competitor scan</span></div><div class="sname">nordicapis.com</div><div class="smeta">cites Competitor A — you’re not mentioned</div><div class="sact lc-act"></div></div></div><span class="tags lc-tags"><span class="tag gap">gap</span></span></div>
+          <div class="cite lc-row" data-row="1"><div class="src"><div><div class="lc-cat"><span class="lc-kind">backlink</span><span class="lc-via">via competitor scan</span></div><div class="sname">devblog.io</div><div class="smeta">links Competitor B — you’re missing</div><div class="sact lc-act"></div></div></div><span class="tags lc-tags"><span class="tag gap">gap</span></span></div>
+          <div class="cite lc-row" data-row="2"><div class="src"><div><div class="lc-cat"><span class="lc-kind">citation</span><span class="lc-via">via AI answer scan</span></div><div class="sname">g2.com</div><div class="smeta">source AI engines cite — you’re absent</div><div class="sact lc-act"></div></div></div><span class="tags lc-tags"><span class="tag gap">gap</span></span></div>
+          <div class="cite lc-row" data-row="3"><div class="src"><div><div class="lc-cat"><span class="lc-kind">youtube</span><span class="lc-via">via creator match</span></div><div class="sname">roomtourdaily <span class="lc-yt">· YouTube</span></div><div class="smeta">covers competitor tools — you’re not featured</div><div class="sact lc-act"></div></div></div><span class="tags lc-tags"><span class="tag gap">gap</span></span></div>
+        </div>
+        <div class="lc-tally"><span class="lc-counts">found <b id="lc-n-found">23</b> · drafted <b id="lc-n-drafted">9</b> · sent <b id="lc-n-sent">4</b> · links live <b id="lc-n-live">2</b></span><span class="lc-while">while you did something else</span></div>
       </div>
     </div>
   </div>
@@ -1175,6 +1193,77 @@ window.RalfTw = (function(){
 
 
 <script>(function(){var t=document.querySelector('.cmp table');if(!t)return;var heads=[].slice.call(t.querySelectorAll('thead th')).map(function(th){return (th.textContent||'').replace(/\s+/g,' ').trim();});[].slice.call(t.querySelectorAll('tbody tr')).forEach(function(tr){[].slice.call(tr.children).forEach(function(td,ix){if(ix>0)td.setAttribute('data-label',heads[ix]||'');});});var c=t.closest('.cmp');if(c)c.classList.add('cards');})();</script>
-<script>(function(){var card=[].slice.call(document.querySelectorAll('.mm')).filter(function(m){return /competitor citations/.test(m.textContent);})[0];if(!card)return;var body=card.querySelector('.mm-body');if(!body)return;body.classList.add('dgx');if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){body.classList.add('in');return;}if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){body.classList.add('in');io.disconnect();}});},{threshold:.35});io.observe(body);}else{body.classList.add('in');}})();</script>
+<script>
+/* section 02 · animated opportunity loop card */
+(function(){
+  var card=document.getElementById('lc-card');if(!card)return;
+  var rows=[].slice.call(card.querySelectorAll('.lc-row'));
+  var qEl=document.getElementById('lc-q');
+  var nEls={found:document.getElementById('lc-n-found'),drafted:document.getElementById('lc-n-drafted'),sent:document.getElementById('lc-n-sent'),live:document.getElementById('lc-n-live')};
+  var counts={found:23,drafted:9,sent:4,live:2};
+  var queries=['"best API monitoring tool"','"API uptime monitoring"','"synthetic API testing tools"'];
+  var qi=0;
+  var ST={
+    gap:{chips:'<span class="tag gap">gap</span>',act:''},
+    drafted:{chips:'<span class="tag gap">gap</span><span class="tarr">→</span><span class="tag act">pitch drafted</span>',act:'outreach drafted — awaiting your approval'},
+    sent:{chips:'<span class="tag gap">gap</span><span class="tarr">→</span><span class="tag act">sent</span>',act:'pitch sent · reply tracked for you'},
+    replied:{chips:'<span class="tag act">replied</span><span class="tarr">→</span><span class="tag act">terms agreed</span>',act:'said yes — details negotiated for you'},
+    won:{chips:'<span class="tag gap">won · link live</span>',act:'backlink verified live — DR 33'}
+  };
+  function setStage(i,st,instant){
+    var tags=rows[i].querySelector('.lc-tags'),act=rows[i].querySelector('.lc-act');
+    if(instant){tags.innerHTML=ST[st].chips;act.textContent=ST[st].act;return;}
+    tags.style.opacity=0;act.style.opacity=0;
+    later(function(){tags.innerHTML=ST[st].chips;act.textContent=ST[st].act;tags.style.opacity=1;act.style.opacity=1;},500);
+  }
+  function paint(){for(var k in nEls)nEls[k].textContent=counts[k];}
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)){
+    /* static completed state: all rows visible at final stages, counters as-is */
+    setStage(0,'won',true);setStage(1,'sent',true);setStage(2,'drafted',true);setStage(3,'gap',true);
+    paint();return;
+  }
+  card.classList.add('lc-anim');
+  var timers=[];
+  function later(fn,ms){timers.push(setTimeout(fn,ms));}
+  function clearTimers(){timers.forEach(clearTimeout);timers=[];}
+  function tick(key){
+    counts[key]++;
+    var el=nEls[key];el.style.opacity=.15;
+    later(function(){el.textContent=counts[key];el.style.opacity=1;},180);
+  }
+  function swapQuery(){
+    qi=(qi+1)%queries.length;
+    qEl.style.opacity=0;
+    later(function(){qEl.textContent=queries[qi];qEl.style.opacity=1;},350);
+  }
+  function arrive(i){rows[i].classList.add('in');tick('found');}
+  function runLoop(){
+    rows.forEach(function(r,i){r.classList.remove('in');setStage(i,'gap',true);});
+    later(function(){arrive(0);},400);
+    later(function(){arrive(1);},2200);
+    later(function(){setStage(0,'drafted');tick('drafted');},3200);
+    later(function(){arrive(2);},4000);
+    later(function(){setStage(1,'drafted');tick('drafted');},5000);
+    later(function(){arrive(3);},5800);
+    later(function(){setStage(0,'sent');tick('sent');},6600);
+    later(swapQuery,7200);
+    later(function(){setStage(2,'drafted');tick('drafted');},7600);
+    later(function(){setStage(0,'replied');},9200);
+    later(function(){setStage(1,'sent');tick('sent');},10000);
+    later(function(){setStage(0,'won');tick('live');},11600);
+    later(function(){rows.forEach(function(r){r.classList.remove('in');});},14000);
+    later(function(){swapQuery();runLoop();},14800);
+  }
+  var active=false;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting&&!active){active=true;runLoop();}
+      else if(!e.isIntersecting&&active){active=false;clearTimers();}
+    });
+  },{threshold:.3});
+  io.observe(card);
+})();
+</script>
 </body>
 </html>
