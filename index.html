@@ -168,6 +168,10 @@ h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.032em;line-
 .smeta{font-family:var(--mono);font-size:10.5px;color:var(--mut2);margin-top:1px}
 .tag{font-family:var(--mono);font-size:10.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut);white-space:nowrap}
 .tag.gap{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.cite .tags{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tarr{font-family:var(--mono);font-size:10px;color:var(--mut2)}
+.tag.act{border-color:var(--ink);color:var(--ink);background:var(--paper)}
+.sact{font-family:var(--mono);font-size:10.5px;color:var(--ink);margin-top:3px}
 
 /* agent flow nodes */
 .flow{display:flex;flex-direction:column;gap:0}
@@ -337,6 +341,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
   .heroB .grid{display:grid;grid-template-columns:1.04fr .96fr;gap:60px;align-items:center}
   .heroB h1{font-size:clamp(40px,5.6vw,72px);line-height:1.0;max-width:13ch;margin-top:24px}
   .heroB .sub{font-size:clamp(16px,1.4vw,19px);color:var(--mut);line-height:1.6;max-width:46ch;margin-top:24px}
+  .heroB .herokick{margin-top:22px;color:var(--mut)}
   .heroB .ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
   .heroB .note{margin-top:16px;font-family:var(--mono);font-size:11.5px;color:var(--mut2);letter-spacing:.03em}
   .heroB .stack{position:relative}
@@ -433,6 +438,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
     .heroB.anim .copy > *:nth-child(3){animation-delay:.16s}
     .heroB.anim .copy > *:nth-child(4){animation-delay:.24s}
     .heroB.anim .copy > *:nth-child(5){animation-delay:.32s}
+    .heroB.anim .copy > *:nth-child(6){animation-delay:.4s}
     .heroB.anim .stack .mm{opacity:0;transform:translateY(22px) scale(.99);animation:b-rise .9s cubic-bezier(.22,.61,.36,1) both}
     .heroB.anim .stack .mm.pad{animation-delay:.34s}
     .heroB.anim .stack .mm.float{
@@ -547,15 +553,16 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 @media(max-width:780px){.sp-top{grid-template-columns:1fr;gap:16px}}
 .sp .speye{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut2);display:flex;align-items:center;gap:6px}
 .sp .speye b{width:5px;height:5px;border-radius:50%;background:var(--ink);display:inline-block}
-.sp .sph{font-family:var(--display);font-weight:600;font-size:25px;line-height:1.18;letter-spacing:-.02em;margin:8px 0 0;max-width:40ch}
-.sp .quote{font-size:18px;line-height:1.5;color:var(--ink);margin:12px 0 0;max-width:64ch}
+.sp .sph{font-family:var(--display);font-weight:600;font-size:clamp(28px,3.4vw,36px);line-height:1.12;letter-spacing:-.02em;margin:10px 0 0;max-width:40ch}
+.sp .quote{font-size:clamp(19px,1.8vw,21px);line-height:1.55;color:var(--ink);margin:14px 0 0;max-width:60ch}
 .sp .by{display:flex;align-items:center;gap:9px;margin-top:11px}
 .sp .spav{width:30px;height:30px;border-radius:50%;background:var(--wash);font-family:var(--display);font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center}
 .sp .byt{font-size:12px}.sp .byt b{font-weight:600}.sp .byt span{color:var(--mut2);display:block;font-size:11px}
+.sp .spbadge{display:inline-flex;align-items:center;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--ink);border-radius:999px;padding:5px 13px;margin-top:13px;color:var(--ink)}
 .sp .chart{border:1px solid var(--line);border-radius:11px;background:#fff;padding:10px 10px 4px}
 .sp .chart .ct{font-size:10px;color:var(--mut2);font-family:var(--mono);margin:0 4px 3px}
-.sp .mets{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:14px}
-@media(max-width:620px){.sp .mets{grid-template-columns:repeat(3,1fr)}}
+.sp .mets{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:14px}
+@media(max-width:860px){.sp .mets{grid-template-columns:repeat(3,1fr)}}
 .sp .met{background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
 .sp .met .ml{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut2)}
 .sp .met .mv{font-family:var(--display);font-weight:700;font-size:20px;letter-spacing:-1px;margin-top:3px;display:flex;align-items:baseline;gap:3px}
@@ -589,6 +596,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
     <div class="copy">
       <span class="eyebrow"><span class="dot"></span>Agentic SEO — built to execute</span>
       <h1>Get your business found by <span class="rotator"><span class="rot-fallback">AI</span></span></h1>
+      <span class="eyebrow herokick">Not just another AI search dashboard</span>
       <p class="sub">When someone asks ChatGPT or Gemini for a business like yours, are you the answer? Ralf doesn't just track that — it fixes your site structure, writes content for your keyword and backlink gaps, and drafts the outreach to earn citations.</p>
       <div class="ctas">
         <a class="btn lg" href="https://app.ralfhq.com/login?mode=signup">Start free trial <span class="arr">→</span></a>
@@ -645,6 +653,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
       <div class="sph">From launch to 200 visitors a day &mdash; in three months.</div>
       <div class="quote">&ldquo;I launched freeroomplanner.com and handed the SEO to Ralf. Three months later it&rsquo;s doing 200 visitors a day and climbing &mdash; and I haven&rsquo;t written an article or chased a backlink myself.&rdquo;</div>
       <div class="by"><span class="spav">FR</span><div class="byt"><b>Founder, FreeRoomPlanner.com</b><span>launched on Ralf &middot; Apr 2026</span></div></div>
+      <div class="spbadge">No paid ads. No agencies. Ralf only.</div>
     </div>
     <div class="chart"><div class="ct">Daily visitors &middot; last 30 days (GA4)</div><svg id="spchart" viewBox="0 0 360 360" width="100%" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg></div>
   </div>
@@ -654,6 +663,7 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
     <div class="met"><div class="ml">Backlinks</div><div class="mv">213 <i>&#9650;</i></div><div class="ms">earned, not bought</div></div>
     <div class="met"><div class="ml">Visitors / mo</div><div class="mv">6k <i>&#9650;</i></div><div class="ms">on track for 7k</div></div>
     <div class="met"><div class="ml">Ranking opportunities</div><div class="mv">12 <i>&#9650;</i></div><div class="ms">tracked &amp; targeted</div></div>
+    <div class="met"><div class="ml">Paid ad spend</div><div class="mv">&pound;0</div><div class="ms">no ads, no agency</div></div>
   </div>
   <div class="live">See it for yourself &mdash; <a href="https://freeroomplanner.com">freeroomplanner.com</a></div>
 </div>
@@ -707,16 +717,16 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
     <div class="rail">
       <div class="ix">Diagnosis</div>
       <div class="big">02</div>
-      <h2>See exactly where your rivals get cited.</h2>
-      <p class="lead">Ralf tracks the sources AI engines cite and the backlinks your competitors have earned — then shows every place a rival is named or linked and you're not. Every gap becomes a clear, prioritised action you can approve in a click.</p>
+      <h2>Every gap becomes outreach &mdash; automatically.</h2>
+      <p class="lead">Ralf watches the sources AI engines cite and the backlinks your competitors earn. Every place a rival is named and you're not becomes an opportunity in your queue — pitch drafted, target verified, ready to send. You approve; Ralf does the chasing.</p>
       <p></p>
     </div>
     <div class="mm">
-      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">competitor citations &amp; backlinks · "best API monitoring tool"</span></div>
+      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">competitor gaps &rarr; outreach · "best API monitoring tool"</span></div>
       <div class="mm-body" style="padding:22px 24px">
         <div class="cite"><div class="src"><span class="favi">1</span><div><div class="sname">g2.com</div><div class="smeta">cites 4 rivals — you’re listed too</div></div></div><span class="tag">covered</span></div>
-        <div class="cite"><div class="src"><span class="favi g">2</span><div><div class="sname">nordicapis.com</div><div class="smeta">cites Competitor A — you’re missing</div></div></div><span class="tag gap">gap</span></div>
-        <div class="cite"><div class="src"><span class="favi g">3</span><div><div class="sname">news.ycombinator.com</div><div class="smeta">Competitor B linked — you’re missing</div></div></div><span class="tag gap">gap</span></div>
+        <div class="cite"><div class="src"><span class="favi g">2</span><div><div class="sname">nordicapis.com</div><div class="smeta">cites Competitor A — you’re missing</div><div class="sact">outreach drafted — awaiting your approval</div></div></div><span class="tags"><span class="tag gap">gap</span><span class="tarr">→</span><span class="tag act">pitch drafted</span></span></div>
+        <div class="cite"><div class="src"><span class="favi g">3</span><div><div class="sname">news.ycombinator.com</div><div class="smeta">Competitor B linked — you’re missing</div><div class="sact">pitch sent · 2h ago — reply tracked for you</div></div></div><span class="tags"><span class="tag gap">gap</span><span class="tarr">→</span><span class="tag act">sent 2h ago</span></span></div>
         <div class="cite"><div class="src"><span class="favi">4</span><div><div class="sname">your website</div><div class="smeta">cited 6× — strengthen content</div></div></div><span class="tag">covered</span></div>
       </div>
     </div>
