@@ -310,6 +310,23 @@ footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
 .bf-i:focus{outline:none;border-color:var(--ink)}
 select.bf-i{cursor:pointer}
 .bf-err{margin-top:12px;font-size:12.5px;color:#b3261e;background:#fbeae8;border:1px solid #f0c9c4;border-radius:10px;padding:9px 12px}
+.bf-hint{display:block;margin-top:6px;font-size:11.5px;font-weight:400;color:var(--mut2);line-height:1.5}
+/* ---- /beta founding pricing ---------------------------------------------- */
+.bp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+@media(max-width:860px){.bp-grid{grid-template-columns:1fr}}
+.bp{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:24px 22px;display:flex;flex-direction:column}
+.bp.feat{border-color:var(--ink);box-shadow:0 22px 60px -42px rgba(18,18,18,.35)}
+.bp-name{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.bp-badge{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 9px;border-radius:999px}
+.bp-free{font-family:var(--display);font-weight:600;font-size:40px;letter-spacing:-.03em;margin-top:16px;line-height:1}
+.bp-freelbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);margin-top:9px}
+.bp-rows{margin-top:18px;border-top:1px solid var(--line2);padding-top:12px}
+.bp-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;color:var(--mut)}
+.bp-row b{color:var(--ink);font-weight:700;font-family:var(--mono);font-size:13px;white-space:nowrap}
+.bp-row .was{text-decoration:line-through;color:var(--mut2);font-family:var(--mono);font-size:12px;margin-right:7px;font-weight:400}
+.bp-inc{margin-top:16px;border-top:1px solid var(--line2);padding-top:13px;font-size:13px;color:var(--mut);line-height:1.75}
+.bp-inc b{color:var(--ink);font-weight:600}
+.bp-note{margin-top:22px;font-family:var(--mono);font-size:11.5px;color:var(--mut2);letter-spacing:.02em;line-height:1.7}
 </style>
 </head>
 <body>
@@ -334,7 +351,7 @@ select.bf-i{cursor:pointer}
     <p class="sub">Ralf watches where AI engines and your competitors earn their citations and backlinks, then runs the outreach for you &mdash; discovered, drafted, sent, and negotiated at a volume no team could do by hand. You approve; Ralf chases.</p>
     <div class="ctas">
       <a class="btn lg" href="#apply">Apply for the beta <span class="arr">&#8594;</span></a>
-      <a class="btn lg ghost" href="#offer">See the founding offer</a>
+      <a class="btn lg ghost" href="#pricing">See the founding offer &amp; pricing</a>
     </div>
     <div class="note">20 places &#183; month 1 free &#183; months 2&ndash;3 at 50% off &#183; one website per account</div>
   </div>
@@ -367,6 +384,61 @@ select.bf-i{cursor:pointer}
   </div>
 </section>
 
+<!-- FOUNDING PRICING -->
+<section class="sec-line" id="pricing" style="padding:82px 0">
+  <div class="wrap" style="max-width:1020px">
+    <div class="kicker"><span class="ix">Beta pricing</span> &#183; what it costs, plainly</div>
+    <h2 class="h-sec">Month 1 free. Months 2&ndash;3 at half price.</h2>
+    <p class="lead" style="margin-top:12px">Beta places run on the full Ralf Suite &mdash; Search, Content and Outreach together. Nothing to pay to apply, and nothing to pay in month one. Pick your tier on your onboarding call.</p>
+    <div class="bp-grid">
+      <div class="bp">
+        <div class="bp-name">Suite Starter</div>
+        <div class="bp-free">$0</div>
+        <div class="bp-freelbl">Month 1 &#183; free</div>
+        <div class="bp-rows">
+          <div class="bp-row"><span>Months 2&ndash;3</span><b><span class="was">$137</span>$68.50/mo</b></div>
+          <div class="bp-row"><span>From month 4</span><b>$137/mo</b></div>
+        </div>
+        <div class="bp-inc">
+          <b>Search</b> 25 prompts / week &#183; 6 engines<br>
+          <b>Content</b> 15 articles / month<br>
+          <b>Outreach</b> 50 prospects / month
+        </div>
+      </div>
+      <div class="bp feat">
+        <div class="bp-name">Suite Growth<span class="bp-badge">Most beta teams</span></div>
+        <div class="bp-free">$0</div>
+        <div class="bp-freelbl">Month 1 &#183; free</div>
+        <div class="bp-rows">
+          <div class="bp-row"><span>Months 2&ndash;3</span><b><span class="was">$357</span>$178.50/mo</b></div>
+          <div class="bp-row"><span>From month 4</span><b>$357/mo</b></div>
+        </div>
+        <div class="bp-inc">
+          <b>Search</b> 75 prompts / week &#183; 20 competitors<br>
+          <b>Content</b> 40 articles / month<br>
+          <b>Outreach</b> 200 prospects / month
+        </div>
+      </div>
+      <div class="bp">
+        <div class="bp-name">Suite Pro</div>
+        <div class="bp-free">$0</div>
+        <div class="bp-freelbl">Month 1 &#183; free</div>
+        <div class="bp-rows">
+          <div class="bp-row"><span>Months 2&ndash;3</span><b><span class="was">$747</span>$373.50/mo</b></div>
+          <div class="bp-row"><span>From month 4</span><b>$747/mo</b></div>
+        </div>
+        <div class="bp-inc">
+          <b>Search</b> 150 prompts / week &#183; 10 markets<br>
+          <b>Content</b> 100 articles / month<br>
+          <b>Outreach</b> 500 prospects / month
+        </div>
+      </div>
+    </div>
+    <p class="bp-note">One website per beta account &#183; cancel any time &#183; no contract &#183; no card taken to apply.<br>
+    Need more? Suite Scale (500 prompts/wk &#183; 250 articles &#183; 1,200 prospects) starts at $1,697/mo &mdash; <a href="mailto:hello@ralfhq.com?subject=Ralf%20beta%20%E2%80%94%20Scale">talk to us</a>. Prefer a single product? <a href="/pricing">See standard pricing</a>.</p>
+  </div>
+</section>
+
 <!-- APPLY -->
 <section class="sec-line" id="apply" style="padding:88px 0 96px">
   <div class="wrap" style="max-width:640px">
@@ -388,6 +460,12 @@ select.bf-i{cursor:pointer}
               <option value="inhouse_seo">In-house SEO team</option>
               <option value="founder_other">Founder or other</option>
             </select></label>
+            <label class="bf-l">Do you use, or are you open to using, Instantly.ai for email outreach?<select class="bf-i" name="instantly" required>
+              <option value="" disabled selected>Choose one&hellip;</option>
+              <option value="uses_instantly">Yes &mdash; we already use Instantly</option>
+              <option value="open_to_it">No &mdash; but we&rsquo;re open to it</option>
+              <option value="prefer_not">No &mdash; we&rsquo;d rather not</option>
+            </select><span class="bf-hint">Ralf sends outreach through your own Instantly account. Without it, Ralf still drafts every email and hands you the copy and the recipient &mdash; you press send.</span></label>
             <label class="bf-l">What would make this a win for you in 90 days?<input class="bf-i" type="text" name="goal" placeholder="e.g. 15 new citations on pages AI engines already trust"></label>
             <div class="bf-err" id="beta-err" hidden></div>
             <button class="btn" type="submit" id="beta-submit" style="width:100%;justify-content:center;margin-top:18px">Apply for the beta <span class="arr">&#8594;</span></button>
@@ -438,18 +516,20 @@ select.bf-i{cursor:pointer}
     var email = form.email.value.trim();
     var website = form.website.value.trim();
     var role = form.role.value;
+    var instantly = form.instantly.value;
     var goal = form.goal.value.trim();
     function fail(msg){ err.textContent = msg; err.hidden = false; }
     if(!name) return fail('Please enter your name.');
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Please enter a valid email address.');
     if(!website || website.indexOf('.') === -1) return fail('Please enter your website.');
     if(!role) return fail('Please tell us which best describes you.');
+    if(!instantly) return fail('Please answer the Instantly.ai question.');
     err.hidden = true;
     btn.disabled = true; btn.textContent = 'Applying…';
     fetch(ENDPOINT, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name: name, email: email, website: website, kind: 'beta_application', role: role, goal: goal || null})
+      body: JSON.stringify({name: name, email: email, website: website, kind: 'beta_application', role: role, instantly: instantly, goal: goal || null})
     })
       .then(function(r){ return r.json().then(function(d){ return {ok: r.ok, d: d}; }); })
       .then(function(res){
