@@ -347,8 +347,8 @@ select.bf-i{cursor:pointer}
 <header class="beta-hero">
   <div class="wrap" style="max-width:940px">
     <div class="kicker"><span class="ix">Ralf</span> &#183; Private beta &#183; 20 places</div>
-    <h1>Flood your inbox with AI citation and backlink opportunities.</h1>
-    <p class="sub">Ralf watches where AI engines and your competitors earn their citations and backlinks, then runs the outreach for you &mdash; discovered, drafted, sent, and negotiated at a volume no team could do by hand. You approve; Ralf chases.</p>
+    <h1>Ralf does the SEO work. You just approve it.</h1>
+    <p class="sub">Ralf finds the sites AI engines cite and the sites linking to your competitors but not you &mdash; then writes the pitch, sends it from your own mailbox, and chases the reply. Discovery, drafting, sending and follow-up, at a volume no team does by hand.</p>
     <div class="ctas">
       <a class="btn lg" href="#apply">Apply for the beta <span class="arr">&#8594;</span></a>
       <a class="btn lg ghost" href="#pricing">See the founding offer &amp; pricing</a>
@@ -356,6 +356,57 @@ select.bf-i{cursor:pointer}
     <div class="note">20 places &#183; month 1 free &#183; months 2&ndash;3 at 50% off &#183; one website per account</div>
   </div>
 </header>
+
+<!-- PROOF -->
+<section class="sec-line" id="proof" style="padding:72px 0">
+  <div class="wrap" style="max-width:1020px">
+    <div class="kicker"><span class="ix">Proof</span> &#183; a real Ralf customer, 90 days</div>
+    <h2 class="h-sec">They wrote nothing. They chased nothing.</h2>
+    <p class="lead" style="margin-top:12px">Ralf planned the content, wrote it, published it, found the link prospects, wrote the pitches and chased the replies. The customer approved the work and got on with their day.</p>
+    <div style="margin-top:26px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center">
+      <img src="/assets/proof-90-days.png" width="1200" height="1200" loading="lazy"
+           alt="90 days on Ralf: 0 articles written by the customer, 0 backlinks chased, 200 visitors a day"
+           style="width:100%;height:auto;border-radius:14px;border:1px solid var(--ln)">
+      <div>
+        <div class="mm flat">
+          <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">what the customer did</span></div>
+          <div class="mm-body">
+            <p class="beta-card-p"><b>0 articles written.</b><br><b>0 backlinks chased.</b><br><b>0 pitches sent by hand.</b></p>
+            <p class="beta-card-p" style="margin-top:14px;color:var(--mut)">They approved what Ralf proposed. That was the job.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec-wash sec-line" id="how" style="padding:76px 0">
+  <div class="wrap" style="max-width:1020px">
+    <div class="kicker"><span class="ix">How it works</span> &#183; three things, on repeat</div>
+    <h2 class="h-sec">Find the opportunity. Write the pitch. Chase the reply.</h2>
+    <div class="beta-two" style="margin-top:26px">
+      <div class="mm flat">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">1 &#183; it finds</span></div>
+        <div class="mm-body">
+          <p class="beta-card-p">Ralf asks the AI engines the questions your buyers ask, and records who gets named. Then it looks at who links to your competitors &mdash; and not to you. Those are your openings.</p>
+        </div>
+      </div>
+      <div class="mm flat">
+        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">2 &#183; it writes</span></div>
+        <div class="mm-body">
+          <p class="beta-card-p">A real email to a real person, referencing the actual page it wants the link on. Not a template with your name pasted in. You read it before it goes.</p>
+        </div>
+      </div>
+    </div>
+    <div class="mm flat" style="margin-top:18px">
+      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">3 &#183; it sends, and keeps going</span></div>
+      <div class="mm-body">
+        <p class="beta-card-p">Sent from your own mailbox, so replies come to you. Ralf follows up, handles the back-and-forth, and tells you when a link lands. It also writes and publishes the content the whole thing hangs on. <b>You approve; Ralf chases.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- WHO / OFFER -->
 <section class="sec-wash sec-line" id="offer" style="padding:76px 0">
@@ -504,6 +555,31 @@ select.bf-i{cursor:pointer}
   // Same endpoint + fetch/header pattern as the waitlist modal on /pricing
   // (project ewkrubluzctsfnkxnmsj — see benshevlane/agent-dashboard-suite,
   // supabase/functions/waitlist-submit).
+  // ---- Ad attribution -------------------------------------------------------
+  // The Reddit ads land here with ?utm_source=reddit&utm_content=chart... but those values
+  // vanish the moment the visitor clicks anything, so every application was arriving
+  // unattributed — we could not tell a paid lead from an organic one, let alone which
+  // creative earned it. Capture on first load, persist for the session, send with the form.
+  var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  function captureUtm(){
+    try {
+      var q = new URLSearchParams(window.location.search), found = false, store = {};
+      for (var i = 0; i < UTM_KEYS.length; i++) {
+        var v = q.get(UTM_KEYS[i]);
+        if (v) { store[UTM_KEYS[i]] = String(v).slice(0, 200); found = true; }
+      }
+      if (!found) return;                       // don't clobber a tag captured earlier in the session
+      store.landing_url = String(window.location.href).slice(0, 500);
+      store.referrer = document.referrer ? String(document.referrer).slice(0, 500) : null;
+      window.sessionStorage.setItem('ralf_utm', JSON.stringify(store));
+    } catch (e) { /* private mode / storage disabled — attribution is best-effort, never fatal */ }
+  }
+  function readUtm(){
+    try { return JSON.parse(window.sessionStorage.getItem('ralf_utm') || '{}'); }
+    catch (e) { return {}; }
+  }
+  captureUtm();
+
   var ENDPOINT = 'https://ewkrubluzctsfnkxnmsj.supabase.co/functions/v1/waitlist-submit';
   var form = document.getElementById('beta-form'); if(!form) return;
   var err = document.getElementById('beta-err');
@@ -529,7 +605,10 @@ select.bf-i{cursor:pointer}
     fetch(ENDPOINT, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({name: name, email: email, website: website, kind: 'beta_application', role: role, instantly: instantly, goal: goal || null})
+      body: JSON.stringify(Object.assign(
+        {name: name, email: email, website: website, kind: 'beta_application', role: role, instantly: instantly, goal: goal || null},
+        readUtm()
+      ))
     })
       .then(function(r){ return r.json().then(function(d){ return {ok: r.ok, d: d}; }); })
       .then(function(res){
