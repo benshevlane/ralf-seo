@@ -10,6 +10,11 @@
       "source": "/free-aeo-report.html",
       "destination": "/beta",
       "permanent": false
+    },
+    {
+      "source": "/apply",
+      "destination": "/beta?utm_source=reddit&utm_medium=cpc&utm_campaign=beta_launch&utm_content=text",
+      "permanent": false
     }
   ]
 }
