@@ -1,3 +1,15 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/free-aeo-report",
+      "destination": "/beta",
+      "permanent": false
+    },
+    {
+      "source": "/free-aeo-report.html",
+      "destination": "/beta",
+      "permanent": false
+    }
+  ]
 }
