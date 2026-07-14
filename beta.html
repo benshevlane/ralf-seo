@@ -568,9 +568,29 @@ select.bf-i{cursor:pointer}
         var v = q.get(UTM_KEYS[i]);
         if (v) { store[UTM_KEYS[i]] = String(v).slice(0, 200); found = true; }
       }
+      var ref = document.referrer ? String(document.referrer) : '';
+
+      // Reddit REFUSES a click_url on free-form (text) ads — the link has to sit in the post body,
+      // so those clicks arrive with NO tags at all and would be filed as 'organic/unknown'. But they
+      // still arrive FROM reddit.com, and the image ads always carry ?utm_content=..., so an
+      // untagged visit with a Reddit referrer is identifiable by elimination.
+      //
+      // Labelled honestly: 'untagged' rather than 'text', because this same bucket would also catch
+      // an organic Reddit share. Today there is no organic Reddit presence, so in practice it is the
+      // text ad — but the data shouldn't assert something it can't actually prove.
+      if (!found && /(^|\.)reddit\.com$/i.test((function(){
+            try { return new URL(ref).hostname; } catch (e) { return ''; }
+          })())) {
+        store.utm_source  = 'reddit';
+        store.utm_medium  = 'referral';
+        store.utm_campaign = 'beta_launch';
+        store.utm_content = 'untagged';
+        found = true;
+      }
+
       if (!found) return;                       // don't clobber a tag captured earlier in the session
       store.landing_url = String(window.location.href).slice(0, 500);
-      store.referrer = document.referrer ? String(document.referrer).slice(0, 500) : null;
+      store.referrer = ref ? ref.slice(0, 500) : null;
       window.sessionStorage.setItem('ralf_utm', JSON.stringify(store));
     } catch (e) { /* private mode / storage disabled — attribution is best-effort, never fatal */ }
   }
