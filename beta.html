@@ -328,6 +328,17 @@ select.bf-i{cursor:pointer}
 .bp-inc b{color:var(--ink);font-weight:600}
 .bp-note{margin-top:22px;font-family:var(--mono);font-size:11.5px;color:var(--mut2);letter-spacing:.02em;line-height:1.7}
 </style>
+<style>
+.mail .mrow{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid var(--line2);font-size:12.5px}
+.mail .mk{font-family:var(--mono);font-size:10.5px;color:var(--mut2);flex:0 0 58px;padding-top:1px}
+.mail .mv{font-weight:500}
+.mail .mbody{margin-top:12px}
+.mail .tw{font-family:var(--body);font-weight:400;font-size:12.5px;line-height:1.6;color:#33332e;white-space:pre-wrap}
+.mail .tw-caret{display:inline-block;width:2px;height:12px;background:var(--ink);vertical-align:-2px;margin-left:1px}
+.mail .kwrow{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.how3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:30px;align-items:start}
+.how3 .steplbl{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--mut2);margin-bottom:12px}
+</style>
 </head>
 <body>
 <nav class="bar">
@@ -343,203 +354,95 @@ select.bf-i{cursor:pointer}
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO + FORM (above the fold) -->
 <header class="beta-hero">
-  <div class="wrap" style="max-width:940px">
+  <div class="wrap" style="max-width:1000px">
     <div class="kicker"><span class="ix">Ralf</span> &#183; Private beta &#183; 20 places</div>
-    <h1>Ralf does the SEO work. You just approve it.</h1>
-    <p class="sub">Ralf finds the sites AI engines cite and the sites linking to your competitors but not you &mdash; then writes the pitch, sends it from your own mailbox, and chases the reply. Discovery, drafting, sending and follow-up, at a volume no team does by hand.</p>
-    <div class="ctas">
-      <a class="btn lg" href="#apply">Apply for the beta <span class="arr">&#8594;</span></a>
-      <a class="btn lg ghost" href="#pricing">See the founding offer &amp; pricing</a>
+    <h1 style="font-size:clamp(42px,6.4vw,74px);line-height:1.02;max-width:16ch">Get named by AI. We do the work.</h1>
+    <p class="sub" style="font-size:clamp(18px,1.7vw,22px);max-width:60ch;margin-top:20px">ChatGPT and Perplexity keep recommending your competitors &mdash; not you. Ralf finds the links and citations that change that, writes the outreach, and sends it from your own mailbox. You just approve.</p>
+
+    <div id="beta-form-wrap" style="margin-top:30px">
+      <form id="beta-form-b" novalidate style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;max-width:680px">
+        <input class="bf-i" type="email" name="email" required placeholder="Work email" autocomplete="email" style="flex:1 1 240px;height:54px;font-size:16px;margin-top:0">
+        <input class="bf-i" type="text" name="website" required placeholder="yourcompany.com" autocomplete="url" style="flex:1 1 240px;height:54px;font-size:16px;margin-top:0">
+        <button class="btn lg" type="submit" id="beta-submit-b" style="height:54px;font-size:16px;white-space:nowrap">Apply for the beta <span class="arr">&#8594;</span></button>
+      </form>
+      <div class="bf-err" id="beta-err-b" hidden></div>
+      <div class="note" style="margin-top:14px">15 seconds to apply &#183; month 1 free &#183; months 2&ndash;3 at 50% off &#183; we grab the rest once you&rsquo;re in</div>
     </div>
-    <div class="note">20 places &#183; month 1 free &#183; months 2&ndash;3 at 50% off &#183; one website per account</div>
+
+    <div id="beta-done" hidden style="margin-top:30px;max-width:680px">
+      <div class="mm flat"><div class="mm-body" style="display:flex;gap:14px;align-items:center">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 44px">&#10003;</div>
+        <div><p style="font-family:var(--display);font-weight:600;font-size:19px;margin:0">Application received</p>
+        <p id="beta-done-msg" style="font-size:14px;color:var(--mut);margin:4px 0 0">We review weekly and invite best-fit teams by email.</p></div>
+      </div></div>
+    </div>
   </div>
 </header>
 
-<!-- PROOF -->
-<section class="sec-line" id="proof" style="padding:72px 0">
-  <div class="wrap" style="max-width:1020px">
-    <div class="kicker"><span class="ix">Proof</span> &#183; a real Ralf customer, 90 days</div>
-    <h2 class="h-sec">They wrote nothing. They chased nothing.</h2>
-    <p class="lead" style="margin-top:12px">Ralf planned the content, wrote it, published it, found the link prospects, wrote the pitches and chased the replies. The customer approved the work and got on with their day.</p>
-    <div style="margin-top:26px;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center">
-      <img src="/assets/proof-90-days.png" width="1200" height="1200" loading="lazy"
-           alt="90 days on Ralf: 0 articles written by the customer, 0 backlinks chased, 400 visitors a day"
-           style="width:100%;height:auto;border-radius:14px;border:1px solid var(--ln)">
+<!-- PROOF (compact) -->
+<section class="sec-wash sec-line" style="padding:64px 0">
+  <div class="wrap" style="max-width:1000px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center">
+    <img src="/assets/proof-90-days.png" width="1200" height="1200" loading="lazy"
+         alt="90 days on Ralf: 0 articles written, 0 backlinks chased, 400 visitors a day"
+         style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line)">
+    <div>
+      <div class="kicker" style="margin-bottom:14px">A real Ralf customer &#183; 90 days</div>
+      <p style="font-size:clamp(20px,2vw,26px);line-height:1.45;color:var(--ink)">Zero articles written. Zero backlinks chased. <b>400 visitors a day</b> &mdash; in three months. They approved the work; Ralf did it.</p>
+    </div>
+  </div>
+    <div class="wrap" style="max-width:1000px;margin-top:34px">
+      <img src="/assets/ahrefs-freeroomplanner.png" loading="lazy"
+           alt="Ahrefs Web Analytics for freeroomplanner.com — 19.6K views and 8.3K unique visitors over 90 days, growing from near zero to around 400 a day"
+           style="width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:0 22px 60px -42px rgba(18,18,18,.35)">
+      <div class="mono" style="font-size:11.5px;color:var(--mut2);text-align:center;margin-top:12px;letter-spacing:.03em">The real numbers &#183; Ahrefs &#183; freeroomplanner.com &#183; last 90 days</div>
+    </div>
+  </section>
+
+<!-- HOW (3 short) -->
+<section style="padding:64px 0 8px">
+  <div class="wrap" style="max-width:1000px">
+    <h2 class="h-sec" style="font-size:clamp(26px,3.2vw,40px)">Find the opening. Write the pitch. Chase the reply.</h2>
+    <div class="how3">
+
       <div>
-        <div class="mm flat">
-          <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">what the customer did</span></div>
-          <div class="mm-body">
-            <p class="beta-card-p"><b>0 articles written.</b><br><b>0 backlinks chased.</b><br><b>0 pitches sent by hand.</b></p>
-            <p class="beta-card-p" style="margin-top:14px;color:var(--mut)">They approved what Ralf proposed. That was the job.</p>
+        <div class="steplbl">01 &#183; it finds the opening</div>
+        <div class="mm">
+          <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">citations &amp; backlinks</span></div>
+          <div class="mm-body" style="padding:16px 18px">
+            <div class="cite"><div class="src"><span class="favi">1</span><div><div class="sname">g2.com</div><div class="smeta">you&rsquo;re listed</div></div></div><span class="tag">covered</span></div>
+            <div class="cite"><div class="src"><span class="favi g">2</span><div><div class="sname">nordicapis.com</div><div class="smeta">competitor cited &mdash; you&rsquo;re missing</div></div></div><span class="tag gap">gap</span></div>
+            <div class="cite"><div class="src"><span class="favi g">3</span><div><div class="sname">ycombinator.com</div><div class="smeta">rival linked &mdash; you&rsquo;re missing</div></div></div><span class="tag gap">gap</span></div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- HOW IT WORKS -->
-<section class="sec-wash sec-line" id="how" style="padding:76px 0">
-  <div class="wrap" style="max-width:1020px">
-    <div class="kicker"><span class="ix">How it works</span> &#183; three things, on repeat</div>
-    <h2 class="h-sec">Find the opportunity. Write the pitch. Chase the reply.</h2>
-    <div class="beta-two" style="margin-top:26px">
-      <div class="mm flat">
-        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">1 &#183; it finds</span></div>
-        <div class="mm-body">
-          <p class="beta-card-p">Ralf asks the AI engines the questions your buyers ask, and records who gets named. Then it looks at who links to your competitors &mdash; and not to you. Those are your openings.</p>
+      <div>
+        <div class="steplbl">02 &#183; it writes the pitch</div>
+        <div class="mm">
+          <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">draft &#183; personalised</span></div>
+          <div class="mm-body mail" style="padding:16px 18px">
+            <div class="mrow"><span class="mk">To</span><span class="mv">editor@nordicapis.com</span></div>
+            <div class="mrow"><span class="mk">Subject</span><span class="mv">Your 2026 API monitoring roundup</span></div>
+            <div class="mbody"><span class="tw">Hi &mdash; genuinely useful list. One worth a look: Pingstack &mdash; sub-30-second alerts, used by 4,000+ teams. Happy to share a reference.</span><span class="tw-caret"></span></div>
+            <div class="kwrow"><span class="tag">in your voice</span><span class="tag gap">+1 citation</span></div>
+          </div>
         </div>
       </div>
-      <div class="mm flat">
-        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">2 &#183; it writes</span></div>
-        <div class="mm-body">
-          <p class="beta-card-p">A real email to a real person, referencing the actual page it wants the link on. Not a template with your name pasted in. You read it before it goes.</p>
-        </div>
-      </div>
-    </div>
-    <div class="mm flat" style="margin-top:18px">
-      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">3 &#183; it sends, and keeps going</span></div>
-      <div class="mm-body">
-        <p class="beta-card-p">Sent from your own mailbox, so replies come to you. Ralf follows up, handles the back-and-forth, and tells you when a link lands. It also writes and publishes the content the whole thing hangs on. <b>You approve; Ralf chases.</b></p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- WHO / OFFER -->
-<section class="sec-wash sec-line" id="offer" style="padding:76px 0">
-  <div class="wrap" style="max-width:940px">
-    <div class="mm flat">
-      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">who this beta is for</span></div>
-      <div class="mm-body">
-        <p style="font-size:15.5px;line-height:1.65;color:var(--ink);max-width:72ch;margin:0">Agencies, GTM engineers, and in-house SEO teams treating SEO and AI search as a strategic growth channel &mdash; who want to radically increase backlink and citation opportunity discovery, and put the outreach itself on autopilot. You should be ready to send real outreach in week one and tell us what&rsquo;s broken.</p>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px"><span class="tag">Agencies</span><span class="tag">GTM engineers</span><span class="tag">In-house SEO teams</span></div>
-      </div>
-    </div>
-    <div class="beta-two">
-      <div class="mm flat">
-        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">the founding offer</span></div>
-        <div class="mm-body">
-          <p class="beta-card-p"><b>Month 1 free.</b> Months 2 and 3 at <b>50% off</b>. One website per beta account. Personal onboarding &mdash; you leave the setup call with live opportunities on screen, and <b>20% of your monthly allowance lands on day one</b>.</p>
+      <div>
+        <div class="steplbl">03 &#183; it sends &amp; chases</div>
+        <div class="mm">
+          <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">inbox &#183; replies</span></div>
+          <div class="mm-body" style="padding:16px 18px">
+            <div class="cite"><div class="src"><span class="favi">1</span><div><div class="sname">editor@nordicapis.com</div><div class="smeta">&ldquo;happy to add you&rdquo;</div></div></div><span class="tag">interested</span></div>
+            <div class="cite"><div class="src"><span class="favi g">2</span><div><div class="sname">apichangelog.com</div><div class="smeta">follow-up scheduled</div></div></div><span class="tag gap">on hold</span></div>
+            <div class="cite"><div class="src"><span class="favi">4</span><div><div class="sname">stackshare.io</div><div class="smeta">link live &mdash; verified</div></div></div><span class="tag">won</span></div>
+          </div>
         </div>
       </div>
-      <div class="mm flat">
-        <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">what we ask back</span></div>
-        <div class="mm-body">
-          <p class="beta-card-p"><b>15 minutes of honest feedback a week</b>, tolerance for a rough edge or two, and &mdash; if Ralf wins for you &mdash; a <b>case study</b> we can publish.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- FOUNDING PRICING -->
-<section class="sec-line" id="pricing" style="padding:82px 0">
-  <div class="wrap" style="max-width:1020px">
-    <div class="kicker"><span class="ix">Beta pricing</span> &#183; what it costs, plainly</div>
-    <h2 class="h-sec">Month 1 free. Months 2&ndash;3 at half price.</h2>
-    <p class="lead" style="margin-top:12px">Beta places run on the full Ralf Suite &mdash; Search, Content and Outreach together. Nothing to pay to apply, and nothing to pay in month one. Pick your tier on your onboarding call.</p>
-    <div class="bp-grid">
-      <div class="bp">
-        <div class="bp-name">Suite Starter</div>
-        <div class="bp-free">$0</div>
-        <div class="bp-freelbl">Month 1 &#183; free</div>
-        <div class="bp-rows">
-          <div class="bp-row"><span>Months 2&ndash;3</span><b><span class="was">$137</span>$68.50/mo</b></div>
-          <div class="bp-row"><span>From month 4</span><b>$137/mo</b></div>
-        </div>
-        <div class="bp-inc">
-          <b>Search</b> 25 prompts / week &#183; 6 engines<br>
-          <b>Content</b> 15 articles / month<br>
-          <b>Outreach</b> 50 prospects / month
-        </div>
-      </div>
-      <div class="bp feat">
-        <div class="bp-name">Suite Growth<span class="bp-badge">Most beta teams</span></div>
-        <div class="bp-free">$0</div>
-        <div class="bp-freelbl">Month 1 &#183; free</div>
-        <div class="bp-rows">
-          <div class="bp-row"><span>Months 2&ndash;3</span><b><span class="was">$357</span>$178.50/mo</b></div>
-          <div class="bp-row"><span>From month 4</span><b>$357/mo</b></div>
-        </div>
-        <div class="bp-inc">
-          <b>Search</b> 75 prompts / week &#183; 20 competitors<br>
-          <b>Content</b> 30 articles / month<br>
-          <b>Outreach</b> 200 prospects / month
-        </div>
-      </div>
-      <div class="bp">
-        <div class="bp-name">Suite Pro</div>
-        <div class="bp-free">$0</div>
-        <div class="bp-freelbl">Month 1 &#183; free</div>
-        <div class="bp-rows">
-          <div class="bp-row"><span>Months 2&ndash;3</span><b><span class="was">$747</span>$373.50/mo</b></div>
-          <div class="bp-row"><span>From month 4</span><b>$747/mo</b></div>
-        </div>
-        <div class="bp-inc">
-          <b>Search</b> 150 prompts / week &#183; 10 markets<br>
-          <b>Content</b> 50 articles / month<br>
-          <b>Outreach</b> 500 prospects / month
-        </div>
-      </div>
-    </div>
-    <p class="bp-note">One website per beta account &#183; cancel any time &#183; no contract &#183; no card taken to apply.<br>
-    Need more? Suite Scale (500 prompts/wk &#183; 100 articles &#183; 1,200 prospects) starts at $1,697/mo &mdash; <a href="mailto:hello@ralfhq.com?subject=Ralf%20beta%20%E2%80%94%20Scale">talk to us</a>. Prefer a single product? <a href="/pricing">See standard pricing</a>.</p>
-  </div>
-</section>
-
-<!-- APPLY -->
-<section class="sec-line" id="apply" style="padding:88px 0 96px">
-  <div class="wrap" style="max-width:640px">
-    <div class="kicker"><span class="ix">Step 1</span> &#183; Apply</div>
-    <h2 class="h-sec">Tell us where to send the opportunities.</h2>
-    <p class="lead" style="margin-top:12px">We review applications weekly and invite best-fit teams by email.</p>
-    <div class="mm flat" style="margin-top:28px">
-      <div class="mm-top"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">ralf &#183; beta application</span></div>
-      <div class="mm-body">
-        <div id="beta-form-wrap">
-          <form id="beta-form" novalidate>
-            <label class="bf-l" style="margin-top:2px">Name<input class="bf-i" type="text" name="name" required autocomplete="name"></label>
-            <label class="bf-l">Email<input class="bf-i" type="email" name="email" required autocomplete="email"></label>
-            <label class="bf-l">Website<input class="bf-i" type="text" name="website" required placeholder="yourcompany.com" autocomplete="url"></label>
-            <label class="bf-l">You are<select class="bf-i" name="role" required>
-              <option value="" disabled selected>Choose one&hellip;</option>
-              <option value="agency">Agency</option>
-              <option value="gtm_engineer">GTM engineer</option>
-              <option value="inhouse_seo">In-house SEO team</option>
-              <option value="founder_other">Founder or other</option>
-            </select></label>
-            <label class="bf-l">Do you use, or are you open to using, Instantly.ai for email outreach?<select class="bf-i" name="instantly" required>
-              <option value="" disabled selected>Choose one&hellip;</option>
-              <option value="uses_instantly">Yes &mdash; we already use Instantly</option>
-              <option value="open_to_it">No &mdash; but we&rsquo;re open to it</option>
-              <option value="prefer_not">No &mdash; we&rsquo;d rather not</option>
-            </select><span class="bf-hint">Ralf sends outreach through your own Instantly account. Without it, Ralf still drafts every email and hands you the copy and the recipient &mdash; you press send.</span></label>
-            <label class="bf-l">What would make this a win for you in 90 days?<input class="bf-i" type="text" name="goal" placeholder="e.g. 15 new citations on pages AI engines already trust"></label>
-            <div class="bf-err" id="beta-err" hidden></div>
-            <button class="btn" type="submit" id="beta-submit" style="width:100%;justify-content:center;margin-top:18px">Apply for the beta <span class="arr">&#8594;</span></button>
-          </form>
-          <form id="beta-form-b" novalidate hidden>
-            <label class="bf-l" style="margin-top:2px">Email<input class="bf-i" type="email" name="email" required autocomplete="email"></label>
-            <label class="bf-l">Website<input class="bf-i" type="text" name="website" required placeholder="yourcompany.com" autocomplete="url"></label>
-            <span class="bf-hint" style="display:block;margin-top:10px">Takes 15 seconds. We&rsquo;ll grab the rest once you&rsquo;re in.</span>
-            <div class="bf-err" id="beta-err-b" hidden></div>
-            <button class="btn" type="submit" id="beta-submit-b" style="width:100%;justify-content:center;margin-top:18px">Apply for the beta <span class="arr">&#8594;</span></button>
-          </form>
-        </div>
-        <div id="beta-done" hidden style="text-align:center;padding:26px 4px 18px">
-          <div style="width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:20px">&#10003;</div>
-          <h3 style="font-family:var(--display);font-weight:600;font-size:20px;letter-spacing:-.02em;margin:14px 0 6px">Application received</h3>
-          <p id="beta-done-msg" style="font-size:13.5px;color:var(--mut);margin:0">We review weekly and invite best-fit teams by email.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="beta-dashed">
-      <div class="kicker" style="margin-bottom:10px"><span class="ix">Step 2</span> &#183; Invited teams only</div>
-      <p class="beta-card-p">Selected teams receive a private sign-up link by email &mdash; account creation, the founding offer applied, and a booking link for your onboarding call.</p>
     </div>
   </div>
 </section>
@@ -559,136 +462,53 @@ select.bf-i{cursor:pointer}
 </footer>
 <script>
 (function(){
-  // Same endpoint + fetch/header pattern as the waitlist modal on /pricing
-  // (project ewkrubluzctsfnkxnmsj — see benshevlane/agent-dashboard-suite,
-  // supabase/functions/waitlist-submit).
-  // ---- Ad attribution -------------------------------------------------------
-  // The Reddit ads land here with ?utm_source=reddit&utm_content=chart... but those values
-  // vanish the moment the visitor clicks anything, so every application was arriving
-  // unattributed — we could not tell a paid lead from an organic one, let alone which
-  // creative earned it. Capture on first load, persist for the session, send with the form.
   var UTM_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
   function captureUtm(){
     try {
       var q = new URLSearchParams(window.location.search), found = false, store = {};
-      for (var i = 0; i < UTM_KEYS.length; i++) {
-        var v = q.get(UTM_KEYS[i]);
-        if (v) { store[UTM_KEYS[i]] = String(v).slice(0, 200); found = true; }
-      }
+      for (var i=0;i<UTM_KEYS.length;i++){ var v=q.get(UTM_KEYS[i]); if(v){ store[UTM_KEYS[i]]=String(v).slice(0,200); found=true; } }
       var ref = document.referrer ? String(document.referrer) : '';
-
-      // Reddit REFUSES a click_url on free-form (text) ads — the link has to sit in the post body,
-      // so those clicks arrive with NO tags at all and would be filed as 'organic/unknown'. But they
-      // still arrive FROM reddit.com, and the image ads always carry ?utm_content=..., so an
-      // untagged visit with a Reddit referrer is identifiable by elimination.
-      //
-      // Labelled honestly: 'untagged' rather than 'text', because this same bucket would also catch
-      // an organic Reddit share. Today there is no organic Reddit presence, so in practice it is the
-      // text ad — but the data shouldn't assert something it can't actually prove.
-      if (!found && /(^|\.)reddit\.com$/i.test((function(){
-            try { return new URL(ref).hostname; } catch (e) { return ''; }
-          })())) {
-        store.utm_source  = 'reddit';
-        store.utm_medium  = 'referral';
-        store.utm_campaign = 'beta_launch';
-        store.utm_content = 'untagged';
-        found = true;
+      if (!found && /(^|\.)reddit\.com$/i.test((function(){ try { return new URL(ref).hostname; } catch(e){ return ''; } })())) {
+        store.utm_source='reddit'; store.utm_medium='referral'; store.utm_campaign='beta_launch'; store.utm_content='untagged'; found=true;
       }
-
-      if (!found) return;                       // don't clobber a tag captured earlier in the session
-      store.landing_url = String(window.location.href).slice(0, 500);
-      store.referrer = ref ? ref.slice(0, 500) : null;
+      if (!found) return;
+      store.landing_url = String(window.location.href).slice(0,500);
+      store.referrer = ref ? ref.slice(0,500) : null;
       window.sessionStorage.setItem('ralf_utm', JSON.stringify(store));
-    } catch (e) { /* private mode / storage disabled — attribution is best-effort, never fatal */ }
+    } catch(e){}
   }
-  function readUtm(){
-    try { return JSON.parse(window.sessionStorage.getItem('ralf_utm') || '{}'); }
-    catch (e) { return {}; }
-  }
+  function readUtm(){ try { return JSON.parse(window.sessionStorage.getItem('ralf_utm')||'{}'); } catch(e){ return {}; } }
   captureUtm();
 
   var ENDPOINT = 'https://ewkrubluzctsfnkxnmsj.supabase.co/functions/v1/waitlist-submit';
-
-  // ---- A/B split: form length ----------------------------------------------
-  // Variant A (control): the full form. Variant B: email + website only; the
-  // rest is collected once they're in. Sticky per-visitor in localStorage so a
-  // reload or return visit shows the same page. If JS is off, the default-
-  // visible form A (control) shows, so no one ever sees an empty section.
-  var variant = 'a';
-  try {
-    variant = window.localStorage.getItem('ralf_beta_variant');
-    if (variant !== 'a' && variant !== 'b') {
-      variant = Math.random() < 0.5 ? 'a' : 'b';
-      window.localStorage.setItem('ralf_beta_variant', variant);
-    }
-  } catch (e) { variant = 'a'; }
-
-  var formA = document.getElementById('beta-form');
-  var formB = document.getElementById('beta-form-b');
-  if (variant === 'b' && formA && formB) { formA.hidden = true; formB.hidden = false; }
-
-  // GA denominator: one view event per variant, one apply event on success.
-  function ga(evt){ try { if (typeof gtag === 'function') gtag('event', evt, { variant: variant }); } catch (e) {} }
+  var VARIANT = 'v2';
+  var fb = document.getElementById('beta-form-b'); if(!fb) return;
+  var err = document.getElementById('beta-err-b');
+  var btn = document.getElementById('beta-submit-b');
+  var BTN_HTML = btn.innerHTML;
+  function ga(evt){ try { if(typeof gtag==='function') gtag('event',evt,{variant:VARIANT}); } catch(e){} }
   ga('beta_variant_view');
 
-  function submitApplication(fields, submitBtn, errEl){
-    var BTN_HTML = submitBtn.innerHTML;
-    errEl.hidden = true;
-    submitBtn.disabled = true; submitBtn.textContent = 'Applying…';
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(Object.assign(
-        { kind: 'beta_application', variant: variant }, fields, readUtm()
-      ))
-    })
-      .then(function(r){ return r.json().then(function(d){ return {ok: r.ok, d: d}; }); })
+  fb.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = fb.elements['email'].value.trim();
+    var website = fb.elements['website'].value.trim();
+    function fail(m){ err.textContent=m; err.hidden=false; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('Please enter a valid email address.');
+    if(!website || website.indexOf('.')===-1) return fail('Please enter your website.');
+    err.hidden=true; btn.disabled=true; btn.textContent='Applying…';
+    fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(Object.assign({ kind:'beta_application', variant:VARIANT, email:email, website:website }, readUtm())) })
+      .then(function(r){ return r.json().then(function(d){ return {ok:r.ok, d:d}; }); })
       .then(function(res){
-        if(!res.ok || res.d.error){
-          throw new Error(res.d.error === 'rate_limited'
-            ? 'Too many requests from your network — please try again in an hour.'
-            : (res.d.error || 'Something went wrong — please try again.'));
-        }
+        if(!res.ok || res.d.error){ throw new Error(res.d.error==='rate_limited' ? 'Too many requests from your network — please try again in an hour.' : (res.d.error||'Something went wrong — please try again.')); }
         if(res.d.message) document.getElementById('beta-done-msg').textContent = res.d.message;
         document.getElementById('beta-form-wrap').hidden = true;
         document.getElementById('beta-done').hidden = false;
         ga('beta_apply');
       })
-      .catch(function(e2){ errEl.textContent = e2.message || 'Something went wrong — please try again.'; errEl.hidden = false; })
-      .finally(function(){ submitBtn.disabled = false; submitBtn.innerHTML = BTN_HTML; });
-  }
-
-  var BETA_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (formA) formA.addEventListener('submit', function(e){
-    e.preventDefault();
-    var err = document.getElementById('beta-err');
-    function fail(msg){ err.textContent = msg; err.hidden = false; }
-    var name = formA.elements['name'].value.trim();
-    var email = formA.elements['email'].value.trim();
-    var website = formA.elements['website'].value.trim();
-    var role = formA.elements['role'].value;
-    var instantly = formA.elements['instantly'].value;
-    var goal = formA.elements['goal'].value.trim();
-    if(!name) return fail('Please enter your name.');
-    if(!BETA_EMAIL_RE.test(email)) return fail('Please enter a valid email address.');
-    if(!website || website.indexOf('.') === -1) return fail('Please enter your website.');
-    if(!role) return fail('Please tell us which best describes you.');
-    if(!instantly) return fail('Please answer the Instantly.ai question.');
-    submitApplication({ name: name, email: email, website: website, role: role, instantly: instantly, goal: goal || null },
-                      document.getElementById('beta-submit'), err);
-  });
-
-  if (formB) formB.addEventListener('submit', function(e){
-    e.preventDefault();
-    var err = document.getElementById('beta-err-b');
-    function fail(msg){ err.textContent = msg; err.hidden = false; }
-    var email = formB.elements['email'].value.trim();
-    var website = formB.elements['website'].value.trim();
-    if(!BETA_EMAIL_RE.test(email)) return fail('Please enter a valid email address.');
-    if(!website || website.indexOf('.') === -1) return fail('Please enter your website.');
-    submitApplication({ email: email, website: website },
-                      document.getElementById('beta-submit-b'), err);
+      .catch(function(e2){ fail(e2.message || 'Something went wrong — please try again.'); })
+      .finally(function(){ btn.disabled=false; btn.innerHTML=BTN_HTML; });
   });
 })();
 </script>
