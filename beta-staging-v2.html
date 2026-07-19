@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NEYC9XRNYK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NEYC9XRNYK');
+  </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ralf private beta &mdash; apply for one of 20 places</title>
+<meta name="description" content="Ralf finds the links and citations, writes the pitch, sends it from your own mailbox and chases the reply. You approve; Ralf does the work. 20 private beta places &mdash; month 1 free.">
+<link rel="canonical" href="https://ralfhq.com/beta">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ralf">
+<meta property="og:title" content="Ralf private beta — apply for one of 20 places">
+<meta property="og:description" content="Ralf does the SEO work — finds the links, writes the pitch, chases the reply. You just approve it. 20 beta places, month 1 free.">
+<meta property="og:url" content="https://ralfhq.com/beta">
+<meta property="og:image" content="https://ralfhq.com/assets/og-beta.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ralf private beta — apply for one of 20 places">
+<meta name="twitter:description" content="Ralf does the SEO work — finds the links, writes the pitch, chases the reply. You just approve it. 20 beta places, month 1 free.">
+<meta name="twitter:image" content="https://ralfhq.com/assets/og-beta.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+<style>/* ==========================================================================
+   Ralf — landing design system (monochrome)
+   Palette: #FFFFFF / #121212 / #bcbcbc  ·  grey-forward
+   Shared across Direction A / B / C
+   ========================================================================== */
+
+:root{
+  --ink:#121212;
+  --paper:#ffffff;
+  --grey:#bcbcbc;                 /* brand grey */
+  --mut:rgba(18,18,18,.58);       /* secondary text */
+  --mut2:rgba(18,18,18,.42);      /* tertiary text */
+  --line:rgba(18,18,18,.11);
+  --line2:rgba(18,18,18,.06);
+  --wash:#f4f4f3;                 /* light grey panel */
+  --wash2:#ebebea;                /* deeper grey panel */
+  --wash3:#e2e2e1;
+  --fill:#121212;                 /* mono fill (bars) */
+  --fill-g:#cfcfcf;               /* grey bar fill */
+  --pmut:rgba(255,255,255,.70);   /* on dark */
+  --pline:rgba(255,255,255,.14);
+
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Inter Tight',system-ui,sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+
+  --maxw:1180px;
+  --gut:32px;
+  --r:14px;
+  --r-sm:10px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.55;
+  overflow-x:clip;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+
+/* ---- type helpers ------------------------------------------------------- */
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mut2);display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--grey)}
+.mono{font-family:var(--mono)}
+
+/* ---- nav ---------------------------------------------------------------- */
+.bar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.78);
+  backdrop-filter:saturate(140%) blur(14px);-webkit-backdrop-filter:saturate(140%) blur(14px);
+  border-bottom:1px solid var(--line)}
+.bar .row{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand .mark{flex:0 0 auto}
+.brand .word{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.03em}
+.navlinks{display:flex;gap:28px;font-size:14.5px;color:var(--mut);white-space:nowrap}
+.navlinks a{transition:color .18s}
+.navlinks a:hover{color:var(--ink)}
+.navactions{display:flex;align-items:center;gap:18px}
+.signin{font-size:14.5px;color:var(--mut);white-space:nowrap}
+.signin:hover{color:var(--ink)}
+
+/* ---- buttons ------------------------------------------------------------ */
+.btn{font-family:var(--body);font-weight:500;font-size:14.5px;border:1px solid var(--ink);
+  background:var(--ink);color:var(--paper);padding:10px 19px;border-radius:999px;cursor:pointer;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:9px;transition:transform .18s,opacity .18s,background .18s}
+.btn:hover{transform:translateY(-1px);opacity:.92}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(3px)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--wash);opacity:1}
+.btn.lg{padding:13px 24px;font-size:15.5px}
+.btn.sm{padding:8px 15px;font-size:13.5px}
+
+.link{display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;
+  border-bottom:1px solid var(--line);padding-bottom:3px;transition:gap .2s,border-color .2s}
+.link:hover{gap:13px;border-color:var(--ink)}
+
+/* ---- section scaffolding ------------------------------------------------ */
+section{padding:104px 0}
+.sec-wash{background:var(--wash)}
+.sec-line{border-top:1px solid var(--line2)}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--mut2);display:flex;align-items:center;gap:11px;margin-bottom:20px}
+.kicker .ix{color:var(--ink);font-weight:700}
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:-.032em;line-height:1.05}
+.h-sec{font-size:clamp(28px,3.7vw,46px);max-width:16ch;text-wrap:balance}
+.lead{margin-top:18px;font-size:17px;line-height:1.62;max-width:48ch;color:var(--mut)}
+
+/* ---- light mini-mock: shared card primitives ---------------------------- */
+.mm{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;box-shadow:0 22px 60px -42px rgba(18,18,18,.35)}
+.mm.flat{box-shadow:none}
+.mm-top{display:flex;align-items:center;gap:7px;padding:12px 15px;border-bottom:1px solid var(--line);background:var(--wash)}
+.mm-top .d{width:8px;height:8px;border-radius:50%;background:var(--grey)}
+.mm-top .t{margin-left:9px;font-family:var(--mono);font-size:11px;color:var(--mut2);letter-spacing:.02em}
+.mm-body{padding:20px 20px}
+.mm-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--mut2);margin-bottom:16px}
+
+/* visibility rows */
+.vrow{display:flex;align-items:center;gap:13px;padding:9px 0}
+.vrow + .vrow{border-top:1px solid var(--line2)}
+.vname{font-size:13.5px;font-weight:500;flex:0 0 92px}
+.vtrack{flex:1;height:7px;border-radius:999px;background:var(--wash2);overflow:hidden}
+.vfill{height:100%;border-radius:999px;background:var(--fill)}
+.vfill.g{background:var(--grey)}
+.vpct{font-family:var(--mono);font-size:12px;flex:0 0 40px;text-align:right;color:var(--ink)}
+
+/* mini bar chart */
+.spark{display:flex;align-items:flex-end;gap:7px;height:104px;margin-top:4px}
+.spark .b{flex:1;background:var(--wash2);border-radius:4px 4px 0 0}
+.spark .b.cur{background:var(--ink)}
+.spark-x{display:flex;gap:7px;margin-top:9px}
+.spark-x span{flex:1;text-align:center;font-family:var(--mono);font-size:9.5px;color:var(--mut2)}
+.delta{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11.5px;color:var(--mut);margin-top:13px}
+
+/* citation rows */
+.cite{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0}
+.cite + .cite{border-top:1px solid var(--line2)}
+.cite .src{display:flex;align-items:center;gap:11px}
+.favi{width:26px;height:26px;border-radius:7px;background:var(--ink);color:var(--paper);
+  display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;flex:0 0 26px}
+.favi.g{background:var(--wash2);color:var(--ink)}
+.sname{font-size:13.5px;font-weight:500}
+.smeta{font-family:var(--mono);font-size:10.5px;color:var(--mut2);margin-top:1px}
+.tag{font-family:var(--mono);font-size:10.5px;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--mut);white-space:nowrap}
+.tag.gap{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* agent flow nodes */
+.flow{display:flex;flex-direction:column;gap:0}
+.node{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid var(--line);
+  border-radius:11px;background:var(--paper)}
+.node .ic{width:30px;height:30px;border-radius:8px;background:var(--wash);display:grid;place-items:center;flex:0 0 30px;font-family:var(--mono);font-size:12px;color:var(--ink)}
+.nt{font-size:13.5px;font-weight:500}
+.ns{font-family:var(--mono);font-size:10.5px;color:var(--mut2);margin-top:1px}
+.live{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--ink);background:var(--wash2);
+  padding:3px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:6px}
+.live .pulse{width:6px;height:6px;border-radius:50%;background:var(--ink);animation:pulse 1.8s ease-in-out infinite}
+.conn{width:1px;height:14px;background:var(--line);margin-left:28px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.22}}
+
+/* ---- model strip -------------------------------------------------------- */
+.strip{padding:60px 0}
+.strip .lbl{text-align:center;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--mut2);margin-bottom:24px}
+.models{display:flex;flex-wrap:wrap;justify-content:center;gap:14px 36px}
+.model{font-family:var(--display);font-weight:500;font-size:18px;color:var(--grey);
+  letter-spacing:-.01em;transition:color .2s}
+.model:hover{color:var(--ink)}
+
+/* ---- how it works (numbered) ------------------------------------------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.step{background:var(--paper);padding:30px 26px}
+.step .num{font-family:var(--mono);font-size:12px;color:var(--mut2);letter-spacing:.06em}
+.step h3{font-size:20px;margin-top:18px;letter-spacing:-.02em}
+.step p{margin-top:10px;font-size:14.5px;color:var(--mut);line-height:1.55}
+
+/* ---- comparison table --------------------------------------------------- */
+.cmp{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.cmp table{width:100%;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{padding:17px 20px;text-align:left;border-bottom:1px solid var(--line2)}
+.cmp thead th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--mut2);font-weight:400;vertical-align:bottom}
+.cmp thead th.us{color:var(--ink);font-family:var(--display);font-size:18px;letter-spacing:-.02em;text-transform:none;font-weight:600}
+.cmp tbody tr:last-child td{border-bottom:none}
+.cmp td.feat{font-weight:500}
+.cmp .col-us{background:var(--wash);border-left:1px solid var(--line);border-right:1px solid var(--line)}
+.cmp td.center,.cmp th.center{text-align:center}
+.ck{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:12px}
+.no{color:var(--grey);font-size:18px;line-height:1}
+.partial{color:var(--mut2);font-family:var(--mono);font-size:12px}
+
+/* ---- FAQ ---------------------------------------------------------------- */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:24px 0;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;font-family:var(--display);font-weight:500;
+  font-size:clamp(18px,2vw,21px);letter-spacing:-.02em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{flex:0 0 22px;width:22px;height:22px;position:relative;transition:transform .25s}
+.faq summary .pm::before,.faq summary .pm::after{content:"";position:absolute;background:var(--ink);
+  border-radius:2px;transition:opacity .25s}
+.faq summary .pm::before{top:10px;left:2px;width:18px;height:2px}
+.faq summary .pm::after{top:2px;left:10px;width:2px;height:18px}
+.faq details[open] summary .pm::after{opacity:0}
+.faq .ans{padding:0 0 26px;max-width:64ch;color:var(--mut);font-size:16px;line-height:1.65}
+
+/* ---- stats band --------------------------------------------------------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;background:var(--paper)}
+.stat{padding:40px 30px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:var(--display);font-weight:600;font-size:clamp(32px,4vw,46px);letter-spacing:-.03em;line-height:1}
+.stat .l{font-family:var(--mono);font-size:12px;color:var(--mut);margin-top:13px;line-height:1.45;letter-spacing:.02em}
+
+/* ---- final CTA ---------------------------------------------------------- */
+.final{text-align:center;padding:120px 0}
+.final h2{font-size:clamp(34px,5.2vw,60px);max-width:17ch;margin:0 auto;letter-spacing:-.035em;line-height:1.04}
+.final p{color:var(--mut);font-size:18px;margin:20px auto 0;max-width:46ch}
+.final .ctas{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+
+/* ---- footer ------------------------------------------------------------- */
+footer{background:var(--ink);color:var(--paper);padding:62px 0 38px}
+.foot{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px}
+.foot .ftag{color:var(--grey);font-size:14px;max-width:30ch;line-height:1.55;margin-top:16px}
+.foot .word{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.03em;color:var(--paper)}
+.foot h4{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey);margin-bottom:15px}
+.foot ul{list-style:none}
+.foot li{margin-bottom:11px}
+.foot li a{font-size:14px;color:var(--pmut);transition:color .18s}
+.foot li a:hover{color:var(--paper)}
+.foot-base{display:flex;justify-content:space-between;align-items:center;margin-top:52px;
+  padding-top:24px;border-top:1px solid var(--pline);font-family:var(--mono);font-size:11.5px;
+  color:var(--grey);flex-wrap:wrap;gap:12px}
+
+/* ---- responsive --------------------------------------------------------- */
+@media(max-width:900px){
+  .navlinks,.signin{display:none}
+  section{padding:74px 0}
+  .steps{grid-template-columns:1fr 1fr}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line)}
+  .stat:last-child{border-bottom:none}
+  .foot{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:560px){
+  :root{--gut:20px}
+  .steps{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+  .cmp{overflow-x:auto}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+<style>
+.brand .brand-logo{height:30px;width:auto;display:block;aspect-ratio:594/286}.brand .mark,.brand .word{display:none}
+.navlinks{align-items:center}
+.navlinks .dd{position:relative;display:inline-flex}
+.navlinks .dd-t{font:inherit;font-size:14.5px;color:var(--mut);background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:5px;padding:0;line-height:1;transition:color .15s}
+.navlinks .dd:hover .dd-t,.navlinks .dd:focus-within .dd-t{color:var(--ink)}
+.navlinks .dd .caret{font-size:.72em;transition:transform .2s}
+.navlinks .dd:hover .caret,.navlinks .dd:focus-within .caret{transform:rotate(180deg)}
+.navlinks .dd::after{content:"";position:absolute;left:-8px;right:-8px;top:100%;height:14px}
+.navlinks .dd-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(4px);min-width:188px;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 38px -16px rgba(18,18,18,.32);padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;visibility:hidden;transition:opacity .16s ease,transform .16s ease;z-index:60}
+.navlinks .dd:hover .dd-menu,.navlinks .dd:focus-within .dd-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(10px)}
+.navlinks .dd-menu a{padding:9px 12px;border-radius:9px;font-size:14.5px;color:var(--mut);white-space:nowrap;transition:background .12s,color .12s}
+.navlinks .dd-menu a:hover{background:var(--wash);color:var(--ink)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ralfhq.com/"}, {"@type": "ListItem", "position": 2, "name": "Private beta", "item": "https://ralfhq.com/beta"}]}</script>
+<style>
+/* ---- /beta page ---------------------------------------------------------- */
+.beta-hero{padding:88px 0 84px;position:relative}
+.beta-hero::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(58% 64% at 84% 26%, rgba(18,18,18,.055), transparent 70%)}
+.beta-hero .wrap{position:relative;z-index:1}
+.beta-hero h1{font-size:clamp(38px,5.4vw,64px);line-height:1.03;letter-spacing:-.035em;max-width:17ch;margin-top:22px}
+.beta-hero .sub{font-size:clamp(16px,1.4vw,19px);color:var(--mut);line-height:1.6;max-width:56ch;margin-top:22px}
+.beta-hero .ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.beta-hero .note{margin-top:16px;font-family:var(--mono);font-size:11.5px;color:var(--mut2);letter-spacing:.03em}
+.beta-two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media(max-width:760px){.beta-two{grid-template-columns:1fr}}
+.beta-card-p{font-size:14.5px;color:var(--mut);line-height:1.65;margin:0}
+.beta-card-p b{color:var(--ink)}
+.beta-dashed{border:1px dashed rgba(18,18,18,.3);border-radius:var(--r);padding:22px 24px;margin-top:18px;background:transparent}
+.bf-l{display:block;font-size:12.5px;font-weight:600;margin-top:12px}
+.bf-i{display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:10px 12px;font:inherit;font-size:14px;font-weight:400;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+.bf-i:focus{outline:none;border-color:var(--ink)}
+select.bf-i{cursor:pointer}
+.bf-err{margin-top:12px;font-size:12.5px;color:#b3261e;background:#fbeae8;border:1px solid #f0c9c4;border-radius:10px;padding:9px 12px}
+.bf-hint{display:block;margin-top:6px;font-size:11.5px;font-weight:400;color:var(--mut2);line-height:1.5}
+/* ---- /beta founding pricing ---------------------------------------------- */
+.bp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+@media(max-width:860px){.bp-grid{grid-template-columns:1fr}}
+.bp{border:1px solid var(--line);border-radius:var(--r);background:var(--paper);padding:24px 22px;display:flex;flex-direction:column}
+.bp.feat{border-color:var(--ink);box-shadow:0 22px 60px -42px rgba(18,18,18,.35)}
+.bp-name{font-family:var(--display);font-weight:600;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.bp-badge{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:3px 9px;border-radius:999px}
+.bp-free{font-family:var(--display);font-weight:600;font-size:40px;letter-spacing:-.03em;margin-top:16px;line-height:1}
+.bp-freelbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut2);margin-top:9px}
+.bp-rows{margin-top:18px;border-top:1px solid var(--line2);padding-top:12px}
+.bp-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:13.5px;padding:6px 0;color:var(--mut)}
+.bp-row b{color:var(--ink);font-weight:700;font-family:var(--mono);font-size:13px;white-space:nowrap}
+.bp-row .was{text-decoration:line-through;color:var(--mut2);font-family:var(--mono);font-size:12px;margin-right:7px;font-weight:400}
+.bp-inc{margin-top:16px;border-top:1px solid var(--line2);padding-top:13px;font-size:13px;color:var(--mut);line-height:1.75}
+.bp-inc b{color:var(--ink);font-weight:600}
+.bp-note{margin-top:22px;font-family:var(--mono);font-size:11.5px;color:var(--mut2);letter-spacing:.02em;line-height:1.7}
+</style>
+</head>
+<body>
+<div style="background:#121212;color:#fff;font-family:ui-monospace,monospace;font-size:12px;text-align:center;padding:8px 12px">STAGING PREVIEW v2 (form-first, bigger, less text) · submissions are not saved</div>
+<nav class="bar">
+  <div class="wrap row">
+    <a class="brand" href="/" aria-label="Ralf home"><img class="brand-logo" src="/assets/ralf-logo.svg" alt="Ralf" width="78" height="28"></a>
+    <div class="navlinks">
+      <div class="dd"><button class="dd-t" type="button" aria-haspopup="true">Product <span class="caret">&#9662;</span></button><div class="dd-menu"><a href="/search">Search</a><a href="/outreach">Outreach</a><a href="/content">Content</a><a href="/methodology">Methodology</a></div></div><a href="/pricing">Pricing</a><a href="/blog">Blog</a><a href="/#faq">FAQ</a>
+    </div>
+    <div class="navactions">
+      <a class="signin" href="https://app.ralfhq.com/login">Sign in</a>
+      <a class="btn" href="#apply">Apply for the beta <span class="arr">&#8594;</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO + FORM (above the fold) -->
+<header class="beta-hero">
+  <div class="wrap" style="max-width:1000px">
+    <div class="kicker"><span class="ix">Ralf</span> &#183; Private beta &#183; 20 places</div>
+    <h1 style="font-size:clamp(42px,6.4vw,74px);line-height:1.02;max-width:16ch">Get named by AI. We do the work.</h1>
+    <p class="sub" style="font-size:clamp(18px,1.7vw,22px);max-width:60ch;margin-top:20px">ChatGPT and Perplexity keep recommending your competitors &mdash; not you. Ralf finds the links and citations that change that, writes the outreach, and sends it from your own mailbox. You just approve.</p>
+
+    <div id="beta-form-wrap" style="margin-top:30px">
+      <form id="beta-form-b" novalidate style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;max-width:680px">
+        <input class="bf-i" type="email" name="email" required placeholder="Work email" autocomplete="email" style="flex:1 1 240px;height:54px;font-size:16px;margin-top:0">
+        <input class="bf-i" type="text" name="website" required placeholder="yourcompany.com" autocomplete="url" style="flex:1 1 240px;height:54px;font-size:16px;margin-top:0">
+        <button class="btn lg" type="submit" id="beta-submit-b" style="height:54px;font-size:16px;white-space:nowrap">Apply for the beta <span class="arr">&#8594;</span></button>
+      </form>
+      <div class="bf-err" id="beta-err-b" hidden></div>
+      <div class="note" style="margin-top:14px">15 seconds to apply &#183; month 1 free &#183; months 2&ndash;3 at 50% off &#183; we grab the rest once you&rsquo;re in</div>
+    </div>
+
+    <div id="beta-done" hidden style="margin-top:30px;max-width:680px">
+      <div class="mm flat"><div class="mm-body" style="display:flex;gap:14px;align-items:center">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:20px;flex:0 0 44px">&#10003;</div>
+        <div><p style="font-family:var(--display);font-weight:600;font-size:19px;margin:0">Application received</p>
+        <p id="beta-done-msg" style="font-size:14px;color:var(--mut);margin:4px 0 0">We review weekly and invite best-fit teams by email.</p></div>
+      </div></div>
+    </div>
+  </div>
+</header>
+
+<!-- PROOF (compact) -->
+<section class="sec-wash sec-line" style="padding:64px 0">
+  <div class="wrap" style="max-width:1000px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center">
+    <img src="/assets/proof-90-days.png" width="1200" height="1200" loading="lazy"
+         alt="90 days on Ralf: 0 articles written, 0 backlinks chased, 400 visitors a day"
+         style="width:100%;height:auto;border-radius:14px;border:1px solid var(--line)">
+    <div>
+      <div class="kicker" style="margin-bottom:14px">A real Ralf customer &#183; 90 days</div>
+      <p style="font-size:clamp(20px,2vw,26px);line-height:1.45;color:var(--ink)">Zero articles written. Zero backlinks chased. <b>400 visitors a day</b> &mdash; in three months. They approved the work; Ralf did it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW (3 short) -->
+<section style="padding:64px 0 8px">
+  <div class="wrap" style="max-width:1000px">
+    <h2 class="h-sec" style="font-size:clamp(26px,3.2vw,40px)">Find the opening. Write the pitch. Chase the reply.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:30px">
+      <div style="background:var(--paper);padding:28px 24px"><div class="mono" style="font-size:12px;color:var(--mut2)">01 &#183; it finds</div><p style="font-size:16px;line-height:1.55;margin-top:12px">The sites AI engines cite, and the ones linking to competitors but not you. Those are your openings.</p></div>
+      <div style="background:var(--paper);padding:28px 24px"><div class="mono" style="font-size:12px;color:var(--mut2)">02 &#183; it writes</div><p style="font-size:16px;line-height:1.55;margin-top:12px">A real email to a real person, about the exact page it wants the link on. You read it before it goes.</p></div>
+      <div style="background:var(--paper);padding:28px 24px"><div class="mono" style="font-size:12px;color:var(--mut2)">03 &#183; it sends</div><p style="font-size:16px;line-height:1.55;margin-top:12px">From your own mailbox, then follows up and handles the reply. You approve; Ralf chases.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="/" aria-label="Ralf home"><img class="brand-logo" src="/assets/ralf-logo-white.svg" alt="Ralf" width="78" height="28"></a>
+        <p class="ftag">Agentic SEO that doesn't just monitor AI search — it does the work. Get your business found by AI.</p>
+      </div>
+      <div><h4>Platform</h4><ul><li><a href="/search">Search</a></li><li><a href="/outreach">Outreach</a></li><li><a href="/content">Content</a></li><li><a href="/pricing">Pricing</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/blog">Blog</a></li><li><a href="compare.html">Compare</a></li><li><a href="/methodology">Methodology</a></li><li><a href="mailto:hello@ralfhq.com">Contact</a></li></ul></div>
+    </div>
+    <div class="foot-base"><span>&#169; 2026 Ralf. All rights reserved.</span><span><a href="privacy.html">Privacy</a> &#183; <a href="terms.html">Terms</a> &#183; <a href="dpa.html">DPA</a></span></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var fb = document.getElementById('beta-form-b');
+  function preview(e){ e.preventDefault();
+    var email=(fb.elements['email'].value||'').trim(), web=(fb.elements['website'].value||'').trim();
+    var err=document.getElementById('beta-err-b');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent='Please enter a valid email address.'; err.hidden=false; return; }
+    if(!web || web.indexOf('.')===-1){ err.textContent='Please enter your website.'; err.hidden=false; return; }
+    document.getElementById('beta-form-wrap').hidden = true;
+    document.getElementById('beta-done').hidden = false;
+  }
+  if(fb) fb.addEventListener('submit', preview);
+})();
+</script>
+<script>
+(function(){
+  var bar = document.querySelector('.bar');
+  if(bar){
+    var onScroll = function(){ bar.classList.toggle('scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  }
+})();
+</script>
+</body>
+</html>
