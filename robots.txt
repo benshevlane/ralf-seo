@@ -2,6 +2,9 @@
 User-agent: *
 Allow: /
 
+# How AI systems may use this content (contentsignals.org)
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
 # AI assistants & answer engines (explicitly allowed)
 User-agent: GPTBot
 Allow: /
