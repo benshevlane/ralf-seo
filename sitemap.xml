@@ -17,4 +17,9 @@
   <url><loc>https://ralfhq.com/privacy</loc><priority>0.3</priority><lastmod>2026-07-22</lastmod></url>
   <url><loc>https://ralfhq.com/dpa</loc><priority>0.3</priority><lastmod>2026-07-22</lastmod></url>
   <url><loc>https://ralfhq.com/refund</loc><priority>0.3</priority><lastmod>2026-07-22</lastmod></url>
+  <url>
+    <loc>https://ralfhq.com/blog/ai-search-visibility-platform-what-it-measures</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
 </urlset>
