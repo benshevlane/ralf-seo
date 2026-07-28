@@ -1,5 +1,17 @@
 {
   "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/pricing",
+      "missing": [
+        {
+          "type": "query",
+          "key": "raw"
+        }
+      ],
+      "destination": "/api/pricing"
+    }
+  ],
   "redirects": [
     {
       "source": "/beta",
