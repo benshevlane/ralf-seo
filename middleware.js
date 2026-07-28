@@ -3,7 +3,8 @@ export const config = {
 };
 
 export default function middleware(request) {
-  const renderer = request.nextUrl.pathname === '/done-for-you' ? '/api/done-for-you' : '/api/pricing';
+  const pathname = new URL(request.url).pathname;
+  const renderer = pathname === '/done-for-you' ? '/api/done-for-you' : '/api/pricing';
   const target = new URL(renderer, request.url);
   return fetch(target, {
     headers: {
