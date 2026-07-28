@@ -4,10 +4,10 @@ const DONE_FOR_YOU_BANNER = `
   <div style="max-width:1180px;margin:0 auto;padding:0 32px">
     <div style="background:#121212;color:#fff;border-radius:16px;padding:26px 28px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center">
       <div>
-        <div style="font-family:'Space Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.52)">Alternative outreach pricing</div>
-        <h2 style="font-family:'Space Grotesk',system-ui,sans-serif;font-size:clamp(25px,3vw,36px);line-height:1.06;letter-spacing:-.035em;margin:8px 0 0">Prefer us to run the outreach for you?</h2>
-        <p style="font-family:'Inter Tight',system-ui,sans-serif;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.7);max-width:70ch;margin:11px 0 0">Ralf Done For You maps your competitors’ citations and backlinks, runs targeted publisher outreach, negotiates each placement and manages the approved link through to live. No swaps, exchanges or mass spam.</p>
-        <p style="font-family:'Inter Tight',system-ui,sans-serif;font-size:14px;font-weight:600;margin:10px 0 0">Per-link pricing · $500/month minimum · you approve every page and price</p>
+        <div style="font-family:'Space Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.52)">Additional targeted link-building service</div>
+        <h2 style="font-family:'Space Grotesk',system-ui,sans-serif;font-size:clamp(25px,3vw,36px);line-height:1.06;letter-spacing:-.035em;margin:8px 0 0">Keep your agency. Let us handle targeted link building.</h2>
+        <p style="font-family:'Inter Tight',system-ui,sans-serif;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.7);max-width:74ch;margin:11px 0 0">Ralf Done For You works alongside your existing agency or in-house team. We map your competitors’ citations and backlinks, run targeted publisher outreach, negotiate each placement and manage every approved link through to live.</p>
+        <p style="font-family:'Inter Tight',system-ui,sans-serif;font-size:14px;font-weight:600;margin:10px 0 0">Pay as you go per approved link · $500/month minimum applied to placements · you approve every page and price</p>
       </div>
       <a href="/done-for-you" style="font-family:'Inter Tight',system-ui,sans-serif;font-weight:600;font-size:15px;white-space:nowrap;background:#fff;color:#121212;border-radius:999px;padding:13px 20px;text-decoration:none">View Done For You →</a>
     </div>
