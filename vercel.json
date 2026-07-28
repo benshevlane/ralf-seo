@@ -2,6 +2,18 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/beta",
+      "has": [
+        {
+          "type": "query",
+          "key": "plan",
+          "value": "Done.*For.*You.*"
+        }
+      ],
+      "destination": "https://buy.stripe.com/9B67sEaGvgyecpncLWfbq0s",
+      "permanent": false
+    },
+    {
       "source": "/free-aeo-report",
       "destination": "/beta",
       "permanent": false
