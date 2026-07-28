@@ -14,12 +14,9 @@ const DONE_FOR_YOU_BANNER = `
   <style>@media(max-width:720px){section[aria-label="Ralf Done For You"]>div{padding:0 20px!important}section[aria-label="Ralf Done For You"]>div>div{grid-template-columns:1fr!important;padding:23px 21px!important}section[aria-label="Ralf Done For You"] a{width:100%;text-align:center}}</style>
 </section>`;
 
-export default async function handler(req, res) {
+export default async function handler(_req, res) {
   try {
-    const host = req.headers['x-forwarded-host'] || req.headers.host || 'ralfhq.com';
-    const protocol = req.headers['x-forwarded-proto'] || 'https';
-    const sourceUrl = `${protocol}://${host}/pricing?raw=1`;
-    const response = await fetch(sourceUrl, {
+    const response = await fetch('https://raw.githubusercontent.com/benshevlane/ralf-seo/master/pricing.html', {
       headers: { 'user-agent': 'Ralf pricing renderer' },
     });
 
@@ -43,7 +40,7 @@ export default async function handler(req, res) {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
     res.status(200).send(html);
-  } catch (error) {
+  } catch (_error) {
     res.status(500).send('Unable to render pricing page.');
   }
 }
