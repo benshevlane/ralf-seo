@@ -1,12 +1,13 @@
 export const config = {
-  matcher: ['/pricing'],
+  matcher: ['/pricing', '/done-for-you'],
 };
 
 export default function middleware(request) {
-  const target = new URL('/api/pricing', request.url);
+  const renderer = request.nextUrl.pathname === '/done-for-you' ? '/api/done-for-you' : '/api/pricing';
+  const target = new URL(renderer, request.url);
   return fetch(target, {
     headers: {
-      'x-ralf-pricing-renderer': '1',
+      'x-ralf-marketing-renderer': '1',
     },
   });
 }
