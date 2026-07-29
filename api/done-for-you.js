@@ -66,6 +66,11 @@ export default async function handler(_req, res) {
     const newEstimator = "var low=Math.max(500,links*250);var high=Math.max(500,links*800);count.textContent=String(links);word.textContent=links===1?'link':'links';budget.textContent='$'+low.toLocaleString()+'–$'+high.toLocaleString();";
     html = html.replace(oldEstimator, () => newEstimator);
 
+    html = html.replaceAll('/beta?plan=Done%20For%20You%20%28%24500%2Fmo%20minimum%29#apply', '/done-for-you-contact');
+    html = html.replaceAll('Start with $500/month', 'Contact us');
+    html = html.replaceAll('Start at $500/mo', 'Contact us');
+    html = html.replaceAll('mailto:hello@ralfhq.com?subject=Ralf%20Done%20For%20You', '/done-for-you-contact');
+
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
     res.status(200).send(html);
