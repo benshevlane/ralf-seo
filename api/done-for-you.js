@@ -8,7 +8,7 @@ const AGENCY_ADD_ON = `
       </div>
       <div>
         <p style="font-family:'Inter Tight',system-ui,sans-serif;font-size:17px;line-height:1.6;color:rgba(18,18,18,.64);margin:0">Ralf Done For You is an <strong style="color:#121212">additional, highly targeted link-building service</strong>. Your agency can keep handling strategy, content, technical SEO and broader campaigns while we focus specifically on competitor-led publisher outreach and link placement.</p>
-        <p style="font-family:'Inter Tight',system-ui,sans-serif;font-size:15px;font-weight:600;line-height:1.5;margin:13px 0 0">Pay as you go for the individual links you approve, with the $500 monthly minimum applied against approved placements.</p>
+        <p style="font-family:'Inter Tight',system-ui,sans-serif;font-size:15px;font-weight:600;line-height:1.5;margin:13px 0 0">Pay as you go for the individual links you approve. Links typically cost $250–$800 each; $500 is the minimum monthly commitment, not a per-link fee.</p>
       </div>
     </div>
   </div>
@@ -39,11 +39,39 @@ export default async function handler(_req, res) {
     );
     html = html.replace(
       '$500/month minimum · link prices vary by publisher · every page and price requires approval',
-      'Pay as you go per approved link · $500/month minimum applied to placements · every page and price requires approval'
+      'Typical link price $250–$800 · $500/month minimum commitment, not per link · every page and price requires approval'
     );
     html = html.replace(
       'Commercial model: minimum monthly commitment used on approved links',
-      'Commercial model: pay as you go per approved link, with a $500 monthly minimum'
+      'Commercial model: pay as you go per approved link, typically $250–$800 each, with a $500 monthly minimum'
+    );
+    html = html.replace(
+      'Suggested working budget',
+      'Estimated monthly range'
+    );
+    html = html.replace(
+      'per month · planning estimate',
+      'based on typical $250–$800 link prices'
+    );
+    html = html.replace(
+      '<h3>Why the cost is an estimate</h3><p>A strong niche page may cost a few hundred dollars; a category-defining comparison page can cost more. We always show and negotiate the actual publisher price before you approve it.</p>',
+      '<h3>Links are not $500 each</h3><p>Individual placements typically cost between <strong>$250 and $800</strong>, depending on the publisher, page quality and opportunity. We show you the exact negotiated price before you approve anything.</p>'
+    );
+    html = html.replace(
+      '<h3>What the $500 minimum means</h3><p>Your subscription starts at $500 per month. It is applied against approved placements. If your approved target requires more, we arrange the additional amount with you rather than forcing a plan tier.</p>',
+      '<h3>$500 is the monthly minimum</h3><p>The $500 is your minimum monthly commitment, not the price of one link. It is applied against the placements you approve. Your total spend varies with the number and price of those approved links.</p>'
+    );
+    html = html.replace(
+      'There are no bundles. Each link is priced individually because publisher costs vary by website. Set a monthly target below to see a sensible working-budget estimate, then approve the exact links you want.',
+      'There are no bundles and links are not charged at a flat $500 each. Individual placements typically cost $250–$800, depending on the publisher. Set a monthly target below to see an estimated spend range, then approve the exact pages and prices you want.'
+    );
+    html = html.replace(
+      'Minimum monthly commitment · $500',
+      '$500 minimum monthly commitment · not per link'
+    );
+    html = html.replace(
+      "var estimate=Math.max(500,links*500);count.textContent=String(links);word.textContent=links===1?'link':'links';budget.textContent='$'+estimate.toLocaleString();",
+      "var low=Math.max(500,links*250);var high=Math.max(500,links*800);count.textContent=String(links);word.textContent=links===1?'link':'links';budget.textContent='$'+low.toLocaleString()+'–$'+high.toLocaleString();"
     );
 
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
