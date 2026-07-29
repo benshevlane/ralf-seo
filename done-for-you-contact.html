@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Ralf Done For You</title>
+  <meta name="description" content="Tell Ralf about your website, link target and budget for Done For You AI citations and backlink outreach.">
+  <link rel="canonical" href="https://ralfhq.com/done-for-you-contact">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#121212;--paper:#fff;--wash:#f4f4f3;--line:rgba(18,18,18,.12);--mut:rgba(18,18,18,.62);--display:'Space Grotesk',sans-serif;--body:'Inter Tight',sans-serif;--mono:'Space Mono',monospace}
+    *{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font-family:var(--body);line-height:1.5}.wrap{max-width:1080px;margin:auto;padding:0 28px}.bar{background:#fff;border-bottom:1px solid var(--line)}.row{height:66px;display:flex;align-items:center;justify-content:space-between}.logo{height:30px}.back{font-size:14px;color:var(--mut);text-decoration:none}.hero{padding:72px 0 28px;text-align:center}.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}h1{font-family:var(--display);font-size:clamp(38px,6vw,62px);line-height:1;letter-spacing:-.045em;margin:15px auto 0;max-width:13ch}.sub{font-size:18px;color:var(--mut);max-width:620px;margin:20px auto 0}.card{max-width:760px;margin:34px auto 80px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:0 30px 80px -60px rgba(18,18,18,.5)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.full{grid-column:1/-1}label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}input,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit;color:var(--ink)}input:focus,select:focus{outline:2px solid var(--ink);outline-offset:1px}.actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:26px}.btn{border:1px solid var(--ink);border-radius:999px;padding:13px 22px;background:var(--ink);color:#fff;font-weight:600;text-decoration:none;cursor:pointer}.btn.secondary{background:#fff;color:var(--ink)}.help{font-size:12px;color:var(--mut);margin-top:16px}.message{margin-top:18px;padding:13px 15px;border-radius:10px;background:var(--wash);display:none}.message.show{display:block}.summary{margin-top:28px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--mut)}.summary strong{color:var(--ink)}
+    @media(max-width:680px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.card{padding:24px 20px}.actions{align-items:stretch;flex-direction:column}.btn{width:100%;text-align:center}.hero{padding-top:50px}}
+  </style>
+</head>
+<body>
+  <nav class="bar"><div class="wrap row"><a href="/"><img class="logo" src="/assets/ralf-logo.svg" alt="Ralf"></a><a class="back" href="/done-for-you">← Back to Done For You</a></div></nav>
+  <header class="hero"><div class="wrap"><div class="eyebrow">Done For You enquiry</div><h1>Tell us what you want to achieve.</h1><p class="sub">A few details are enough. We will review your site, budget and target before you start.</p></div></header>
+  <main class="wrap">
+    <section class="card">
+      <form id="dfy-form" novalidate>
+        <div class="grid">
+          <div><label for="name">Name</label><input id="name" name="name" autocomplete="name" required></div>
+          <div><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="full"><label for="website">Website</label><input id="website" name="website" placeholder="yourcompany.com" autocomplete="url" required></div>
+          <div><label for="budget">Monthly budget</label><select id="budget" name="budget" required><option value="">Select</option><option>$500–$1,000</option><option>$1,000–$2,500</option><option>$2,500–$5,000</option><option>$5,000+</option></select></div>
+          <div><label for="per_link">Preferred maximum per link</label><select id="per_link" name="per_link" required><option value="">Select</option><option>Up to $300</option><option>Up to $500</option><option>Up to $800</option><option>Flexible for the right opportunity</option></select></div>
+          <div class="full"><label for="links">Target approved links per month</label><select id="links" name="links" required><option value="">Select</option><option>1–2 links</option><option>3–5 links</option><option>6–10 links</option><option>10+ links</option></select></div>
+        </div>
+        <div class="summary"><strong>Typical link cost:</strong> $250–$800. The $500 is the minimum monthly commitment, not a per-link fee.</div>
+        <div class="actions"><button class="btn" type="submit" id="submit">Send enquiry →</button><a class="btn secondary" href="mailto:hello@ralfhq.com?subject=Ralf%20Done%20For%20You%20question">Ask us anything</a></div>
+        <p class="help">After sending your enquiry, you can start immediately from the confirmation screen.</p>
+        <div class="message" id="message" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+  <script>
+  (function(){
+    var form=document.getElementById('dfy-form');var message=document.getElementById('message');var submit=document.getElementById('submit');
+    var endpoint='https://ewkrubluzctsfnkxnmsj.supabase.co/functions/v1/waitlist-submit';
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      if(!form.reportValidity())return;
+      submit.disabled=true;submit.textContent='Sending…';message.className='message';
+      var details='Done For You enquiry | Monthly budget: '+form.budget.value+' | Max per link: '+form.per_link.value+' | Target links: '+form.links.value;
+      fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:form.email.value.trim(),website:form.website.value.trim(),plan:'Done For You',volume_goal:details})})
+      .then(function(r){return r.json().then(function(d){return {ok:r.ok,data:d}})})
+      .then(function(result){if(!result.ok||result.data.error)throw new Error(result.data.error||'Unable to send enquiry.');message.innerHTML='<strong>Thanks — your enquiry has been sent.</strong><br><br><a class="btn" href="https://buy.stripe.com/9B67sEaGvgyecpncLWfbq0s">Start now →</a> <a class="btn secondary" href="mailto:hello@ralfhq.com?subject=Ralf%20Done%20For%20You%20question">Ask us anything</a>';message.className='message show';form.querySelectorAll('input,select').forEach(function(el){el.disabled=true});submit.style.display='none';})
+      .catch(function(){message.textContent='Something went wrong. Please email hello@ralfhq.com and we will help.';message.className='message show';submit.disabled=false;submit.textContent='Send enquiry →';});
+    });
+  })();
+  </script>
+</body>
+</html>
