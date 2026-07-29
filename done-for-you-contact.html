@@ -31,8 +31,8 @@
           <div class="full"><label for="links">Target approved links per month</label><select id="links" name="links" required><option value="">Select</option><option>1–2 links</option><option>3–5 links</option><option>6–10 links</option><option>10+ links</option></select></div>
         </div>
         <div class="summary"><strong>Typical link cost:</strong> $250–$800. The $500 is the minimum monthly commitment, not a per-link fee.</div>
-        <div class="actions"><button class="btn" type="submit" id="submit">Send enquiry →</button><a class="btn secondary" href="mailto:hello@ralfhq.com?subject=Ralf%20Done%20For%20You%20question">Ask us anything</a></div>
-        <p class="help">After sending your enquiry, you can start immediately from the confirmation screen.</p>
+        <div class="actions"><button class="btn" type="submit" id="submit">Start now →</button><a class="btn secondary" href="mailto:hello@ralfhq.com?subject=Ralf%20Done%20For%20You%20question">Ask us anything</a></div>
+        <p class="help">We will save your details before taking you to the secure $500/month checkout.</p>
         <div class="message" id="message" aria-live="polite"></div>
       </form>
     </section>
@@ -44,12 +44,12 @@
     form.addEventListener('submit',function(e){
       e.preventDefault();
       if(!form.reportValidity())return;
-      submit.disabled=true;submit.textContent='Sending…';message.className='message';
+      submit.disabled=true;submit.textContent='Saving…';message.className='message';
       var details='Done For You enquiry | Monthly budget: '+form.budget.value+' | Max per link: '+form.per_link.value+' | Target links: '+form.links.value;
       fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:form.email.value.trim(),website:form.website.value.trim(),plan:'Done For You',volume_goal:details})})
       .then(function(r){return r.json().then(function(d){return {ok:r.ok,data:d}})})
-      .then(function(result){if(!result.ok||result.data.error)throw new Error(result.data.error||'Unable to send enquiry.');message.innerHTML='<strong>Thanks — your enquiry has been sent.</strong><br><br><a class="btn" href="https://buy.stripe.com/9B67sEaGvgyecpncLWfbq0s">Start now →</a> <a class="btn secondary" href="mailto:hello@ralfhq.com?subject=Ralf%20Done%20For%20You%20question">Ask us anything</a>';message.className='message show';form.querySelectorAll('input,select').forEach(function(el){el.disabled=true});submit.style.display='none';})
-      .catch(function(){message.textContent='Something went wrong. Please email hello@ralfhq.com and we will help.';message.className='message show';submit.disabled=false;submit.textContent='Send enquiry →';});
+      .then(function(result){if(!result.ok||result.data.error)throw new Error(result.data.error||'Unable to send enquiry.');window.location.href='https://buy.stripe.com/9B67sEaGvgyecpncLWfbq0s';})
+      .catch(function(){message.textContent='Something went wrong. Please email hello@ralfhq.com and we will help.';message.className='message show';submit.disabled=false;submit.textContent='Start now →';});
     });
   })();
   </script>
