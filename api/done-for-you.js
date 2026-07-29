@@ -45,15 +45,15 @@ export default async function handler(_req, res) {
       'Commercial model: minimum monthly commitment used on approved links',
       'Commercial model: pay as you go per approved link, typically $250–$800 each, with a $500 monthly minimum'
     );
-    html = html.replace('Suggested working budget', 'Estimated monthly range');
+    html = html.replace('Suggested working budget', 'Estimated monthly investment');
     html = html.replace('per month · planning estimate', 'based on typical $250–$800 link prices');
     html = html.replace(
       '<h3>Why the cost is an estimate</h3><p>A strong niche page may cost a few hundred dollars; a category-defining comparison page can cost more. We always show and negotiate the actual publisher price before you approve it.</p>',
-      '<h3>Links are not $500 each</h3><p>Individual placements typically cost between <strong>$250 and $800</strong>, depending on the publisher, page quality and opportunity. We show you the exact negotiated price before you approve anything.</p>'
+      '<h3>Link cost range</h3><p>Most approved links cost between <strong>$250 and $800</strong>. The exact price depends on the publisher, page quality and opportunity. We negotiate every placement before presenting it to you for approval.</p>'
     );
     html = html.replace(
       '<h3>What the $500 minimum means</h3><p>Your subscription starts at $500 per month. It is applied against approved placements. If your approved target requires more, we arrange the additional amount with you rather than forcing a plan tier.</p>',
-      '<h3>$500 is the monthly minimum</h3><p>The $500 is your minimum monthly commitment, not the price of one link. It is applied against the placements you approve. Your total spend varies with the number and price of those approved links.</p>'
+      '<h3>Monthly minimum</h3><p>Your $500/month is a minimum monthly commitment, not the cost of a single link. It is applied against the links you approve each month.</p>'
     );
     html = html.replace(
       'There are no bundles. Each link is priced individually because publisher costs vary by website. Set a monthly target below to see a sensible working-budget estimate, then approve the exact links you want.',
