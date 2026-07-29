@@ -50,25 +50,29 @@
     var form=document.getElementById('dfy-form');var message=document.getElementById('message');var submit=document.getElementById('submit');
     var askToggle=document.getElementById('ask-toggle');var questionBox=document.getElementById('question-box');var question=document.getElementById('question');var sendQuestion=document.getElementById('send-question');var questionStatus=document.getElementById('question-status');
     var endpoint='https://ewkrubluzctsfnkxnmsj.supabase.co/functions/v1/waitlist-submit';
+    function submitLead(payload){
+      return fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){
+        return r.text().then(function(text){var data={};try{data=text?JSON.parse(text):{}}catch(_e){data={error:text||'Unexpected response'}}return {ok:r.ok,data:data};});
+      });
+    }
     askToggle.addEventListener('click',function(){var open=questionBox.classList.toggle('open');askToggle.setAttribute('aria-expanded',String(open));if(open)question.focus();});
     form.addEventListener('submit',function(e){
       e.preventDefault();
       if(!form.reportValidity())return;
       submit.disabled=true;submit.textContent='Saving…';message.className='message';
       var details='Done For You enquiry | Monthly budget: '+form.budget.value+' | Max per link: '+form.per_link.value+' | Target links: '+form.links.value;
-      fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:form.name.value.trim(),email:form.email.value.trim(),website:form.website.value.trim(),plan:'Done For You',volume_goal:details})})
-      .then(function(r){return r.json().then(function(d){return {ok:r.ok,data:d}})})
+      submitLead({name:form.name.value.trim(),email:form.email.value.trim(),website:form.website.value.trim(),plan:'Done For You',volume_goal:details})
       .then(function(result){if(!result.ok||result.data.error)throw new Error(result.data.error||'Unable to send enquiry.');window.location.href='https://buy.stripe.com/9B67sEaGvgyecpncLWfbq0s';})
       .catch(function(){message.textContent='Something went wrong. Please try again or use Ask us anything below.';message.className='message show';submit.disabled=false;submit.textContent='Start now →';});
     });
     sendQuestion.addEventListener('click',function(){
       var name=form.name.value.trim();var email=form.email.value.trim();var website=form.website.value.trim();var text=question.value.trim();
       if(!name||!email){questionStatus.textContent='Please enter your name and work email above.';return;}
+      if(!form.email.checkValidity()){questionStatus.textContent='Please enter a valid work email.';form.email.focus();return;}
       if(!text){questionStatus.textContent='Please write your question.';question.focus();return;}
       sendQuestion.disabled=true;sendQuestion.textContent='Sending…';questionStatus.textContent='';
-      fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:email,website:website,plan:'Done For You question',volume_goal:'Question: '+text})})
-      .then(function(r){return r.json().then(function(d){return {ok:r.ok,data:d}})})
-      .then(function(result){if(!result.ok||result.data.error)throw new Error(result.data.error||'Unable to send question.');questionStatus.textContent='Thanks — your question has been sent.';question.value='';sendQuestion.textContent='Sent ✓';})
+      submitLead({name:name,email:email,website:website||'Not provided',plan:'Done For You',volume_goal:'Done For You question: '+text})
+      .then(function(result){if(!result.ok||result.data.error)throw new Error(result.data.error||'Unable to send question.');questionStatus.textContent='Thanks — your question has been sent. We’ll reply by email.';question.value='';sendQuestion.textContent='Sent ✓';})
       .catch(function(){questionStatus.textContent='Something went wrong. Please try again.';sendQuestion.disabled=false;sendQuestion.textContent='Send question →';});
     });
   })();
