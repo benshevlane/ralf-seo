@@ -46,25 +46,31 @@ export default async function handler(_req, res) {
       'Commercial model: pay as you go per approved link, typically $250–$800 each, with a $500 monthly minimum'
     );
     html = html.replace('Suggested working budget', 'Estimated monthly investment');
-    html = html.replace('per month · planning estimate', 'based on typical $250–$800 link prices');
+    html = html.replace('per month · planning estimate', 'based on typical $250–$800 placement prices');
     html = html.replace(
       '<h3>Why the cost is an estimate</h3><p>A strong niche page may cost a few hundred dollars; a category-defining comparison page can cost more. We always show and negotiate the actual publisher price before you approve it.</p>',
-      '<h3>Link cost range</h3><p>Most approved links cost between <strong>$250 and $800</strong>. The exact price depends on the publisher, page quality and opportunity. We negotiate every placement before presenting it to you for approval.</p>'
+      '<h3>Link cost range</h3><p>Most approved placements cost between <strong>$250 and $800</strong>. The exact price depends on the publisher, page quality and opportunity. We negotiate every placement before presenting it to you for approval.</p>'
     );
     html = html.replace(
       '<h3>What the $500 minimum means</h3><p>Your subscription starts at $500 per month. It is applied against approved placements. If your approved target requires more, we arrange the additional amount with you rather than forcing a plan tier.</p>',
-      '<h3>Monthly minimum</h3><p>Your $500/month is a minimum monthly commitment, not the cost of a single link. It is applied against the links you approve each month.</p>'
+      '<h3>Monthly minimum</h3><p>Your $500/month is a minimum monthly commitment, not the cost of a single placement. It is applied against the placements you approve each month.</p>'
     );
     html = html.replace(
       'There are no bundles. Each link is priced individually because publisher costs vary by website. Set a monthly target below to see a sensible working-budget estimate, then approve the exact links you want.',
-      'There are no bundles and links are not charged at a flat $500 each. Individual placements typically cost $250–$800, depending on the publisher. Set a monthly target below to see an estimated spend range, then approve the exact pages and prices you want.'
+      'There are no bundles and placements are not charged at a flat $500 each. Individual placements typically cost $250–$800, depending on the publisher. Whether you need 2 placements per month or 100, we build the outreach pipeline around your goals and budget.'
     );
-    html = html.replace('Minimum monthly commitment · $500', '$500 minimum monthly commitment · not per link');
+    html = html.replace('Minimum monthly commitment · $500', '$500 minimum monthly commitment · not per placement');
     html = html.replace('<strong id="budget-value">$500</strong>', '<strong id="budget-value">$500–$800</strong>');
+    html = html.replace('Target approved links per month', 'Target approved placements per month');
+    html = html.replace('<input class="slider" id="link-slider" type="range" min="1" max="10" step="1" value="1"', '<input class="slider" id="link-slider" type="range" min="1" max="100" step="1" value="1"');
+    html = html.replace('<div class="slider-scale"><span>1 link</span><span>5 links</span><span>10 links</span></div>', '<div class="slider-scale"><span>1</span><span>10</span><span>25</span><span>50</span><span>75</span><span>100</span></div>');
+    html = html.replace('Choose a link target. We build the pipeline.', 'Choose a placement target. We build the pipeline.');
+    html = html.replace('Need more links, or prefer to give us a fixed budget? Start with the $500 minimum and provide your target during onboarding. We will build the opportunity pipeline around it.', 'Whether you need 2 approved placements per month or 100, we will build the outreach pipeline around your goals and budget. Every page and price still requires your approval.');
 
     const oldEstimator = "var estimate=Math.max(500,links*500);count.textContent=String(links);word.textContent=links===1?'link':'links';budget.textContent='$'+estimate.toLocaleString();";
-    const newEstimator = "var low=Math.max(500,links*250);var high=Math.max(500,links*800);count.textContent=String(links);word.textContent=links===1?'link':'links';budget.textContent='$'+low.toLocaleString()+'–$'+high.toLocaleString();";
+    const newEstimator = "var low=Math.max(500,links*250);var high=Math.max(500,links*800);count.textContent=String(links);word.textContent=links===1?'placement':'placements';budget.textContent='$'+low.toLocaleString()+'–$'+high.toLocaleString();";
     html = html.replace(oldEstimator, () => newEstimator);
+    html = html.replace("word.textContent=links===1?'link':'links';", "word.textContent=links===1?'placement':'placements';");
 
     html = html.replaceAll('/beta?plan=Done%20For%20You%20%28%24500%2Fmo%20minimum%29#apply', '/done-for-you-contact');
     html = html.replaceAll('Start with $500/month', 'Contact us');
