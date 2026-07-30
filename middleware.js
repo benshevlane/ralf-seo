@@ -1,9 +1,14 @@
 export const config = {
-  matcher: ['/(pricing|done-for-you)'],
+  matcher: ['/', '/(pricing|done-for-you)'],
 };
 
 export default function middleware(request) {
-  const renderer = request.url.includes('/done-for-you') ? '/api/done-for-you' : '/api/pricing';
+  const pathname = new URL(request.url).pathname;
+  const renderer = pathname === '/'
+    ? '/api/home'
+    : pathname.includes('/done-for-you')
+      ? '/api/done-for-you'
+      : '/api/pricing';
   const target = new URL(renderer, request.url);
   return fetch(target, {
     headers: {
