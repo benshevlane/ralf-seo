@@ -13,7 +13,7 @@
 <title>Ralf private beta &mdash; intake 2 now open</title>
 <meta name="author" content="Ralf">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="description" content="Apply for one of 20 private beta places. Ralf finds the links and citations, writes the pitch and sends it from your own mailbox.">
+<meta name="description" content="Intake 2 of the Ralf private beta is now open. Ralf finds the links and citations, writes the pitch and sends it from your own mailbox. Month 1 free, then full price, cancel any time.">
 <link rel="canonical" href="https://ralfhq.com/beta">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -366,6 +366,11 @@ select.bf-i{cursor:pointer}
     <p class="sub" style="font-size:clamp(18px,1.7vw,22px);max-width:60ch;margin-top:20px">ChatGPT and Perplexity keep recommending your competitors &mdash; not you. Ralf finds the links and citations that change that, writes the outreach, and sends it from your own mailbox. You just approve.</p>
     <p class="sub" style="font-size:clamp(17px,1.5vw,20px);max-width:60ch;margin-top:18px"><strong>Intake 2 is open.</strong> The first intake filled faster than we expected and applications kept coming, so we&rsquo;ve reopened it.</p>
 
+    <!-- Anchor target for the nav CTA (href="#apply") and any external
+         /beta#apply link. The v2 rewrite dropped the old #apply section but
+         kept the button, so the button did nothing. scroll-margin clears the
+         sticky nav. -->
+    <span id="apply" style="display:block;height:0;scroll-margin-top:90px" aria-hidden="true"></span>
     <div id="beta-form-wrap" style="margin-top:30px">
       <form id="beta-form-b" novalidate style="display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;max-width:680px">
         <input class="bf-i" type="email" name="email" required placeholder="Work email" autocomplete="email" style="flex:1 1 240px;height:54px;font-size:16px;margin-top:0">
