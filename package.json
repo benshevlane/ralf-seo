@@ -1,4 +1,7 @@
 {
   "private": true,
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "vercel-build": "node scripts/build-emerald-hero-preview.mjs"
+  }
 }
