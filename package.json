@@ -2,6 +2,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "vercel-build": "node scripts/build-emerald-hero-preview.mjs"
+    "vercel-build": "node scripts/build-emerald-hero-preview.mjs && node scripts/fix-emerald-preview-a11y.mjs"
   }
 }
