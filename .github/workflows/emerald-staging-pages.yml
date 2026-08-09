@@ -1,0 +1,44 @@
+name: Ralf marketing staging
+
+on:
+  push:
+    branches:
+      - emerald-staging-public
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: ralf-marketing-staging
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout staging branch
+        uses: actions/checkout@v4
+      - name: Build staging artifact
+        run: |
+          mkdir -p _site
+          cp index.html _site/index.html
+          cp staging-v1.html _site/staging-v1.html
+          cp staging-v2.html _site/staging-v2.html
+          touch _site/.nojekyll
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
