@@ -2,6 +2,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "vercel-build": "node scripts/build-v2-dist.mjs"
+    "vercel-build": "echo 'Ralf staging V2 served by api/staging-home.js'"
   }
 }
