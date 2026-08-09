@@ -35,10 +35,12 @@ replaceOnce(
   "  toggle.addEventListener('click',function(){userPaused=!userPaused;refresh();});",
   "  toggle.addEventListener('click',function(){userPaused=!userPaused;if(!userPaused){hoverPaused=false;focusPaused=false;}refresh();});"
 );
-replaceOnce(
-  '  setToggle();show(0);',
-  '  if(reduce)toggle.hidden=true;\n  setToggle();show(0);'
-);
+if (!html.includes('  if(reduce)toggle.hidden=true;')) {
+  replaceOnce(
+    '  setToggle();show(0);',
+    '  if(reduce)toggle.hidden=true;\n  setToggle();show(0);'
+  );
+}
 
 if (changed) {
   await writeFile(file, html, 'utf8');
