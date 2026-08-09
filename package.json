@@ -2,6 +2,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "vercel-build": "grep -q 'data-ralf-v2=\"hero\"' index.html || node scripts/build-emerald-hero-v2.mjs"
+    "vercel-build": "node scripts/build-v2-dist.mjs"
   }
 }
