@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/v2",
-      "destination": "/api/staging-v2-direct"
+      "destination": "/api/staging-v2-fixed"
     },
     {
       "source": "/pricing",
