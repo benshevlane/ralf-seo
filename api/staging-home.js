@@ -1,5 +1,5 @@
 const PROD_HOME = 'https://ralfhq.com/';
-const BUILD_SCRIPT = 'https://raw.githubusercontent.com/benshevlane/ralf-seo/49c9bc074405028908fc1dc53ec4e3cd399ef520/scripts/build-emerald-hero-v2.mjs';
+const BUILD_SCRIPT = 'https://raw.githubusercontent.com/benshevlane/ralf-seo/fa56d476f8464f1010c4fa067dc40a85dde07721/scripts/build-emerald-hero-v2.mjs';
 
 function template(source, name) {
   const marker = `const ${name} = String.raw\``;
@@ -40,7 +40,7 @@ export default async function handler(req, res) {
 
     res.setHeader('content-type', 'text/html; charset=utf-8');
     res.setHeader('cache-control', 'no-store, max-age=0');
-    res.setHeader('x-robots-tag', 'noindex, nofollow, noarchive');
+    res.setHeader('x-robots-tag', 'noindex, nofollow,noarchive');
     res.setHeader('x-ralf-staging', 'hero-v2');
     res.status(200).send(html);
   } catch (error) {
