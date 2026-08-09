@@ -20,6 +20,20 @@ export default async function handler(req, res) {
       '\n          <div class="r2-body">'
     );
 
+    // Make slide two communicate one simple, important connection:
+    // the page recommends the competitor AND the AI engines cite that same page.
+    const sourceStage = /\{\s*state:'Reason found',head:'Finding out why',hs:'evidence traced',[\s\S]*?\},\s*\{\s*state:'Content drafted'/;
+    const clearerSourceStage = String.raw`{
+      state:'Source + citation found',head:'Why this page matters',hs:'competitor + AI citation',
+      html:'<div class="r2-k">The connection Ralf found</div><h3>We found a page recommending your competitor — and AI is citing it.</h3><p>That combination matters: this page is helping shape the same AI answers where your competitor is beating you.</p><div class="r2-evidence"><div class="r2-ai-row"><span class="r2-ai-label">AI engines</span><span class="r2-ai-pill">ChatGPT</span><span class="r2-ai-pill">Gemini</span><b>cite this page</b></div><div class="r2-connector"><span>↓</span><small>cites</small></div><div class="r2-source-card"><strong>nordicapis.com/monitoring-tools</strong><div class="r2-proof-grid"><span class="r2-proof"><b>✓</b> Recommends Competitor A</span><span class="r2-proof"><b>✓</b> Cited by ChatGPT + Gemini</span></div></div><div class="r2-opportunity-note"><b>Ralf found the opportunity</b><span>Get your brand included on a source AI already trusts.</span></div></div>'
+    },
+    {
+      state:'Content drafted'`;
+
+    const beforeSourceRewrite = html;
+    html = html.replace(sourceStage, clearerSourceStage);
+    if (html === beforeSourceRewrite) throw new Error('Could not clarify source and AI citation stage');
+
     // Tell the product story in the right order:
     // discover the external influence -> run outreach -> then show that Ralf also
     // creates the on-site content needed to win AI recommendations.
@@ -38,6 +52,12 @@ export default async function handler(req, res) {
     const beforeStageRewrite = html;
     html = html.replace(stagePair, rewrittenStages);
     if (html === beforeStageRewrite) throw new Error('Could not reorder outreach and content stages');
+
+    // Give the more explanatory second slide a little longer to read.
+    html = html.replace(
+      'var durations=[4600,4600,5400,5400,4600,5200]',
+      'var durations=[4600,5400,5400,5400,4600,5200]'
+    );
 
     const patch = String.raw`<style data-ralf-v2="expanded-screen-patch">
 /* The demo itself is now the hero: no workflow rail and no redundant opportunity banner. */
@@ -63,6 +83,22 @@ export default async function handler(req, res) {
 .r2-approval-row b{min-width:74px!important}
 .r2-big{font-size:52px!important}.r2-before{font-size:27px!important}.r2-up{font-size:11px!important}
 
+/* Slide two: make the competitor recommendation + AI citation combination unmistakable. */
+.r2-evidence{margin-top:18px;display:grid;grid-template-columns:1fr;justify-items:stretch}
+.r2-ai-row{display:flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid var(--line);border-radius:11px;background:#fafafa;font-size:12px}
+.r2-ai-label{font:700 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut2);margin-right:2px}
+.r2-ai-pill{font:700 9px var(--mono);padding:4px 7px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--ink)}
+.r2-ai-row>b{margin-left:auto;color:#047857;font-size:11.5px}
+.r2-connector{height:34px;display:flex;align-items:center;justify-content:center;gap:7px;color:#059669}
+.r2-connector span{font:700 18px/1 var(--mono)}.r2-connector small{font:700 8px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut2)}
+.r2-source-card{border:1.5px solid #059669;border-radius:13px;background:#ecfdf5;padding:13px 14px;box-shadow:0 10px 26px -22px rgba(4,120,87,.7)}
+.r2-source-card>strong{display:block;font:600 14px var(--display);color:var(--ink);margin-bottom:9px}
+.r2-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.r2-proof{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #a7f3d0;border-radius:9px;padding:9px 10px;font-size:11.5px;font-weight:600;color:#333}
+.r2-proof b{width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:grid;place-items:center;background:var(--accent-grad);color:#fff;font-size:10px}
+.r2-opportunity-note{margin-top:9px;display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;background:#121212;color:#fff}
+.r2-opportunity-note b{font-size:11.5px;white-space:nowrap}.r2-opportunity-note span{font-size:10.5px;color:rgba(255,255,255,.72)}
+
 @media(max-width:900px){
   .r2-card{height:370px!important;min-height:350px!important}
   .r2-body{height:calc(100% - 42px)!important;padding:8px 10px 10px!important}
@@ -79,29 +115,14 @@ export default async function handler(req, res) {
   .r2-doc{padding:8px 9px!important;margin-top:8px!important}.r2-doc-title{font-size:9.5px!important;margin-bottom:6px!important}.r2-doc-line{height:4px!important;margin-top:5px!important}
   .r2-approval-row{font-size:9px!important;padding:6px 0!important;gap:7px!important}.r2-approval-row b{min-width:52px!important}
   .r2-big{font-size:34px!important}.r2-before{font-size:19px!important}.r2-up{font-size:8px!important}
+  .r2-evidence{margin-top:9px}.r2-ai-row{padding:6px 8px;gap:5px;font-size:8px}.r2-ai-label{font-size:6.5px}.r2-ai-pill{font-size:6.5px;padding:2px 4px}.r2-ai-row>b{font-size:7.5px}.r2-connector{height:20px;gap:4px}.r2-connector span{font-size:12px}.r2-connector small{font-size:6px}.r2-source-card{padding:7px 8px}.r2-source-card>strong{font-size:9.5px;margin-bottom:5px}.r2-proof-grid{gap:4px}.r2-proof{font-size:7.5px;padding:5px 6px;gap:4px}.r2-proof b{width:14px;height:14px;flex-basis:14px;font-size:7px}.r2-opportunity-note{margin-top:5px;padding:5px 7px;gap:5px}.r2-opportunity-note b{font-size:7.5px}.r2-opportunity-note span{font-size:7px}
 }
 @media(max-width:520px){
   .r2-card{height:358px!important;min-height:342px!important}
   .r2-scene h3{font-size:18px!important}
   .r2-scene p{font-size:10px!important}
+  .r2-proof-grid{grid-template-columns:1fr}.r2-opportunity-note span{display:none}
 }
 @media(max-height:720px) and (max-width:900px){
   .r2-card{height:332px!important;min-height:316px!important}
-  .r2-scene{padding:10px 11px!important}.r2-scene h3{font-size:16px!important}.r2-scene p{font-size:9px!important}.r2-metric{min-height:48px!important;padding:7px 8px!important}
-}
-</style>`;
-
-    html = html.replace('</head>', `${patch}\n<style data-ralf-staging-expanded>body:before{content:'STAGING · HERO V2 · OUTREACH → CONTENT';}</style>\n</head>`);
-
-    res.setHeader('content-type', 'text/html; charset=utf-8');
-    res.setHeader('cache-control', 'no-store, max-age=0');
-    res.setHeader('x-robots-tag', 'noindex, nofollow, noarchive');
-    res.setHeader('x-ralf-staging', 'hero-v2-outreach-then-content');
-    res.status(200).send(html);
-  } catch (error) {
-    console.error('staging-home-expanded failed', error);
-    res.setHeader('content-type', 'text/html; charset=utf-8');
-    res.setHeader('cache-control', 'no-store');
-    res.status(500).send(`<!doctype html><title>Ralf staging error</title><style>body{font:16px system-ui;padding:40px;max-width:700px;margin:auto}code{background:#f4f4f4;padding:3px 6px;border-radius:5px}</style><h1>Ralf staging could not render the expanded animation</h1><p><code>${String(error?.message || error).replace(/[<>&]/g, '')}</code></p>`);
-  }
-}
+  .r2-scene{padding:10px 11px
