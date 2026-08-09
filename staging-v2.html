@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Ralf staging · Version 2</title>
+<style>*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;font-family:system-ui,-apple-system,sans-serif;background:#fafafa;color:#121212}.load{text-align:center;padding:32px}.spark{width:34px;height:34px;margin:0 auto 14px;color:#059669;animation:s 1.2s linear infinite}@keyframes s{to{transform:rotate(360deg)}}p{color:#666}</style>
+</head>
+<body>
+<main class="load" id="loader"><svg class="spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c1.1 6 4.9 9.8 11 12-6.1 2.2-9.9 6-11 12-1.1-6-4.9-9.8-11-12 6.1-2.2 9.9-6 11-12Z"/></svg><strong>Opening Ralf staging…</strong><p id="msg">Loading connected-story hero animation.</p></main>
+<script>
+(async()=>{
+const COMMIT='3c2a8fda913816b6d4ea078a586ef0a6fefc78db',ROOT=`https://raw.githubusercontent.com/benshevlane/ralf-seo/${COMMIT}/`;
+const template=(s,n)=>{const m=s.match(new RegExp('const\\s+'+n+'\\s*=\\s*String\\.raw`([\\s\\S]*?)`;'));if(!m)throw Error('Missing '+n);return m[1]};
+const balanced=(s,marker,repl)=>{const start=s.indexOf(marker),open=s.indexOf('>',start),re=/<div\\b[^>]*>|<\\/div\\s*>/gi;re.lastIndex=open+1;let d=1,m;while((m=re.exec(s))){/^<div\\b/i.test(m[0])?d++:d--;if(!d)return s.slice(0,start)+repl+s.slice(re.lastIndex)}throw Error('Hero stack not found')};
+
+const V2_CSS=String.raw`<style data-ralf-v2>
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.heroB{padding:28px 0 30px;min-height:calc(100svh - 66px);display:flex;align-items:center}.heroB .grid{width:100%;grid-template-columns:minmax(0,.82fr) minmax(470px,1.18fr);grid-template-areas:"copy anim" "start anim";gap:16px 46px;align-items:center}.heroB .copy{grid-area:copy;align-self:end}.heroB .copy>*:not(h1){display:none!important}.heroB h1{font-size:clamp(42px,5vw,64px);line-height:.98;margin-top:0;max-width:11ch}.heroB .stack{grid-area:anim}.hero-start{grid-area:start;align-self:start;max-width:470px}.hero-domain{display:flex;align-items:center;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px;box-shadow:0 14px 34px -26px rgba(4,120,87,.42)}.hero-domain:focus-within{border-color:var(--accent-deep);box-shadow:0 0 0 3px rgba(5,150,105,.09)}.hero-domain input{min-width:0;flex:1;border:0;outline:0;background:transparent;padding:10px 13px;font:500 14.5px var(--body);color:var(--ink)}.hero-domain input::placeholder{color:var(--mut2)}.hero-domain button{border:0;border-radius:999px;background:var(--accent-grad);color:#fff;padding:11px 15px;font:600 13.5px var(--body);cursor:pointer;white-space:nowrap}.hero-domain button span{margin-left:5px}.hero-domain-note{margin:7px 0 0 14px;font:10px var(--mono);color:var(--mut2)}
+.rv2-stack{position:relative}.rv2-shell{position:relative;border-radius:22px;overflow:hidden;background:rgba(255,255,255,.97);border:1px solid rgba(5,150,105,.22)!important;box-shadow:0 30px 80px -42px rgba(4,120,87,.42),0 16px 38px -28px rgba(18,18,18,.34)!important}.rv2-shell:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(430px 220px at 86% -8%,rgba(52,211,153,.15),transparent 72%);z-index:0}.rv2-top{height:44px;padding:0 14px;display:flex;align-items:center;gap:9px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,rgba(244,244,243,.72));position:relative;z-index:4}.rv2-lights{display:flex;gap:5px}.rv2-lights i{width:7px;height:7px;border-radius:50%;background:var(--wash3)}.rv2-product{display:flex;align-items:center;gap:7px;margin-left:4px;font-family:var(--mono);font-size:9.5px;color:var(--mut2)}.rv2-product svg{width:12px;height:12px;color:var(--accent)}.rv2-live{margin-left:auto;display:flex;align-items:center;gap:6px;font:700 8.5px var(--mono);color:var(--accent-deep);background:var(--accent-wash);border:1px solid var(--accent-line);border-radius:999px;padding:4px 8px}.rv2-live i{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(5,150,105,.09)}
+.rv2-body{position:relative;z-index:2;padding:16px 18px 14px}.rv2-path{display:grid;grid-template-columns:repeat(5,1fr);align-items:start;gap:0;margin-bottom:13px}.rv2-step{position:relative;text-align:center;border:0;background:transparent;padding:0 2px;cursor:pointer;font-family:var(--mono);color:var(--mut2)}.rv2-step:before{content:"";position:absolute;top:7px;left:-50%;width:100%;height:1px;background:var(--wash3);z-index:0}.rv2-step:first-child:before{display:none}.rv2-dot{position:relative;z-index:1;width:15px;height:15px;margin:0 auto 5px;border-radius:50%;background:var(--wash2);border:4px solid #fff;box-shadow:0 0 0 1px var(--line);transition:.28s}.rv2-step.done .rv2-dot,.rv2-step.active .rv2-dot{background:var(--accent);box-shadow:0 0 0 1px var(--accent-line)}.rv2-step.done:before,.rv2-step.active:before{background:var(--accent-line)}.rv2-step span{font-size:7.5px;letter-spacing:.03em}.rv2-step.active span{color:var(--accent-deep);font-weight:700}
+.rv2-context{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:9px}.rv2-chip{font:8px var(--mono);padding:4px 7px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--mut)}.rv2-chip strong{color:var(--ink);font-weight:700}.rv2-chip.green{background:var(--accent-wash);border-color:var(--accent-line);color:var(--accent-deep)}
+.rv2-record{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.94);overflow:hidden;box-shadow:0 16px 42px -34px rgba(18,18,18,.42)}.rv2-rhead{display:flex;align-items:center;gap:8px;padding:9px 11px;border-bottom:1px solid var(--line2);background:rgba(244,244,243,.52)}.rv2-rhead span:first-child{font:8px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut2)}.rv2-status{margin-left:auto;font:700 7.5px var(--mono);border-radius:999px;padding:3px 6px;background:var(--accent-wash);border:1px solid var(--accent-line);color:var(--accent-deep)}.rv2-main{padding:12px}.rv2-kicker{font:700 8px var(--mono);letter-spacing:.11em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:5px}.rv2-main h2{font:600 20px/1.06 var(--display);letter-spacing:-.025em;max-width:23ch}.rv2-main p{font-size:11px;line-height:1.42;color:var(--mut);margin-top:6px;min-height:31px}.rv2-evidence{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.rv2-box{min-height:62px;border:1px solid var(--line2);background:var(--wash);border-radius:9px;padding:8px 9px;transition:transform .26s ease,background .26s ease,border-color .26s}.rv2-box.pulse{background:var(--accent-wash);border-color:var(--accent-line);transform:translateY(-1px)}.rv2-box .k{font:7px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--mut2)}.rv2-box .v{font-size:10px;font-weight:600;margin-top:4px;color:var(--ink)}.rv2-box .s{font:7.5px var(--mono);color:var(--mut2);margin-top:2px}.rv2-action{margin-top:7px;display:flex;align-items:center;gap:8px;padding:8px 9px;border:1px solid var(--line);border-radius:9px;background:#fff}.rv2-action-icon{width:20px;height:20px;flex:0 0 20px;border-radius:6px;display:grid;place-items:center;background:var(--accent-wash);color:var(--accent-deep);font-size:10px}.rv2-action-copy{min-width:0;flex:1}.rv2-action-copy b{display:block;font-size:9.5px;font-weight:600}.rv2-action-copy span{display:block;font:7.5px var(--mono);color:var(--mut2);margin-top:1px}.rv2-metric{font:700 9px var(--mono);color:var(--accent-deep);white-space:nowrap}
+.rv2-feed{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:8px}.rv2-feeditem{display:flex;align-items:center;gap:4px;min-width:0;font:7px var(--mono);color:var(--mut2);opacity:.42;transition:.25s}.rv2-feeditem i{width:12px;height:12px;flex:0 0 12px;border-radius:50%;display:grid;place-items:center;background:var(--wash2);font-style:normal;font-size:7px}.rv2-feeditem.done{opacity:1;color:var(--ink)}.rv2-feeditem.done i{background:var(--accent-grad);color:#fff}.rv2-progress{height:3px;background:var(--wash2);position:relative;z-index:3;overflow:hidden}.rv2-progress i{display:block;height:100%;background:var(--accent-grad);transform-origin:left center;transform:scaleX(0)}.rv2-caption{text-align:center;margin-top:8px;font:8.5px var(--mono);letter-spacing:.03em;color:var(--mut2)}
+@media(max-width:900px){.bar .row{height:56px}.heroB{min-height:calc(100svh - 56px);padding:14px 0 12px;align-items:flex-start}.heroB .grid{grid-template-columns:1fr;grid-template-areas:"copy" "anim" "start";gap:9px}.heroB h1{font-size:clamp(36px,9.6vw,46px);line-height:.96;max-width:11ch}.heroB .stack,.hero-start{width:100%;max-width:620px;margin:0 auto}.rv2-top{height:34px}.rv2-body{padding:10px 11px 9px}.rv2-path{margin-bottom:7px}.rv2-step span{font-size:6.5px}.rv2-dot{width:12px;height:12px;border-width:3px;margin-bottom:3px}.rv2-step:before{top:6px}.rv2-context{margin-bottom:6px}.rv2-chip{font-size:6.8px;padding:3px 5px}.rv2-main{padding:9px}.rv2-main h2{font-size:16px;max-width:none}.rv2-main p{font-size:9px;min-height:25px;margin-top:4px}.rv2-evidence{margin-top:7px}.rv2-box{min-height:48px;padding:6px 7px}.rv2-box .v{font-size:8.5px}.rv2-action{padding:6px 7px;margin-top:5px}.rv2-action-copy b{font-size:8.5px}.rv2-feed{margin-top:6px}.rv2-feeditem{font-size:6px}.rv2-caption{display:none}.hero-domain{padding:4px}.hero-domain input{padding:8px 10px;font-size:13.5px}.hero-domain button{padding:9px 12px;font-size:12.5px}.hero-domain-note{display:none}}
+@media(max-width:430px){.wrap{padding-left:16px!important;padding-right:16px!important}.heroB h1{font-size:36px}.rv2-body{padding:8px 9px 7px}.rv2-product{font-size:8px}.rv2-live{font-size:7px}.rv2-main h2{font-size:15px}.rv2-main p{font-size:8.5px}.rv2-box{min-height:44px}.rv2-feeditem span{display:none}.hero-domain button{padding-left:10px;padding-right:10px}}
+@media(max-height:700px) and (max-width:900px){.heroB{padding-top:7px}.heroB h1{font-size:33px}.rv2-top{height:30px}.rv2-body{padding-top:7px;padding-bottom:6px}.rv2-path{margin-bottom:5px}.rv2-context{margin-bottom:4px}.rv2-main{padding:7px}.rv2-main h2{font-size:14px}.rv2-main p{min-height:20px}.rv2-box{min-height:38px;padding:5px 6px}.rv2-action{padding:5px 6px}.rv2-feed{margin-top:4px}.hero-domain input{padding-top:6px;padding-bottom:6px}.hero-domain button{padding-top:7px;padding-bottom:7px}}
+@media(prefers-reduced-motion:reduce){.rv2-progress i{display:none}.rv2-box{transition:none}}
+</style>`;
+
+const V2_MARKUP=String.raw`<div class="stack rv2-stack" data-ralf-v2-animation>
+  <div class="hchip"><span class="pdot"></span>Ralf agent run · live</div>
+  <div class="mm rv2-shell" id="rv2" aria-label="Ralf turns one AI visibility gap into a result">
+    <div class="rv2-top"><span class="rv2-lights"><i></i><i></i><i></i></span><span class="rv2-product"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c1.1 6 4.9 9.8 11 12-6.1 2.2-9.9 6-11 12-1.1-6-4.9-9.8-11-12 6.1-2.2 9.9-6 11-12Z"/></svg> one opportunity · end to end</span><span class="rv2-live"><i></i><span id="rv2-live">working</span></span></div>
+    <div class="rv2-body">
+      <div class="rv2-path" id="rv2-path">
+        <button class="rv2-step active" type="button" data-step="0"><span class="rv2-dot"></span><span>Find gap</span></button>
+        <button class="rv2-step" type="button" data-step="1"><span class="rv2-dot"></span><span>Verify</span></button>
+        <button class="rv2-step" type="button" data-step="2"><span class="rv2-dot"></span><span>Trace source</span></button>
+        <button class="rv2-step" type="button" data-step="3"><span class="rv2-dot"></span><span>Execute</span></button>
+        <button class="rv2-step" type="button" data-step="4"><span class="rv2-dot"></span><span>Win result</span></button>
+      </div>
+      <div class="rv2-context"><span class="rv2-chip"><strong>Prompt</strong> · best free room planner</span><span class="rv2-chip green"><strong>Brand</strong> · FreeRoomPlanner</span></div>
+      <div class="rv2-record">
+        <div class="rv2-rhead"><span>Opportunity #1842</span><span class="rv2-status" id="rv2-status">scanning 7 models</span></div>
+        <div class="rv2-main">
+          <div class="rv2-kicker" id="rv2-kicker">Search</div>
+          <h2 id="rv2-title">Find the question you should be winning.</h2>
+          <p id="rv2-desc">Ralf is checking the same buying question across the AI engines your customers use.</p>
+          <div class="rv2-evidence">
+            <div class="rv2-box pulse" id="rv2-source"><div class="k">Evidence</div><div class="v" id="rv2-source-v">ChatGPT · scanning answers</div><div class="s" id="rv2-source-s">7 models in progress</div></div>
+            <div class="rv2-box" id="rv2-target"><div class="k">Carried forward</div><div class="v" id="rv2-target-v">Waiting for a gap</div><div class="s" id="rv2-target-s">same opportunity throughout</div></div>
+          </div>
+          <div class="rv2-action"><span class="rv2-action-icon" id="rv2-icon">⌁</span><span class="rv2-action-copy"><b id="rv2-action-b">Scanning AI answers</b><span id="rv2-action-s">Ralf is working — no report to interpret</span></span><span class="rv2-metric" id="rv2-metric">0 / 7</span></div>
+        </div>
+      </div>
+      <div class="rv2-feed" id="rv2-feed"><div class="rv2-feeditem"><i>✓</i><span>scan</span></div><div class="rv2-feeditem"><i>✓</i><span>gap</span></div><div class="rv2-feeditem"><i>✓</i><span>source</span></div><div class="rv2-feeditem"><i>✓</i><span>action</span></div><div class="rv2-feeditem"><i>✓</i><span>citation</span></div></div>
+    </div>
+    <div class="rv2-progress"><i id="rv2-progress"></i></div>
+  </div>
+  <div class="rv2-caption">The same opportunity moves through Ralf until there is a measurable result.</div>
+</div>`;
+
+const V2_JS=String.raw`<script data-ralf-v2-js>
+(function(){
+ var root=document.getElementById('rv2'); if(!root)return;
+ var steps=[].slice.call(root.querySelectorAll('.rv2-step')),feed=[].slice.call(root.querySelectorAll('.rv2-feeditem'));
+ var els={live:document.getElementById('rv2-live'),status:document.getElementById('rv2-status'),kicker:document.getElementById('rv2-kicker'),title:document.getElementById('rv2-title'),desc:document.getElementById('rv2-desc'),sv:document.getElementById('rv2-source-v'),ss:document.getElementById('rv2-source-s'),tv:document.getElementById('rv2-target-v'),ts:document.getElementById('rv2-target-s'),ab:document.getElementById('rv2-action-b'),as:document.getElementById('rv2-action-s'),metric:document.getElementById('rv2-metric'),icon:document.getElementById('rv2-icon'),source:document.getElementById('rv2-source'),target:document.getElementById('rv2-target'),progress:document.getElementById('rv2-progress')};
+ var data=[
+  {d:2300,live:'working',status:'scanning 7 models',k:'Search',t:'Find the question you should be winning.',p:'Ralf checks the same buying question across the AI engines your customers use.',sv:'ChatGPT · scanning answers',ss:'7 models in progress',tv:'Waiting for a gap',ts:'same opportunity throughout',ab:'Scanning AI answers',as:'Ralf is working — no report to interpret',m:'0 / 7',i:'⌁',pulse:'source'},
+  {d:2500,live:'gap found',status:'brand absent',k:'Diagnosis',t:'A competitor is winning this answer instead.',p:'Planner 5D is named repeatedly. FreeRoomPlanner is missing, so Ralf keeps this exact gap moving.',sv:'Planner 5D · named in 5/7',ss:'FreeRoomPlanner · 0/7',tv:'Gap verified',ts:'high-intent prompt',ab:'Finding the reason they are cited',as:'Competitor mention becomes a concrete opportunity',m:'5 / 7',i:'!',pulse:'target'},
+  {d:2700,live:'source found',status:'priority 94',k:'Trace',t:'Ralf finds the page influencing the answer.',p:'The same gap is traced to the source page AI already trusts — no disconnected prospecting list.',sv:'tomsguide.com/best-room-planners',ss:'cited by ChatGPT · competitor included',tv:'Editor + page verified',ts:'same prompt · same gap',ab:'Building the pitch from this evidence',as:'Page context and competitor mention travel with it',m:'94',i:'↗',pulse:'source'},
+  {d:2900,live:'executing',status:'approved action',k:'Execute',t:'The opportunity turns into work, not another task.',p:'Ralf drafts the outreach in context and prepares the supporting content, ready behind your approval gate.',sv:'editor@tomsguide.com',ss:'roundup owner verified',tv:'Draft + evidence ready',ts:'competitor + prompt included',ab:'Outreach approved and sent',as:'Follow-up scheduled automatically',m:'sent',i:'→',pulse:'target'},
+  {d:3200,live:'result won',status:'citation live',k:'Result',t:'The loop closes with a result you can measure.',p:'The source now includes FreeRoomPlanner. Ralf carries the result back into visibility tracking and starts the next gap.',sv:'tomsguide.com · FreeRoomPlanner added',ss:'citation verified live',tv:'AI visibility increased',ts:'same opportunity closed',ab:'Citation won · monitoring impact',as:'Next opportunity already queued',m:'+18%',i:'✓',pulse:'both'}
+ ];
+ var current=0,timer=null,manual=false,visible=true,reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function setText(el,v){if(el)el.textContent=v}
+ function draw(n){current=n;var x=data[n]; steps.forEach(function(s,i){s.classList.toggle('active',i===n);s.classList.toggle('done',i<n)});feed.forEach(function(f,i){f.classList.toggle('done',i<=n)});setText(els.live,x.live);setText(els.status,x.status);setText(els.kicker,x.k);setText(els.title,x.t);setText(els.desc,x.p);setText(els.sv,x.sv);setText(els.ss,x.ss);setText(els.tv,x.tv);setText(els.ts,x.ts);setText(els.ab,x.ab);setText(els.as,x.as);setText(els.metric,x.m);setText(els.icon,x.i);els.source.classList.toggle('pulse',x.pulse==='source'||x.pulse==='both');els.target.classList.toggle('pulse',x.pulse==='target'||x.pulse==='both');arm();}
+ function arm(){if(timer)clearTimeout(timer);els.progress.style.transition='none';els.progress.style.transform='scaleX(0)';void els.progress.offsetWidth;if(reduce||manual||!visible)return;els.progress.style.transition='transform '+data[current].d+'ms linear';requestAnimationFrame(function(){els.progress.style.transform='scaleX(1)'});timer=setTimeout(function(){draw((current+1)%data.length)},data[current].d)}
+ steps.forEach(function(s){s.addEventListener('click',function(){manual=true;draw(Number(s.getAttribute('data-step')));setTimeout(function(){manual=false;arm()},5000)})});
+ if('IntersectionObserver'in window){new IntersectionObserver(function(es){es.forEach(function(e){visible=e.isIntersecting;arm()})},{threshold:.25}).observe(root)}
+ draw(0);
+})();
+<\/script>`;
+
+const startBox=`<div class="hero-start"><form class="hero-domain" data-hero-domain><label class="sr-only" for="v2-domain">Your website</label><input id="v2-domain" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourwebsite.com" aria-label="Enter your website"><button type="submit">Get Ralf working <span>→</span></button></form><div class="hero-domain-note" data-domain-note>Enter your website · Ralf finds the first opportunities</div></div>`;
+try{
+ const [pageRes,buildRes]=await Promise.all([fetch(ROOT+'index.html',{cache:'no-store'}),fetch(ROOT+'scripts/build-emerald-hero-preview.mjs',{cache:'no-store'})]);
+ if(!pageRes.ok||!buildRes.ok)throw Error('Could not load staging source');
+ let html=await pageRes.text(),build=await buildRes.text();
+ const base=template(build,'BASE_CSS');
+ const hs=html.indexOf('<header class="heroB">'),he=html.indexOf('</header>',hs);if(hs<0||he<0)throw Error('Homepage hero not found');
+ html=html.slice(0,hs)+balanced(html.slice(hs,he),'<div class="stack">',V2_MARKUP)+html.slice(he);
+ const heroEnd=html.indexOf('</header>',hs),gridClose=html.lastIndexOf('</div>',heroEnd);html=html.slice(0,gridClose)+startBox+html.slice(gridClose);
+ html=html.replace('</head>',base+'\n'+V2_CSS+'\n</head>');
+ const safety=`<script data-staging-domain>document.addEventListener('submit',function(e){if(!e.target.matches('[data-hero-domain]'))return;e.preventDefault();var n=e.target.parentElement.querySelector('[data-domain-note]');if(n)n.textContent='Staging preview — this will start Ralf onboarding in production.';});<\/script>`;
+ html=html.replace('</body>',V2_JS+'\n'+safety+'\n</body>');
+ html=html.replace(/<meta name="robots"[^>]*>/i,'<meta name="robots" content="noindex,nofollow,noarchive">');
+ html=html.replace(/\\s*<!-- Google tag \\(gtag\\.js\\) -->\\s*<script async[\\s\\S]*?<\\/script>\\s*<script>[\\s\\S]*?<\\/script>/i,'');
+ html=html.replace(/(href|src)="\\/assets\\//g,'$1="https://ralfhq.com/assets/').replace(/href="\\/#faq"/g,'href="#faq"').replace(/href="\\/"/g,'href="#top"').replace(/href="\\/([^"#][^"]*)"/g,'href="https://ralfhq.com/$1"');
+ document.open();document.write(html);document.close();
+}catch(e){document.getElementById('msg').textContent='Staging failed to load: '+e.message}
+})();
+</script>
+</body>
+</html>
