@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/",
+      "source": "/v2",
       "destination": "/api/staging-home"
     },
     {
