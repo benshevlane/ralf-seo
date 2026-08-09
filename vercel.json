@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/v2",
-      "destination": "/api/staging-home-expanded"
+      "destination": "/api/staging-home-reviewable"
     },
     {
       "source": "/pricing",
