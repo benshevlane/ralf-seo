@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (!host) throw new Error('Missing host header');
     const proto = (req.headers['x-forwarded-proto'] || 'https').toString().split(',')[0].trim();
     const upstream = await fetch(`${proto}://${host}/api/staging-v2-direct`, {
-      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/1.8' },
+      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/1.9' },
       cache: 'no-store',
     });
     if (!upstream.ok) throw new Error(`Direct staging hero returned ${upstream.status}`);
@@ -128,18 +128,39 @@ export default async function handler(req, res) {
 }
 </style>`;
 
+    const neutralHeroCss = String.raw`<style data-ralf-v2-neutral-hero>
+/* Restore the homepage hero/animation to its neutral treatment. Green remains only as a semantic accent. */
+.r2x-hero{background:#fff!important}
+.r2x-hero:before{
+  background-image:radial-gradient(rgba(18,18,18,.10) 1px,transparent 1.5px)!important;
+  opacity:.28!important;
+}
+.r2x-screen-head{
+  background:#fff!important;
+  border-color:var(--line)!important;
+  box-shadow:0 18px 52px -38px rgba(18,18,18,.24)!important;
+}
+.r2x-scene{
+  background:#fff!important;
+  border-color:var(--line)!important;
+  box-shadow:0 38px 100px -48px rgba(18,18,18,.30),0 20px 48px -30px rgba(18,18,18,.22)!important;
+}
+.r2x-screen:after{background:linear-gradient(180deg,rgba(18,18,18,.045),rgba(18,18,18,0))!important}
+.r2x-content-editor,.r2x-panel,.r2x-approval{background:#f6f7f6!important}
+</style>`;
+
     html = html.replace(/<div class="r2x-dots" aria-label="Choose animation stage">[\s\S]*?<\/div>/, dots);
     html = html.replace(/var stages=\[[\s\S]*?\];\s*var durations=/, `${stages}\n  var durations=`);
     html = html.replace(/var durations=\[[^\]]+\]/, `var durations=${durations}`);
     html = html.replace('STAGING · HERO V2 · PROMPT FIRST + CONTROLS', 'STAGING · HERO V2 · GREEN ACCENTS');
     html = html.replace('STAGING · HERO V2 · SINGLE SURFACE', 'STAGING · HERO V2 · GREEN ACCENTS');
-    html = html.replace('</head>', `${css}\n${singleSurfaceCss}\n${homepageGreenCss}\n<link rel="stylesheet" href="/assets/staging-emerald.css" data-ralf-staging-sitewide>\n</head>`);
+    html = html.replace('</head>', `${css}\n${singleSurfaceCss}\n${homepageGreenCss}\n${neutralHeroCss}\n<link rel="stylesheet" href="/assets/staging-emerald.css" data-ralf-staging-sitewide>\n</head>`);
     html = html.replace('</body>', `<script defer src="/assets/staging-trial.js" data-ralf-staging-sitewide></script>\n</body>`);
 
     res.setHeader('content-type', 'text/html; charset=utf-8');
     res.setHeader('cache-control', 'no-store, max-age=0');
     res.setHeader('x-robots-tag', 'noindex, nofollow,noarchive');
-    res.setHeader('x-ralf-staging', 'hero-v2-sitewide-green-trial');
+    res.setHeader('x-ralf-staging', 'hero-v2-neutral-surface-green-accents');
     res.status(200).send(html);
   } catch (error) {
     console.error('staging-v2-fixed failed', error);
