@@ -155,7 +155,7 @@
       .r2x-mobile-break{display:none}
       @media(max-width:900px){
         .r2x-mobile-break{display:block!important}
-        .r2x-copy h1{max-width:none!important;width:100%!important;text-align:center!important;font-size:clamp(43px,11.2vw,58px)!important;line-height:.98!important;letter-spacing:-.045em!important}
+        .r2x-copy h1{max-width:none!important;width:100%!important;text-align:center!important;font-size:clamp(35px,8.7vw,44px)!important;line-height:1.02!important;letter-spacing:-.04em!important;white-space:nowrap!important}
         .r2x-copy h1 .r2x-rotator{min-width:0!important}
         .r2x-copy p{width:100%!important;max-width:620px!important;height:auto!important;min-height:0!important;overflow:visible!important;font-size:14.5px!important;line-height:1.4!important;color:var(--mut)!important;margin:12px auto 0!important;padding:0 10px!important;text-align:center!important}
         .r2x-copy p::after{content:none!important;display:none!important}
@@ -213,7 +213,7 @@
         .r2x-controls{bottom:-9px!important;transform:translateX(-50%) scale(1.06)!important}
       }
       @media(max-width:520px){
-        .r2x-copy h1{font-size:clamp(42px,11.6vw,54px)!important}
+        .r2x-copy h1{font-size:clamp(34px,8.5vw,38px)!important;letter-spacing:-.035em!important}
         .r2x-copy p{font-size:14px!important;line-height:1.38!important;padding:0 6px!important}
         .r2x-card{height:398px!important}.r2x-screen{height:394px!important}.r2x-scene{height:352px!important}
       }
