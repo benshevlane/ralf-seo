@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (!host) throw new Error('Missing host header');
     const proto = (req.headers['x-forwarded-proto'] || 'https').toString().split(',')[0].trim();
     const upstream = await fetch(`${proto}://${host}/api/staging-v2-direct`, {
-      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/2.1' },
+      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/2.2' },
       cache: 'no-store',
     });
     if (!upstream.ok) throw new Error(`Direct staging hero returned ${upstream.status}`);
@@ -45,6 +45,11 @@ export default async function handler(req, res) {
 /* Structural animation surfaces stay neutral. */
 .r2x-hero{background:#fff!important}
 .r2x-hero:before{background-image:radial-gradient(rgba(18,18,18,.10) 1px,transparent 1.5px)!important;opacity:.22!important}
+/* Restore the wider, calmer headline proportions from the original homepage. */
+@media(min-width:901px){
+  .r2x-shell{grid-template-columns:minmax(0,1fr) minmax(570px,1.1fr)!important;column-gap:38px!important}
+  .r2x-copy h1{max-width:13.6ch!important;font-size:clamp(46px,5.35vw,72px)!important;line-height:1!important}
+}
 /* Restore the emerald atmosphere BEHIND the demo, never inside it. */
 .r2x-demo:before{content:"";position:absolute;z-index:-1;inset:-58px -72px -66px -66px;pointer-events:none;background:radial-gradient(ellipse at 52% 44%,rgba(52,211,153,.18) 0%,rgba(5,150,105,.09) 42%,rgba(5,150,105,0) 74%);filter:blur(2px)}
 #r2xCard,.r2x-screen{background:transparent!important}
@@ -90,7 +95,7 @@ export default async function handler(req, res) {
     res.setHeader('content-type', 'text/html; charset=utf-8');
     res.setHeader('cache-control', 'no-store, max-age=0');
     res.setHeader('x-robots-tag', 'noindex, nofollow,noarchive');
-    res.setHeader('x-ralf-staging', 'hero-v2-demo-halo-rotating-green-ai');
+    res.setHeader('x-ralf-staging', 'hero-v2-original-headline-proportions');
     res.status(200).send(html);
   } catch (error) {
     console.error('staging-v2-fixed failed', error);
