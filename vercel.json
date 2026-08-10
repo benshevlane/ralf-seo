@@ -1,5 +1,6 @@
 {
   "buildCommand": "node scripts/inject-ahrefs-analytics.mjs",
+  "outputDirectory": "public",
   "cleanUrls": true,
   "rewrites": [
     {
