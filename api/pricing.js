@@ -1,4 +1,5 @@
-// Production renderer used to surface the Done For You alternative on /pricing.
+// Production-shaped renderer used on the staging branch to surface the Done For You alternative on /pricing.
+// The final two injections are staging-only because this file is changed only on agent/emerald-hero-staging.
 const DONE_FOR_YOU_BANNER = `
 <section aria-label="Ralf Done For You" style="padding:30px 0;background:#f4f4f3;border-top:1px solid rgba(18,18,18,.06);border-bottom:1px solid rgba(18,18,18,.06)">
   <div style="max-width:1180px;margin:0 auto;padding:0 32px">
@@ -14,6 +15,9 @@ const DONE_FOR_YOU_BANNER = `
   </div>
   <style>@media(max-width:720px){section[aria-label="Ralf Done For You"]>div{padding:0 20px!important}section[aria-label="Ralf Done For You"]>div>div{grid-template-columns:1fr!important;padding:23px 21px!important}section[aria-label="Ralf Done For You"] a{width:100%;text-align:center}}</style>
 </section>`;
+
+const STAGING_STYLE = '<link rel="stylesheet" href="/assets/staging-emerald.css" data-ralf-staging-sitewide>';
+const STAGING_SCRIPT = '<script defer src="/assets/staging-trial.js" data-ralf-staging-sitewide></script>';
 
 export default async function handler(_req, res) {
   try {
@@ -38,8 +42,20 @@ export default async function handler(_req, res) {
       '<a href="/done-for-you">Done For You</a><a href="/methodology">Methodology</a>'
     );
 
+    if (!html.includes('/assets/staging-emerald.css')) {
+      html = html.replace('</head>', `${STAGING_STYLE}\n</head>`);
+    }
+    if (!html.includes('/assets/staging-trial.js')) {
+      html = html.replace('</body>', `${STAGING_SCRIPT}\n</body>`);
+      if (!html.includes('/assets/staging-trial.js')) {
+        html = html.replace('</html>', `${STAGING_SCRIPT}\n</html>`);
+      }
+    }
+
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
+    res.setHeader('Cache-Control', 'no-store, max-age=0');
+    res.setHeader('x-robots-tag', 'noindex, nofollow, noarchive');
+    res.setHeader('x-ralf-staging', 'pricing-sitewide-green-trial');
     res.status(200).send(html);
   } catch (_error) {
     res.status(500).send('Unable to render pricing page.');
