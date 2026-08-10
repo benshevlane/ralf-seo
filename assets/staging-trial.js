@@ -33,7 +33,6 @@
     if(!el) return;
     var arrow = el.querySelector && el.querySelector('.arr');
     if(arrow){
-      /* Keep the existing arrow span/animation. */
       Array.prototype.slice.call(el.childNodes).forEach(function(n){
         if(n !== arrow && n.nodeType === 3) n.nodeValue = '';
       });
@@ -87,8 +86,6 @@
       setStartTrialLabel(a);
     });
 
-    /* Pricing historically used buttons that opened a separate beta/waitlist
-       modal. Capture before its legacy handler so staging has one funnel. */
     document.querySelectorAll('[data-waitlist-plan]').forEach(function(btn){
       setStartTrialLabel(btn);
       btn.addEventListener('click',function(e){
@@ -122,11 +119,27 @@
     },true);
   }
 
+  function fixV2MobileHero(){
+    var copy=document.querySelector('.r2x-copy p');
+    if(!copy) return;
+    var full=copy.textContent;
+    var shortCopy='Ralf finds where AI recommends your competitors instead of you — then fixes your site, writes the content and runs the outreach to get you cited.';
+    var style=document.createElement('style');
+    style.setAttribute('data-ralf-v2-mobile-copy-fix','');
+    style.textContent='@media(max-width:900px){.r2x-copy p{width:100%!important;max-width:620px!important;height:auto!important;min-height:0!important;overflow:visible!important;font-size:14.5px!important;line-height:1.4!important;color:var(--mut)!important;margin:12px auto 0!important;padding:0 10px!important;text-align:center!important}.r2x-copy p::after{content:none!important;display:none!important}}@media(max-width:520px){.r2x-copy p{font-size:14px!important;line-height:1.38!important;padding:0 6px!important}}';
+    document.head.appendChild(style);
+    function sync(){ copy.textContent=window.innerWidth<=900?shortCopy:full; }
+    sync();
+    var timer;
+    window.addEventListener('resize',function(){clearTimeout(timer);timer=setTimeout(sync,120);},{passive:true});
+  }
+
   function init(){
     replaceVisibleBetaCopy();
     wireTrialLinks();
     wireHomepageDomainForm();
     keepReviewerOnV2();
+    fixV2MobileHero();
   }
 
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true});
