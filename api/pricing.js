@@ -60,9 +60,8 @@ export default async function handler(_req, res) {
 
     let html = await response.text();
 
-    // The Suite is the clearest answer to "what does Ralf cost?" so keep it immediately below the intro.
-    // Done For You is an alternative service and belongs after the main software pricing, not before it.
-    const suiteMarker = 'Ralf Suite';
+    // Match the visible Suite heading, not the earlier JSON-LD product name.
+    const suiteMarker = '>Ralf Suite</div>';
     const suiteMarkerIndex = html.indexOf(suiteMarker);
     if (suiteMarkerIndex !== -1) {
       const suiteSectionStart = html.lastIndexOf('<section', suiteMarkerIndex);
