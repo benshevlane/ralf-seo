@@ -7,7 +7,7 @@
     },
     {
       "source": "/pricing",
-      "destination": "/api/pricing-staging"
+      "destination": "/api/pricing"
     }
   ],
   "redirects": [
