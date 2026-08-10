@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (!host) throw new Error('Missing host header');
     const proto = (req.headers['x-forwarded-proto'] || 'https').toString().split(',')[0].trim();
     const upstream = await fetch(`${proto}://${host}/api/staging-v2-direct`, {
-      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/2.0' },
+      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/2.1' },
       cache: 'no-store',
     });
     if (!upstream.ok) throw new Error(`Direct staging hero returned ${upstream.status}`);
@@ -42,9 +42,11 @@ export default async function handler(req, res) {
 </style>`;
 
     const neutralHeroCss = String.raw`<style data-ralf-v2-neutral-hero>
-/* FINAL OVERRIDE: all structural animation surfaces are neutral. */
+/* Structural animation surfaces stay neutral. */
 .r2x-hero{background:#fff!important}
 .r2x-hero:before{background-image:radial-gradient(rgba(18,18,18,.10) 1px,transparent 1.5px)!important;opacity:.22!important}
+/* Restore the emerald atmosphere BEHIND the demo, never inside it. */
+.r2x-demo:before{content:"";position:absolute;z-index:-1;inset:-58px -72px -66px -66px;pointer-events:none;background:radial-gradient(ellipse at 52% 44%,rgba(52,211,153,.18) 0%,rgba(5,150,105,.09) 42%,rgba(5,150,105,0) 74%);filter:blur(2px)}
 #r2xCard,.r2x-screen{background:transparent!important}
 #r2xCard .r2x-screen-head{background:#fff!important;border-color:rgba(18,18,18,.11)!important;box-shadow:0 18px 52px -38px rgba(18,18,18,.22)!important}
 #r2xCard .r2x-scene{background:#fff!important;border-color:rgba(18,18,18,.11)!important;box-shadow:0 38px 100px -48px rgba(18,18,18,.27),0 20px 48px -30px rgba(18,18,18,.18)!important}
@@ -52,22 +54,43 @@ export default async function handler(req, res) {
 #r2xCard .r2x-source{background:#fff!important}
 #r2xCard .r2x-source-signals span,#r2xCard .r2x-prompt{background:#fff!important}
 #r2xCard .r2x-screen:after{background:linear-gradient(180deg,rgba(18,18,18,.04),rgba(18,18,18,0))!important}
-/* Keep only semantic green accents. */
 #r2xCard .r2x-badge.green,#r2xCard .r2x-engine,#r2xCard .r2x-checks span,#r2xCard .r2x-health{background:var(--r2x-wash)!important}
+/* Main-site word rotator, with every model name in emerald. */
+.r2x-rotator{position:relative;display:inline-block;vertical-align:baseline;height:1em;white-space:nowrap;color:var(--r2x)!important;min-width:2ch}
+.r2x-rotator .r2x-rw{position:absolute;left:0;bottom:0;opacity:0;transform:translateY(.28em);color:var(--r2x)!important;transition:opacity .42s ease,transform .48s cubic-bezier(.22,.61,.36,1)}
+.r2x-rotator .r2x-rw.is-in{opacity:1;transform:none}
+.r2x-rotator .r2x-rw.is-out{opacity:0;transform:translateY(-.30em)}
+@media(max-width:900px){.r2x-demo:before{inset:-32px -28px -40px;background:radial-gradient(ellipse at 50% 44%,rgba(52,211,153,.15) 0%,rgba(5,150,105,.07) 44%,rgba(5,150,105,0) 74%)}}
 </style>`;
+
+    const rotatorScript = String.raw`<script data-ralf-v2-word-rotator>
+(function(){
+  var rot=document.querySelector('.r2x-rotator');
+  if(!rot)return;
+  var words=['AI','ChatGPT','Claude','Gemini','Perplexity'];
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  rot.innerHTML='';
+  var spans=words.map(function(word,i){var s=document.createElement('span');s.className='r2x-rw'+(i===0?' is-in':'');s.textContent=word;rot.appendChild(s);return s;});
+  requestAnimationFrame(function(){var max=0;spans.forEach(function(s){max=Math.max(max,Math.ceil(s.getBoundingClientRect().width));});rot.style.width=max+'px';});
+  if(reduce)return;
+  var current=0;
+  setInterval(function(){var prev=spans[current];current=(current+1)%spans.length;var next=spans[current];prev.classList.remove('is-in');prev.classList.add('is-out');next.classList.remove('is-out');next.classList.add('is-in');setTimeout(function(){prev.classList.remove('is-out');},600);},2400);
+})();
+</script>`;
 
     html = html.replace(/<div class="r2x-dots" aria-label="Choose animation stage">[\s\S]*?<\/div>/, dots);
     html = html.replace(/var stages=\[[\s\S]*?\];\s*var durations=/, `${stages}\n  var durations=`);
     html = html.replace(/var durations=\[[^\]]+\]/, `var durations=${durations}`);
+    html = html.replace('<h1>Get your business found by <em>AI</em></h1>', '<h1>Get your business found by <span class="r2x-rotator" aria-label="AI search engines"><span class="r2x-rw is-in">AI</span></span></h1>');
     html = html.replace('STAGING · HERO V2 · PROMPT FIRST + CONTROLS', 'STAGING · HERO V2 · GREEN ACCENTS');
     html = html.replace('STAGING · HERO V2 · SINGLE SURFACE', 'STAGING · HERO V2 · GREEN ACCENTS');
     html = html.replace('</head>', `${css}\n${singleSurfaceCss}\n${homepageGreenCss}\n<link rel="stylesheet" href="/assets/staging-emerald.css" data-ralf-staging-sitewide>\n${neutralHeroCss}\n</head>`);
-    html = html.replace('</body>', `<script defer src="/assets/staging-trial.js" data-ralf-staging-sitewide></script>\n</body>`);
+    html = html.replace('</body>', `${rotatorScript}\n<script defer src="/assets/staging-trial.js" data-ralf-staging-sitewide></script>\n</body>`);
 
     res.setHeader('content-type', 'text/html; charset=utf-8');
     res.setHeader('cache-control', 'no-store, max-age=0');
     res.setHeader('x-robots-tag', 'noindex, nofollow,noarchive');
-    res.setHeader('x-ralf-staging', 'hero-v2-neutral-animation-v2');
+    res.setHeader('x-ralf-staging', 'hero-v2-demo-halo-rotating-green-ai');
     res.status(200).send(html);
   } catch (error) {
     console.error('staging-v2-fixed failed', error);
