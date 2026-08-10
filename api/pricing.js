@@ -37,10 +37,12 @@ export default async function handler(_req, res) {
       html = html.slice(0, insertAt) + DONE_FOR_YOU_BANNER + html.slice(insertAt);
     }
 
-    html = html.replace(
-      '<a href="/methodology">Methodology</a>',
-      '<a href="/done-for-you">Done For You</a><a href="/methodology">Methodology</a>'
-    );
+    if (!html.includes('<a href="/done-for-you">Done For You</a>')) {
+      html = html.replace(
+        '<a href="/methodology">Methodology</a>',
+        '<a href="/done-for-you">Done For You</a><a href="/methodology">Methodology</a>'
+      );
+    }
 
     if (!html.includes('/assets/staging-emerald.css')) {
       html = html.replace('</head>', `${STAGING_STYLE}\n</head>`);
