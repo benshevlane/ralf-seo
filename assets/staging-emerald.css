@@ -30,8 +30,8 @@ button.btn:not([style*="background:transparent"]){
 .navlinks a[aria-current="page"],.navlinks a:hover,.signin:hover{color:var(--ralf-green-dark)!important}
 .navlinks .dd:hover .dd-t,.navlinks .dd:focus-within .dd-t{color:var(--ralf-green-dark)!important}
 
-/* Calm green light in heroes; no full green section fills. */
-.heroB::before{
+/* Calm green light in standard heroes. The homepage V2 hero keeps its own original animation layer. */
+.heroB:not(.r2x-hero)::before{
   background:radial-gradient(58% 64% at 84% 26%,rgba(5,150,105,.075),transparent 70%)!important;
 }
 .heroB h1 em{font-style:normal;background:linear-gradient(135deg,var(--ralf-green-dark),var(--ralf-green-bright));-webkit-background-clip:text;background-clip:text;color:transparent}
