@@ -98,14 +98,14 @@ footer a:hover{color:#6ee7b7!important}
 /* V2 hero finishing pass: baseline, explainer readability and unobstructed playback. */
 @media(min-width:901px){
   .r2x-copy p{font-size:18.5px!important;line-height:1.58!important;max-width:47ch!important}
-  .r2x-rotator{vertical-align:bottom!important;transform:translateY(.13em)!important}
+  .r2x-rotator{vertical-align:bottom!important;transform:translateY(.055em)!important}
   .r2x-progress{width:calc(100% - 24px)!important;margin-left:12px!important;margin-right:12px!important;border-radius:999px!important}
   .r2x-controls{bottom:-9px!important}
 }
 
 @media(max-width:900px){
   .r2x-copy p{font-size:13.5px!important;line-height:1.45!important}
-  .r2x-rotator{vertical-align:bottom!important;transform:translateY(.10em)!important}
+  .r2x-rotator{vertical-align:bottom!important;transform:translateY(.045em)!important}
   .r2x-progress{width:calc(100% - 16px)!important;margin-left:8px!important;margin-right:8px!important;border-radius:999px!important}
   .r2x-controls{bottom:-7px!important}
   .cmp.cards td.col-us{background:#f2faf6!important;border-radius:7px;padding-left:7px!important;padding-right:7px!important}
