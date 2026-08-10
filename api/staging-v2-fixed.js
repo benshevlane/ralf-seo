@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (!host) throw new Error('Missing host header');
     const proto = (req.headers['x-forwarded-proto'] || 'https').toString().split(',')[0].trim();
     const upstream = await fetch(`${proto}://${host}/api/staging-v2-direct`, {
-      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/1.7' },
+      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/1.8' },
       cache: 'no-store',
     });
     if (!upstream.ok) throw new Error(`Direct staging hero returned ${upstream.status}`);
@@ -53,7 +53,6 @@ export default async function handler(req, res) {
   box-shadow:0 38px 100px -48px rgba(4,120,87,.62),0 20px 48px -30px rgba(18,18,18,.34)!important;
 }
 .r2x-progress{position:relative;z-index:3;border-radius:0 0 999px 999px;overflow:hidden}
-/* Keep the content editor large, but it now lives inside the same single surface as every other stage. */
 .r2x-content-editor{
   min-height:240px!important;
   padding:20px 22px 18px!important;
@@ -100,36 +99,29 @@ export default async function handler(req, res) {
 #proof #spchart circle{fill:var(--r2x)!important}
 #proof .met .mv i{color:var(--r2x)!important}
 
-/* Your performance is green; competitors remain neutral. */
 #features .vrow:first-child .vfill{background:linear-gradient(90deg,var(--r2x-dark),var(--r2x-bright))!important}
 #features .vrow:first-child .vpct{color:var(--r2x-dark)!important;font-weight:700}
 
-/* Opportunity work: green only once Ralf has acted on the gap. */
 #lc-card .tag.act{border-color:var(--r2x-line)!important;background:var(--r2x-wash)!important;color:var(--r2x-dark)!important}
 #lc-card .lc-act{color:var(--r2x-dark)!important}
 #lc-card .lc-tally b{color:var(--r2x-dark)!important}
 
-/* Execution: active agent and completed work. */
 #execution .extab.is-active .exh,#execution .extab.is-active .exn{color:var(--r2x-dark)!important}
 #execution .exbar{background:linear-gradient(90deg,var(--r2x-dark),var(--r2x-bright))!important}
 #execution .fx.ok{background:var(--r2x)!important;color:#fff!important}
 #execution .sxp{background:var(--r2x-dark)!important}
 #execution .bdpub{background:linear-gradient(135deg,var(--r2x-dark),var(--r2x))!important}
 
-/* Ralf wins the comparison without turning the table green. */
 #compare .cmp .col-us{background:#f2faf6!important;border-left-color:rgba(5,150,105,.16)!important;border-right-color:rgba(5,150,105,.16)!important}
 #compare .cmp .ck{background:var(--r2x)!important}
 #compare .cmp thead .us{color:var(--r2x-dark)!important}
 
-/* Small rhythm accents in the process. */
 #how .step .num{color:var(--r2x-dark)!important;font-weight:700}
 #how .step:hover .num{color:var(--r2x)!important}
 
-/* End on the same visual language as the hero. */
 .final{background:radial-gradient(58% 90% at 50% 100%,rgba(5,150,105,.10),transparent 72%),#fbfdfc!important}
 .final .btn:not(.ghost){box-shadow:0 16px 34px -22px rgba(4,120,87,.7)}
 
-/* Keep the accents understated on mobile too. */
 @media(max-width:720px){
   #proof{background:var(--wash)!important}
   #compare .cmp.cards td.col-us{background:#f2faf6!important;border-radius:7px;padding-left:7px;padding-right:7px}
@@ -137,16 +129,17 @@ export default async function handler(req, res) {
 </style>`;
 
     html = html.replace(/<div class="r2x-dots" aria-label="Choose animation stage">[\s\S]*?<\/div>/, dots);
-    html = html.replace(/var stages=\[[\s\S]*?\];\n  var durations=/, `${stages}\n  var durations=`);
+    html = html.replace(/var stages=\[[\s\S]*?\];\s*var durations=/, `${stages}\n  var durations=`);
     html = html.replace(/var durations=\[[^\]]+\]/, `var durations=${durations}`);
     html = html.replace('STAGING · HERO V2 · PROMPT FIRST + CONTROLS', 'STAGING · HERO V2 · GREEN ACCENTS');
     html = html.replace('STAGING · HERO V2 · SINGLE SURFACE', 'STAGING · HERO V2 · GREEN ACCENTS');
-    html = html.replace('</head>', `${css}\n${singleSurfaceCss}\n${homepageGreenCss}\n</head>`);
+    html = html.replace('</head>', `${css}\n${singleSurfaceCss}\n${homepageGreenCss}\n<link rel="stylesheet" href="/assets/staging-emerald.css" data-ralf-staging-sitewide>\n</head>`);
+    html = html.replace('</body>', `<script defer src="/assets/staging-trial.js" data-ralf-staging-sitewide></script>\n</body>`);
 
     res.setHeader('content-type', 'text/html; charset=utf-8');
     res.setHeader('cache-control', 'no-store, max-age=0');
     res.setHeader('x-robots-tag', 'noindex, nofollow,noarchive');
-    res.setHeader('x-ralf-staging', 'hero-v2-green-accent-neutral-proof');
+    res.setHeader('x-ralf-staging', 'hero-v2-sitewide-green-trial');
     res.status(200).send(html);
   } catch (error) {
     console.error('staging-v2-fixed failed', error);
