@@ -21,6 +21,11 @@ export default async function handler(_req, res) {
       '<li><a href="/content">Content</a></li><li><a href="/done-for-you">Done For You</a></li><li><a href="/pricing">Pricing</a></li>'
     );
 
+    const ahrefsSnippet = '<script src="https://analytics.ahrefs.com/analytics.js" data-key="0MSfXWjdIGz4tyCIfpb0sQ" async></script>';
+    if (!html.includes('analytics.ahrefs.com/analytics.js')) {
+      html = html.replace('</head>', `  ${ahrefsSnippet}\n</head>`);
+    }
+
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
     res.status(200).send(html);
