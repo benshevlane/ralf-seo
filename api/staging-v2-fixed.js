@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     if (!host) throw new Error('Missing host header');
     const proto = (req.headers['x-forwarded-proto'] || 'https').toString().split(',')[0].trim();
     const upstream = await fetch(`${proto}://${host}/api/staging-v2-direct`, {
-      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/1.6' },
+      headers: { 'user-agent': 'Ralf-Staging-V2-Fixed/1.7' },
       cache: 'no-store',
     });
     if (!upstream.ok) throw new Error(`Direct staging hero returned ${upstream.status}`);
@@ -93,7 +93,7 @@ export default async function handler(req, res) {
 
     const homepageGreenCss = String.raw`<style data-ralf-staging-green-accents>
 /* Emerald is semantic: Ralf active, progress, verified wins and primary actions. */
-#proof{background:#f5fbf8!important}
+#proof{background:var(--wash)!important}
 #proof .sp{border-color:rgba(5,150,105,.18)!important;box-shadow:0 28px 70px -54px rgba(4,120,87,.38)}
 #proof .spbadge{border-color:rgba(5,150,105,.42)!important;color:var(--r2x-dark)!important;background:var(--r2x-wash)!important}
 #proof #spchart path[stroke="#121310"]{stroke:var(--r2x)!important}
@@ -131,7 +131,7 @@ export default async function handler(req, res) {
 
 /* Keep the accents understated on mobile too. */
 @media(max-width:720px){
-  #proof{background:#f7fcf9!important}
+  #proof{background:var(--wash)!important}
   #compare .cmp.cards td.col-us{background:#f2faf6!important;border-radius:7px;padding-left:7px;padding-right:7px}
 }
 </style>`;
@@ -146,7 +146,7 @@ export default async function handler(req, res) {
     res.setHeader('content-type', 'text/html; charset=utf-8');
     res.setHeader('cache-control', 'no-store, max-age=0');
     res.setHeader('x-robots-tag', 'noindex, nofollow,noarchive');
-    res.setHeader('x-ralf-staging', 'hero-v2-green-accent-pass');
+    res.setHeader('x-ralf-staging', 'hero-v2-green-accent-neutral-proof');
     res.status(200).send(html);
   } catch (error) {
     console.error('staging-v2-fixed failed', error);
