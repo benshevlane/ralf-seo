@@ -1,6 +1,10 @@
 export default async function handler(_req, res) {
   try {
-    const response = await fetch('https://raw.githubusercontent.com/benshevlane/ralf-seo/master/index.html', {
+    // Render the exact deployment commit. Preview deployments must not fetch
+    // master, otherwise they show stale production copy and cannot be tested.
+    const sourceRef = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
+    const sourceUrl = `https://raw.githubusercontent.com/benshevlane/ralf-seo/${sourceRef}/index.html`;
+    const response = await fetch(sourceUrl, {
       headers: { 'user-agent': 'Ralf homepage renderer' },
     });
 
@@ -33,3 +37,4 @@ export default async function handler(_req, res) {
     res.status(500).send('Unable to render homepage.');
   }
 }
+
