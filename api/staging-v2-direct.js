@@ -133,12 +133,10 @@ const SCRIPT = String.raw`<script data-ralf-staging-v2-direct>
 
 export default async function handler(req, res) {
   try {
-    const host = req.headers.host;
-    if (!host) throw new Error('Missing host header');
-    const proto = (req.headers['x-forwarded-proto'] || 'https').toString().split(',')[0].trim();
-    const localHome = `${proto}://${host}/index.html`;
-    const upstream = await fetch(localHome, { headers: { 'user-agent': 'Ralf-Staging-V2-Direct/1.0' }, cache: 'no-store' });
-    if (!upstream.ok) throw new Error(`Local staging homepage returned ${upstream.status}`);
+    const sourceRef = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
+    const sourceUrl = `https://raw.githubusercontent.com/benshevlane/ralf-seo/${sourceRef}/index.html`;
+    const upstream = await fetch(sourceUrl, { headers: { 'user-agent': 'Ralf-Staging-V2-Direct/1.0' }, cache: 'no-store' });
+    if (!upstream.ok) throw new Error(`Staging homepage source returned ${upstream.status}`);
     let html = await upstream.text();
 
     const heroPattern = /<header class="heroB"[\s\S]*?<\/header>/;
