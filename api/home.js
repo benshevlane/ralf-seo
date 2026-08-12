@@ -1,11 +1,13 @@
-export default async function handler(_req, res) {
+export default async function handler(req, res) {
   try {
-    // Render the exact deployment commit. Preview deployments must not fetch
-    // master, otherwise they show stale production copy and cannot be tested.
-    const sourceRef = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
-    const sourceUrl = `https://raw.githubusercontent.com/benshevlane/ralf-seo/${sourceRef}/index.html`;
+    const host = req.headers.host;
+    if (!host) throw new Error('Missing host header');
+
+    const proto = (req.headers['x-forwarded-proto'] || 'https').toString().split(',')[0].trim();
+    const sourceUrl = `${proto}://${host}/api/staging-v2-fixed`;
     const response = await fetch(sourceUrl, {
       headers: { 'user-agent': 'Ralf homepage renderer' },
+      cache: 'no-store',
     });
 
     if (!response.ok) {
@@ -31,10 +33,12 @@ export default async function handler(_req, res) {
     }
 
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=86400');
+    res.setHeader('Cache-Control', 'no-store, max-age=0');
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
+    res.setHeader('X-Ralf-Staging', 'content-types-emerald-combined');
     res.status(200).send(html);
-  } catch (_error) {
+  } catch (error) {
+    console.error('homepage renderer failed', error);
     res.status(500).send('Unable to render homepage.');
   }
 }
-
