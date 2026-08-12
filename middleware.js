@@ -1,18 +1,1 @@
-export const config = {
-  matcher: ['/', '/(pricing|done-for-you)'],
-};
-
-export default function middleware(request) {
-  const pathname = new URL(request.url).pathname;
-  const renderer = pathname === '/'
-    ? '/api/home'
-    : pathname.includes('/done-for-you')
-      ? '/api/done-for-you'
-      : '/api/pricing';
-  const target = new URL(renderer, request.url);
-  return fetch(target, {
-    headers: {
-      'x-ralf-marketing-renderer': '1',
-    },
-  });
-}
+export const config={matcher:['/','/(pricing|done-for-you)']};export default function middleware(request){const p=new URL(request.url).pathname,ua=request.headers.get('user-agent')||'';let renderer;if(p==='/'&&/Ralf-Staging-V2-Direct/i.test(ua))renderer='/api/source-home';else renderer=p==='/'?'/api/home':p.includes('/done-for-you')?'/api/done-for-you':'/api/pricing';return fetch(new URL(renderer,request.url),{headers:{'x-ralf-marketing-renderer':'1'}});}
