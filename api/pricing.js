@@ -49,7 +49,11 @@ const STAGING_SCRIPT = '<script defer src="/assets/staging-trial.js" data-ralf-s
 
 export default async function handler(_req, res) {
   try {
-    const response = await fetch('https://raw.githubusercontent.com/benshevlane/ralf-seo/master/pricing.html', {
+    // Render the exact deployment commit so the combined staging preview uses
+    // this branch's content copy instead of silently falling back to master.
+    const sourceRef = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
+    const sourceUrl = `https://raw.githubusercontent.com/benshevlane/ralf-seo/${sourceRef}/pricing.html`;
+    const response = await fetch(sourceUrl, {
       headers: { 'user-agent': 'Ralf pricing renderer' },
     });
 
