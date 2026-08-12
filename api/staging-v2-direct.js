@@ -142,7 +142,7 @@ export default async function handler(req, res) {
     const heroPattern = /<header class="heroB"[\s\S]*?<\/header>/;
     if (!heroPattern.test(html)) throw new Error('Could not find homepage hero');
     html = html.replace(heroPattern, HERO_HTML);
-    html = html.replace(/<meta\\s+name=["']robots["'][^>]*>/gi, '');
+    html = html.replace(/<meta\s+name=["']robots["'][^>]*>/gi, '');
     html = html.replace('</head>', `${STYLES}\n<meta name="robots" content="noindex,nofollow,noarchive">\n</head>`);
     html = html.replace('</body>', `${SCRIPT}\n</body>`);
 
