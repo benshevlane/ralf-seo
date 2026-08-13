@@ -11,9 +11,19 @@
 
 ## Key pages
 - [Home](https://ralfhq.com/): product overview and pricing
+- [Ralf Content](https://ralfhq.com/content): validated keyword strategy, intent clusters, content mix, drafting and publishing
 - [Ralf vs alternatives](https://ralfhq.com/compare): pricing and engine-coverage comparison vs Profound, Peec AI, Otterly and AthenaHQ
 - [Terms of Service](https://ralfhq.com/terms.html)
 - [Privacy Policy](https://ralfhq.com/privacy.html)
+
+## Ralf Content
+- Ralf creates the default keyword strategy automatically. It validates opportunities, groups canonical keywords into intent clusters and prioritises them using business relevance, search intent, demand, difficulty, competitor gaps, existing momentum and topic coverage.
+- Users can inspect estimated monthly searches, keyword difficulty, coverage and mapped articles, then add, pause, exclude, prioritise or move a keyword and rename a cluster. Active canonical targets feed new content plans.
+- The automatic content mix supports guides, how-tos, listicles, comparisons, competitor alternatives, use-case pages, industry pages, integration pages, and pricing and value pages.
+- Evidence-led formats — FAQs, glossaries, case studies, original research and data reports, tools, local and programmatic pages, and link-worthy assets — use dedicated workflows when the required evidence or data exists.
+- There is no content format that guarantees an AI citation. Ralf structures pages around precise questions, direct answers, named criteria, comparison tables where useful, internal topic connections and checkable evidence.
+- Estimated keyword demand and difficulty are kept separate from actual Search Console impressions, clicks and position, and from observed AI mentions and citations.
+- Users choose which automatic content types are included and can adjust their balance; Ralf uses a recommended mix when they do not customise it.
 
 ## How Ralf compares to other AI-visibility tools
 - Ralf tracks 6 AI engines weekly from $49/mo. At the 100-prompt tier, Growth is $149 (6 engines) vs Peec Pro $199 (3 engines), Otterly Standard $189 (6 engines), and Profound ~$399 (3 engines).
