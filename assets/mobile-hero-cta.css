@@ -1,0 +1,6 @@
+@media (max-width:900px){
+  .r2x-shell > .btn.lg,
+  .r2x-beta-cta{
+    margin-top:24px!important;
+  }
+}
