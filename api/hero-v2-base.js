@@ -27,9 +27,6 @@ function renderTemplate(body) {
 
 export default async function handler(req, res) {
   try {
-    // Render from the exact deployed Git commit instead of calling another
-    // function in this Vercel deployment. The old function-to-function chain
-    // was intermittently rejected by Vercel as a 508 loop.
     const ref = process.env.VERCEL_GIT_COMMIT_SHA || 'master';
     const [baseHtml, directSource] = await Promise.all([
       getRaw(ref, 'index.html'),
@@ -44,7 +41,7 @@ export default async function handler(req, res) {
     const hero = /<header class="heroB"[\s\S]*?<\/header>/;
     if (!hero.test(html)) throw new Error('Could not find homepage hero');
     html = html.replace(hero, HERO_HTML);
-    html = html.replace('</head>', `${BASE_STYLES}\n${css}\n<meta name="robots" content="noindex,nofollow,noarchive"></head>`);
+    html = html.replace('</head>', `${BASE_STYLES}\n${css}\n</head>`);
     html = html.replace('</body>', `${SCRIPT}\n</body>`);
 
     const singleSurfaceCss = String.raw`<style data-ralf-v2-single-surface>
@@ -107,8 +104,7 @@ export default async function handler(req, res) {
     html = html.replace('</body>', `${rotatorScript}\n<script defer src="/assets/staging-trial.js" data-ralf-staging-sitewide></script>\n</body>`);
 
     res.setHeader('content-type', 'text/html; charset=utf-8');
-    res.setHeader('cache-control', 'no-store, max-age=0');
-    res.setHeader('x-robots-tag', 'noindex, nofollow,noarchive');
+    res.setHeader('cache-control', 'public, s-maxage=300, stale-while-revalidate=86400');
     res.setHeader('x-ralf-staging', 'hero-v2-original-headline-proportions');
     res.status(200).send(html);
   } catch (error) {
