@@ -4,6 +4,10 @@
   "cleanUrls": true,
   "rewrites": [
     {
+      "source": "/v2",
+      "destination": "/api/staging-v2-beta"
+    },
+    {
       "source": "/pricing",
       "destination": "/api/pricing"
     }
@@ -23,17 +27,17 @@
     },
     {
       "source": "/free-aeo-report",
-      "destination": "/beta",
+      "destination": "https://app.ralfhq.com/try",
       "permanent": false
     },
     {
       "source": "/free-aeo-report.html",
-      "destination": "/beta",
+      "destination": "https://app.ralfhq.com/try",
       "permanent": false
     },
     {
       "source": "/apply",
-      "destination": "/beta?utm_source=reddit&utm_medium=cpc&utm_campaign=beta_launch&utm_content=text",
+      "destination": "https://app.ralfhq.com/try?utm_source=reddit&utm_medium=cpc&utm_campaign=beta_launch&utm_content=text",
       "permanent": false
     }
   ]
