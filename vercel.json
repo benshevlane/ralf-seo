@@ -2,5 +2,6 @@
   "buildCommand":"node scripts/inject-ahrefs-analytics.mjs && node scripts/production-sitewide.mjs",
   "outputDirectory":"public",
   "cleanUrls":true,
+  "rewrites":[{"source":"/","destination":"/api/home"}],
   "redirects":[{"source":"/beta","has":[{"type":"query","key":"plan","value":"Done.*For.*You.*"}],"destination":"https://buy.stripe.com/9B67sEaGvgyecpncLWfbq0s","permanent":false},{"source":"/free-aeo-report","destination":"/beta","permanent":false},{"source":"/free-aeo-report.html","destination":"/beta","permanent":false},{"source":"/apply","destination":"/beta?utm_source=reddit&utm_medium=cpc&utm_campaign=beta_launch&utm_content=text","permanent":false}]
 }
