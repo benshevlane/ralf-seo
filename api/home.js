@@ -14,8 +14,14 @@ export default async function handler(req,res){
     if(!r.ok)throw new Error(`hero ${r.status}`);
     let h=await r.text();
     h=h.replace(/<[^>]*>STAGING · HERO V2 · GREEN ACCENTS<\/[^>]+>/g,'').replace(/STAGING · HERO V2 · GREEN ACCENTS/g,'');
-    h=h.replace(/<form class="r2x-start" id="r2xStart">[\s\S]*?<\/form>\s*<div class="r2x-note">[\s\S]*?<\/div>/,'<a class="btn lg r2x-beta-cta" href="/beta">Apply for the private beta <span class="arr">→</span></a>');
-    h=h.replace('</head>','<style data-ralf-beta-cta>.r2x-beta-cta{grid-column:1;grid-row:2;justify-self:start;margin-top:4px;background:linear-gradient(135deg,#047857,#059669)!important;border-color:#047857!important;color:#fff!important}@media(max-width:900px){.r2x-beta-cta{grid-row:3;justify-self:center;margin-top:24px}}</style></head>');
+    // GA (2026-08-19): the hero keeps its website-entry box and posts straight into the
+    // card-backed 14-day Starter trial. Works without JS (GET form) and with JS
+    // (assets/staging-trial.js carries UTM params across). Keep in sync with
+    // scripts/apply-approved-homepage.mjs.
+    h=h.replace('<form class="r2x-start" id="r2xStart">','<form class="r2x-start" id="r2xStart" action="https://app.ralfhq.com/try" method="get">');
+    h=h.replace('<input id="r2xUrl" type="url"','<input id="r2xUrl" name="url" type="url"');
+    h=h.replace('<button type="submit"><span>Get Ralf working </span>→</button>','<button type="submit"><span>Start your free 14-day trial </span>→</button>');
+    h=h.replace('<div class="r2x-note">Enter your website · Ralf finds the first opportunities for you</div>','<div class="r2x-note">Enter your website · $0 today · then $137/month · cancel any time in the 14 days</div>');
     res.setHeader('content-type','text/html; charset=utf-8');
     res.setHeader('cache-control','public, s-maxage=300, stale-while-revalidate=86400');
     res.status(200).send(h);
