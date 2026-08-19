@@ -22,7 +22,7 @@ Three products on a Search baseline:
 - **Outreach** $49 / $119 / $249 / $499
 - **Suite** (all three, matched tier) = the **full combined price, no discount**: **$137 / $357 / $747 / from $1,697**. (The old 10% Suite discount was removed — do not reintroduce "10% off" or "vs $X apart" savings copy.)
 
-CTAs: "Start free trial" → `https://app.ralfhq.com/login?mode=signup`; "Subscribe now / skip the trial" → `https://app.ralfhq.com/subscribe`.
+CTAs (GA, 2026-08-19): primary button is **"Start your free 14-day trial"** → `https://app.ralfhq.com/try` (card-backed Starter Suite trial: $0 today, then $137/mo). Note line under CTAs: **"$0 today · then $137/month · cancel any time in the 14 days"**. Never say "no card required" — a card IS required. The homepage hero website-entry box posts to `/try?url=`. The private beta (`/beta`) is retired from the public site but the page stays reachable by direct link. "Subscribe now / skip the trial" → `https://app.ralfhq.com/subscribe`.
 
 ## Brand
 

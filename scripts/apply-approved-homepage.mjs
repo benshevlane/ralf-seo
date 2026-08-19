@@ -47,10 +47,13 @@ html = html.replace('<h1>Get your business found by <em>AI</em></h1>', '<h1>Get 
 html = html.replace('</head>', `${singleSurfaceCss}\n${homepageGreenCss}\n<link rel="stylesheet" href="/assets/staging-emerald.css" data-ralf-emerald>\n${neutralHeroCss}\n</head>`);
 html = html.replace('</body>', `${rotatorScript}\n<script defer src="/assets/staging-trial.js" data-ralf-staging-sitewide></script>\n</body>`);
 
-// Production is in private beta: replace the URL-entry trial control with the
-// beta application CTA, while keeping the approved animation and layout.
-html = html.replace(/<form class="r2x-start" id="r2xStart">[\s\S]*?<\/form>\s*<div class="r2x-note">[\s\S]*?<\/div>/, '<a class="btn lg r2x-beta-cta" href="/beta">Apply for the private beta <span class="arr">→</span></a>');
-html = html.replace('</head>', '<style data-ralf-beta-cta>.r2x-beta-cta{grid-column:1;grid-row:2;justify-self:start;margin-top:4px;background:linear-gradient(135deg,#047857,#059669)!important;border-color:#047857!important;color:#fff!important}@media(max-width:900px){.r2x-beta-cta{grid-row:3;justify-self:center;margin-top:10px}}</style>\n</head>');
+// GA (2026-08-19): the hero keeps its website-entry box and posts straight
+// into the card-backed 14-day Starter trial. Works without JS (GET form) and
+// with JS (assets/staging-trial.js carries UTM params across).
+html = html.replace('<form class="r2x-start" id="r2xStart">', '<form class="r2x-start" id="r2xStart" action="https://app.ralfhq.com/try" method="get">');
+html = html.replace('<input id="r2xUrl" type="url"', '<input id="r2xUrl" name="url" type="url"');
+html = html.replace('<button type="submit"><span>Get Ralf working </span>→</button>', '<button type="submit"><span>Start your free 14-day trial </span>→</button>');
+html = html.replace('<div class="r2x-note">Enter your website · Ralf finds the first opportunities for you</div>', '<div class="r2x-note">Enter your website · $0 today · then $137/month · cancel any time in the 14 days</div>');
 
 // Staging renderers deliberately add noindex. The public static homepage must
 // remain indexable, so remove any staging-only robots directives/labels.
