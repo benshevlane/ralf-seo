@@ -24,6 +24,7 @@ assert.equal(normalizeSite(''), '');
 assert.match(heroSource, /id="r2xUrl" type="text" inputmode="url"/);
 assert.match(heroSource, /placeholder="yourwebsite\.com"/);
 assert.doesNotMatch(heroSource, /id="r2xUrl" type="url"/);
+assert.match(heroSource, /\.r2x-start button\{cursor:pointer;/);
 assert.match(trialScript, /Enter a valid website, such as yourwebsite\.com\./);
 
 for (const relativePath of [
