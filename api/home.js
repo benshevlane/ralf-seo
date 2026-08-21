@@ -19,7 +19,7 @@ export default async function handler(req,res){
     // (assets/staging-trial.js carries UTM params across). Keep in sync with
     // scripts/apply-approved-homepage.mjs.
     h=h.replace('<form class="r2x-start" id="r2xStart">','<form class="r2x-start" id="r2xStart" action="https://app.ralfhq.com/try" method="get">');
-    h=h.replace('<input id="r2xUrl" type="url"','<input id="r2xUrl" name="url" type="url"');
+    h=h.replace('<input id="r2xUrl" type="text"','<input id="r2xUrl" name="url" type="text"');
     h=h.replace('<button type="submit"><span>Get Ralf working </span>→</button>','<button type="submit"><span>Start your free 14-day trial </span>→</button>');
     h=h.replace('<div class="r2x-note">Enter your website · Ralf finds the first opportunities for you</div>','<div class="r2x-note">Enter your website · $0 today · then $137/month · cancel any time in the 14 days</div>');
     res.setHeader('content-type','text/html; charset=utf-8');
