@@ -21,3 +21,5 @@ jobs:
             exit 1
           fi
           echo "OK — no Pricing→compare.html links found."
+      - name: "Hero trial CTA accepts bare domains"
+        run: node scripts/test-trial-cta.mjs
