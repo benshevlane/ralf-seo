@@ -25,6 +25,11 @@ assert.match(heroSource, /id="r2xUrl" type="text" inputmode="url"/);
 assert.match(heroSource, /placeholder="yourwebsite\.com"/);
 assert.doesNotMatch(heroSource, /id="r2xUrl" type="url"/);
 assert.match(heroSource, /\.r2x-start button\{cursor:pointer;/);
+assert.match(heroSource, /--r2x-trial-cta-width:226px/);
+assert.match(heroSource, /\.navactions>\.btn\{box-sizing:border-box;width:var\(--r2x-trial-cta-width\);justify-content:center\}/);
+assert.match(heroSource, /\.r2x-start input\{flex:1;min-width:0;/);
+assert.match(heroSource, /\.r2x-start button\{cursor:pointer;box-sizing:border-box;flex:0 0 var\(--r2x-trial-cta-width\);width:var\(--r2x-trial-cta-width\);/);
+assert.match(heroSource, /\.r2x-start input,\.r2x-start button\{width:100%;height:50px\}/);
 assert.match(trialScript, /Enter a valid website, such as yourwebsite\.com\./);
 
 for (const relativePath of [
